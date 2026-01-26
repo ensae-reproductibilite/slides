@@ -109,7 +109,7 @@
     "href": "index.html#bonnes-pratiques-1",
     "title": "Mise en production des projets de data science",
     "section": "Bonnes pratiques",
-    "text": "Bonnes pratiques\nFormat des commits\n\n\n\n\n\n\n\nFréquence\n\nAussi souvent que possible\nLe lot de modifications doit “faire sens”\n\nMessages\n\nCourts et informatifs (comme un titre de mail)\nDécrire le pourquoi plutôt que le comment dans le texte"
+    "text": "Bonnes pratiques\nFormat des commits\n\n\n\n\nFréquence\n\nAussi souvent que possible\nLe lot de modifications doit “faire sens”\n\nMessages\n\nCourts et informatifs (comme un titre de mail)\nDécrire le pourquoi plutôt que le comment dans le texte"
   },
   {
     "objectID": "index.html#outils-pour-le-travail-collaboratif",
@@ -123,7 +123,7 @@
     "href": "index.html#le-modèle-des-branches",
     "title": "Mise en production des projets de data science",
     "section": "Le modèle des branches",
-    "text": "Le modèle des branches\n\n\n\n\n\n\n \n\n\n\n\n\n\n\nSource : lutece.paris.fr"
+    "text": "Le modèle des branches\n\n\n\n \n\n\n\n\n\n\n\nSource : lutece.paris.fr"
   },
   {
     "objectID": "index.html#les-outils-de-contribution",
@@ -319,7 +319,7 @@
     "href": "index.html#formats-de-données",
     "title": "Mise en production des projets de data science",
     "section": "2️⃣ Formats de données",
-    "text": "2️⃣ Formats de données\n\n\nLe choix d’un format de données répond à un arbitrage entre plusieurs critères :\n\nPublic cible\nFinalité (traitement, analyse, diffusion)\nVolumétrie\nInteropérabilité"
+    "text": "2️⃣ Formats de données\n\nLe choix d’un format de données répond à un arbitrage entre plusieurs critères :\n\nPublic cible\nFinalité (traitement, analyse, diffusion)\nVolumétrie\nInteropérabilité"
   },
   {
     "objectID": "index.html#limites-des-formats-usuels",
@@ -571,7 +571,7 @@
     "href": "index.html#yaml-vs.-json",
     "title": "Mise en production des projets de data science",
     "section": "YAML vs. JSON",
-    "text": "YAML vs. JSON\n\nYAML est un superset de JSON\n\nTout fichier JSON valide est un fichier YAML valide\n\nStructure basée sur l’indentation\n\nFavorise la lisibilité\nPlus prône aux erreurs\n\n\n\n\n\n\n\n\n\nuser:\n  name: Alice\n  age: 30\n\n\n{\n  \"user\": {\n    \"name\": \"Alice\",\n    \"age\": 30\n  }\n}\n\n\n\n\nConvertisseurs : yaml-to-json, json-to-yaml"
+    "text": "YAML vs. JSON\n\nYAML est un superset de JSON\n\nTout fichier JSON valide est un fichier YAML valide\n\nStructure basée sur l’indentation\n\nFavorise la lisibilité\nPlus prône aux erreurs\n\n\n\n\n\n\nuser:\n  name: Alice\n  age: 30\n\n\n{\n  \"user\": {\n    \"name\": \"Alice\",\n    \"age\": 30\n  }\n}\n\n\n\n\nConvertisseurs : yaml-to-json, json-to-yaml"
   },
   {
     "objectID": "index.html#caractéristiques-dun-fichier-yaml",
