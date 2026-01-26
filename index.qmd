@@ -2,7 +2,7 @@
 title: Mise en production des projets de data science
 subtitle: |
     [Cours de 3e année à l'ENSAE]{.blue2}<br>
-    2024/2025
+    2025/2026
 author:
     - Romain Avouac
     - Lino Galiana
