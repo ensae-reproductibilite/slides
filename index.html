@@ -871,9 +871,6 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <figcaption>Source : <a href="https://motherduck.com/blog/big-data-is-dead/">motherduck.com</a></figcaption>
 </figure>
 </div>
-<ul>
-<li class="fragment">Conclusion : tout le monde a besoin d’une <span class="orange"><strong>infrastructure <em>big data</em></strong></span> ? 🤔</li>
-</ul>
 </section>
 <section id="enjeux-2" class="slide level2">
 <h2>Enjeux</h2>
@@ -923,14 +920,14 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="limite-des-data-warehouses" class="slide level2">
-<h2><span class="emoji" data-emoji="one">1️⃣</span> Limite des <em>data warehouses</em></h2>
+<section id="limites-des-data-warehouses" class="slide level2">
+<h2><span class="emoji" data-emoji="one">1️⃣</span> Limites des <em>data warehouses</em></h2>
 <ul>
 <li class="fragment">Peu adaptées aux <span class="orange"><strong>données <em>big data</em></strong></span>
 <ul>
 <li class="fragment">Limitées aux <span class="blue2"><strong>données structurées</strong></span></li>
 <li class="fragment">Nécessiter de fixer un <span class="blue2"><strong>schéma a priori</strong></span></li>
-<li class="fragment">Passage à l’échelle <span class="blue2"><strong>coûteux</strong></span></li>
+<li class="fragment">Passage à l’échelle coûteux : <span class="blue2"><strong>scalabilité verticale</strong></span></li>
 </ul></li>
 </ul>
 <div class="fragment">
@@ -942,14 +939,14 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="infrastructures-big-data" class="slide level2 scrollable">
-<h2><span class="emoji" data-emoji="two">2️⃣</span> Infrastructures <em>big data</em></h2>
+<section id="larrivée-du-data-lake-fin-2000s" class="slide level2 scrollable">
+<h2><span class="emoji" data-emoji="two">2️⃣</span> L’arrivée du <em>data lake</em> (fin 2000’s)</h2>
 <ul>
 <li class="fragment">Un stockage <span class="orange"><strong>peu coûteux</strong></span> fait pour des <span class="orange"><strong>données</strong></span>
 <ul>
 <li class="fragment"><span class="blue2"><strong>Volumineuses</strong></span></li>
 <li class="fragment"><span class="blue2"><strong>Brutes</strong></span></li>
-<li class="fragment">Issues de <span class="blue2"><strong>sources variées</strong></span></li>
+<li class="fragment">Sans <span class="blue2"><strong>structure définie a priori</strong></span></li>
 </ul></li>
 </ul>
 <div class="fragment">
@@ -961,80 +958,88 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="infrastructures-big-data-1" class="slide level2">
+<section id="infrastructures-big-data" class="slide level2 scrollable">
 <h2><span class="emoji" data-emoji="two">2️⃣</span> Infrastructures <em>big data</em></h2>
 <ul>
-<li class="fragment">Calcul <span class="blue2"><strong>distribué</strong></span> sur un <span class="blue2"><strong>cluster</strong></span> de machines
+<li class="fragment">Fin 2000’s : une architecture de référence (<a href="https://fr.wikipedia.org/wiki/Hadoop">Hadoop</a>)
 <ul>
-<li class="fragment"><a href="https://spark.apache.org/">Spark</a></li>
+<li class="fragment">Une <span class="blue2"><strong><em>data lake</em></strong></span> avec du <span class="blue2"><strong>stockage distribué</strong></span> (HDFS)</li>
+<li class="fragment">Des <span class="blue2"><strong>frameworks de calcul distribué</strong></span> (<a href="https://fr.wikipedia.org/wiki/MapReduce">MapReduce</a>, <a href="https://fr.wikipedia.org/wiki/Apache_Spark">Spark</a>)</li>
 </ul></li>
-<li class="fragment">Base : <span class="blue2"><strong>paradigme MapReduce</strong></span></li>
 </ul>
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/mapreduce.png" height="350"></p>
-<figcaption>Source : <a href="https://www3.nd.edu/~pbui/teaching/cse.30331.fa16/challenge11.html">nd.edu</a></figcaption>
+<p><img data-src="img/mapreduce-hdfs.png" height="350"></p>
+<figcaption>Source : <a href="https://www.glennklockwood.com/data-intensive/hadoop/overview.html">glennklockwood.com</a></figcaption>
 </figure>
 </div>
+</div>
+</section>
+<section id="big-data-is-dead" class="slide level2">
+<h2><span class="emoji" data-emoji="three">3️⃣</span> “Big Data is dead” ?</h2>
+<ul>
+<li class="fragment">2010’s : déclin de popularité des infrastructures Hadoop
+<ul>
+<li class="fragment">Limite : <span class="blue2"><strong>co-localisation</strong></span> du stockage et du calcul</li>
+</ul></li>
+<li class="fragment">Jordan Tigani : <a href="https://motherduck.com/blog/big-data-is-dead/">Big Data is dead</a>
+<ul>
+<li class="fragment">Besoins de <span class="blue2"><strong><em>storage</em></strong></span> &gt;&gt; besoins de <span class="blue2"><strong><em>compute</em></strong></span></li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/tigani-compute-storage.png" class="fragment quarto-figure quarto-figure-center" height="330"></p>
+</figure>
 </div>
 </section>
 <section id="infrastructures-cloud" class="slide level2">
 <h2><span class="emoji" data-emoji="three">3️⃣</span> Infrastructures <em>cloud</em></h2>
 <ul>
-<li class="fragment"><span class="orange"><strong>Standard</strong></span> des <em>data lakes</em> dans le <span class="orange"><strong><em>cloud</em></strong></span>
+<li class="fragment">Fin 2010’s : <span class="orange"><strong>les technologies <em>cloud</em></strong></span> permettent l’émergence d’architectures <span class="orange"><strong>faiblement couplées</strong></span>
 <ul>
-<li class="fragment">Implémentation dominante : <a href="https://aws.amazon.com/fr/s3/">Amazon S3</a></li>
-<li class="fragment">Implémentation open-source : <a href="https://min.io/">MinIO</a></li>
+<li class="fragment"><span class="blue2"><strong><em>Storage</em></strong></span> : <span class="blue2"><strong><em>data lake</em></strong></span> basé sur du <span class="blue2"><strong>stockage objet</strong></span></li>
+<li class="fragment"><span class="blue2"><strong><em>Compute</em></strong></span> : des environnements de traitement élastiques aux besoins (<span class="blue2"><strong>conteneurs</strong></span>)</li>
 </ul></li>
 </ul>
-<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/minio.svg" height="300"></p>
-<figcaption>Source : <a href="https://min.io/">min.io</a></figcaption>
-</figure>
-</div>
-</div>
-</section>
-<section id="formats-de-données" class="slide level2">
-<h2><span class="emoji" data-emoji="two">2️⃣</span> Formats de données</h2>
-<ul>
-<li class="fragment">Le choix d’un format de données répond à un <span class="orange"><strong>arbitrage</strong></span> entre plusieurs critères :
-<ul>
-<li class="fragment"><span class="blue2"><strong>Public cible</strong></span></li>
-<li class="fragment"><span class="blue2"><strong>Finalité</strong></span> (traitement, analyse, diffusion)</li>
-<li class="fragment"><span class="blue2"><strong>Volumétrie</strong></span></li>
-<li class="fragment"><span class="blue2"><strong>Interopérabilité</strong></span></li>
-</ul></li>
-</ul>
-</section>
-<section id="limites-des-formats-usuels" class="slide level2">
-<h2><span class="emoji" data-emoji="two">2️⃣</span> Limites des formats usuels</h2>
-<ul>
-<li class="fragment">Les <span class="orange"><strong>formats usuels</strong></span> (<code>CSV</code>, <code>JSON</code>, <code>XML</code>) sont utiles pour :
-<ul>
-<li class="fragment">Le traitement de <span class="blue2"><strong>faibles volumes</strong></span> de données</li>
-<li class="fragment">La <span class="blue2"><strong>diffusion</strong></span> de données</li>
-</ul></li>
-<li class="fragment"><span class="orange"><strong>Limités</strong></span> pour le traitement de <span class="orange"><strong>données volumineuses</strong></span>
-<ul>
-<li class="fragment"><span class="blue2"><strong>Non-compressés</strong></span> : espace disque élevé</li>
-<li class="fragment"><span class="blue2"><strong>Orientés ligne</strong></span> : peu adaptés aux traitements analytiques</li>
-</ul></li>
-</ul>
-</section>
-<section id="orientation-ligne-vs.-orientation-colonne" class="slide level2 scrollable">
-<h2><span class="emoji" data-emoji="two">2️⃣</span> Orientation ligne vs.&nbsp;orientation colonne</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/row-column.png" height="350"></p>
-<figcaption>Source : <a href="https://towardsdatascience.com/demystifying-the-parquet-file-format-13adb0206705">towardsdatascience.com</a></figcaption>
+<p><img data-src="img/environment_cloud.png" class="fragment quarto-figure quarto-figure-center" height="300"></p>
 </figure>
 </div>
 </section>
-<section id="parquet-propriétés" class="slide level2">
-<h2><span class="emoji" data-emoji="two">2️⃣</span> <code>Parquet</code> : propriétés</h2>
+<section id="la-frontière-du-big-data-se-décale" class="slide level2">
+<h2><span class="emoji" data-emoji="three">3️⃣</span> La frontière du <em>big data</em> se décale</h2>
+<ul>
+<li class="fragment"><p><span class="orange"><strong>Innovations matérielles</strong></span> (serveurs, CPUs, RAM)</p></li>
+<li class="fragment"><p><span class="orange"><strong>Formats de données</strong></span> plus efficients (<span class="orange"><strong>Parquet</strong></span>)</p></li>
+<li class="fragment"><p>Des outils de <span class="orange"><strong>traitement <em>larger-than-memory</em></strong></span></p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/tigani-big-data-frontier.png" class="fragment quarto-figure quarto-figure-center" height="330"></p>
+</figure>
+</div>
+</section>
+<section id="le-format-csv" class="slide level2">
+<h2><span class="emoji" data-emoji="three">3️⃣</span> Le format <code>CSV</code></h2>
+<ul>
+<li class="fragment">Le format usuel pour les <span class="orange"><strong>données tabulaires</strong></span> est le <code>CSV</code>
+<ul>
+<li class="fragment">Facilement <span class="blue2"><strong>lisible</strong></span></li>
+<li class="fragment"><span class="blue2"><strong>Non-compressé</strong></span> : espace disque élevé</li>
+<li class="fragment"><span class="blue2"><strong>Orienté ligne</strong></span> : mal adapté aux traitements analytiques</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/columnar-storage.png" class="fragment quarto-figure quarto-figure-center" height="300"></p>
+</figure>
+</div>
+</section>
+<section id="le-format-parquet-propriétés" class="slide level2">
+<h2><span class="emoji" data-emoji="three">3️⃣</span> Le format <code>Parquet</code> : propriétés</h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Orienté colonne</strong></span>
 <ul>
@@ -1053,90 +1058,67 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul>
 </section>
 <section id="parquet-partitionnement" class="slide level2">
-<h2><span class="emoji" data-emoji="two">2️⃣</span> <code>Parquet</code> : partitionnement</h2>
+<h2><span class="emoji" data-emoji="three">3️⃣</span> <code>Parquet</code> : partitionnement</h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Division en blocs</strong></span> des données selon un <span class="orange"><strong>critère</strong></span>
 <ul>
-<li class="fragment"><span class="blue2"><strong>Optimise la lecture</strong></span> pour certaines <em>queries</em></li>
+<li class="fragment"><span class="blue2"><strong>Optimise la lecture</strong></span> pour certaines requêtes</li>
 </ul></li>
 </ul>
-<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/partitions.png"></p>
-<figcaption>Source : <a href="https://www.datio.com/iaas/understanding-the-data-partitioning-technique/">datio.com</a></figcaption>
+<p><img data-src="img/parquet-partition.png" class="fragment quarto-figure quarto-figure-center" height="400"></p>
 </figure>
 </div>
-</div>
 </section>
-<section id="traitement-in-memory" class="slide level2">
-<h2><span class="emoji" data-emoji="three">3️⃣</span> Traitement <em>in-memory</em></h2>
+<section id="traitement-en-mémoire" class="slide level2">
+<h2><span class="emoji" data-emoji="three">3️⃣</span> Traitement en mémoire</h2>
 <ul>
 <li class="fragment"><code>Parquet</code> ne résout pas tout
 <ul>
 <li class="fragment">L’espace disque est optimisé</li>
 <li class="fragment">Les données décompressées doivent <span class="blue2"><strong>passer en RAM</strong></span></li>
 </ul></li>
-<li class="fragment">Le <em>framework</em> adapté dépend de la <span class="orange"><strong>volumétrie</strong></span></li>
 </ul>
 </section>
-<section id="données-volumineuses" class="slide level2">
-<h2><span class="emoji" data-emoji="three">3️⃣</span> Données volumineuses</h2>
+<section id="traitement-larger-than-memory" class="slide level2">
+<h2><span class="emoji" data-emoji="three">3️⃣</span> Traitement <em>larger-than-memory</em></h2>
 <ul>
 <li class="fragment">Calcul <span class="blue2"><strong><em>larger than memory</em> optimisé</strong></span>
 <ul>
 <li class="fragment"><a href="https://arrow.apache.org/overview/">Arrow</a> : orientation fichier (<code>Parquet</code>)</li>
 <li class="fragment"><a href="https://duckdb.org/">DuckDB</a> : orientation base de données (<code>SQL</code>)</li>
 </ul></li>
-<li class="fragment">Autre avantage : <span class="blue2"><strong>interopérabilité</strong></span></li>
+<li class="fragment">Principes communs :
+<ul>
+<li class="fragment"><span class="blue2"><strong>Orientation colonne</strong></span> : synergie avec <code>Parquet</code></li>
+<li class="fragment"><span class="blue2"><strong>Lazy evaluation</strong></span> : très efficient en données</li>
+</ul></li>
 </ul>
-<div class="fragment">
+</section>
+<section id="duckdb-un-connecteur-fortement-interopérable" class="slide level2">
+<h2><span class="emoji" data-emoji="three">3️⃣</span> <code>DuckDB</code> : un connecteur fortement interopérable</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/arrow-interoperability.png"></p>
-<figcaption>Source : <a href="https://arrow.apache.org/overview/">Arrow</a></figcaption>
+<p><img data-src="img/duckdb-intero.png" class="fragment quarto-figure quarto-figure-center" height="500"></p>
 </figure>
 </div>
-</div>
 </section>
-<section id="en-résumé-pour-traiter-la-volumétrie" class="slide level2">
-<h2>En résumé : pour traiter la volumétrie</h2>
+<section id="résumé-pour-traiter-la-volumétrie" class="slide level2">
+<h2>Résumé : pour traiter la volumétrie</h2>
 <ul>
+<li class="fragment"><p>Choisir une <span class="orange"><strong>infrastructure</strong></span> adaptée aux besoins</p>
+<ul>
+<li class="fragment">Les <span class="blue2"><strong>technologies <em>cloud</em></strong></span> offrent un très bon compromis coût / flexibilité</li>
+</ul></li>
 <li class="fragment"><p>Utiliser un <span class="orange"><strong>format</strong></span> de données adapté (<code>Parquet</code>)</p></li>
-<li class="fragment"><p>Utiliser des <span class="orange"><strong>outils</strong></span> informatiques adaptés</p>
+<li class="fragment"><p>Utiliser des <span class="orange"><strong>outils</strong></span> de traitement adaptés</p>
 <ul>
-<li class="fragment">Suffisant la plupart du temps : <span class="blue2"><strong>calcul <em>larger than memory</em> optimisé</strong></span> (<code>Arrow</code> / <code>DuckDB</code>)</li>
+<li class="fragment">Suffisant la plupart du temps : <span class="blue2"><strong>calcul <em>larger than memory</em> optimisé</strong></span> (<code>DuckDB</code>)</li>
 <li class="fragment">Si volumétrie massive : <span class="blue2"><strong>calcul distribué</strong></span> (<code>Spark</code>)</li>
 </ul></li>
 </ul>
-</section>
-<section id="big-data-is-dead" class="slide level2">
-<h2>“Big Data is dead” ?</h2>
-<ul>
-<li class="fragment">Jordan Tigani : <a href="https://motherduck.com/blog/big-data-is-dead/">Big Data is dead</a>
-<ul>
-<li class="fragment">“The big data frontier keeps receding”</li>
-<li class="fragment">“Most people don’t have that much data”</li>
-<li class="fragment">“Most data is rarely queried”</li>
-</ul></li>
-<li class="fragment">Plaidoyer pour un <span class="orange"><strong>découplage</strong></span>…
-<ul>
-<li class="fragment">… qui <span class="blue2"><strong>facilite la mise en production</strong></span> !</li>
-</ul></li>
-</ul>
-</section>
-<section id="les-vertus-du-découplage" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Les vertus du découplage</h2>
-
-<img data-src="img/environment_messy.png" class="r-stretch"></section>
-<section id="les-vertus-du-découplage-1" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Les vertus du découplage</h2>
-
-<img data-src="img/environment_clean.png" class="r-stretch"></section>
-<section id="les-vertus-du-découplage-2" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Les vertus du découplage</h2>
-
-<img data-src="img/environment_cloud.png" class="r-stretch"></section></section>
+</section></section>
 <section>
 <section id="portabilité" class="title-slide slide level1 center">
 <h1><span class="emoji" data-emoji="five">5️⃣</span> Portabilité</h1>
