@@ -10,3 +10,5 @@ index_files/
 
 site_libs/
 /.quarto/
+
+**/*.quarto_ipynb
