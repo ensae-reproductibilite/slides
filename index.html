@@ -99,7 +99,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-ea8535d309a38c52e88d69daf30b07d0.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-a98430368b5d08d5d89ffd4526a3edd6.css">
   <link rel="stylesheet" href="site_libs/quarto-contrib/quarto-project/InseeFrLab/onyxia/logo.css">
   <link rel="stylesheet" href="custom.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -201,7 +201,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="site_libs/quarto-contrib/quarto-project/InseeFrLab/onyxia/background.svg" data-background-size="contain" class="quarto-title-block center">
+<section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Mise en production des projets de data science</h1>
   <p class="subtitle"></p><p><span class="blue2">Cours de 3e année à l’ENSAE</span><br> 2025/2026</p><p></p>
 
@@ -220,22 +220,22 @@ Lino Galiana
 
 </section>
 <section>
-<section id="introduction" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<section id="introduction" class="title-slide slide level1 center">
 <h1>Introduction</h1>
 
 </section>
-<section id="ressources-associées" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="ressources-associées" class="slide level2">
 <h2>Ressources associées</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<h3 data-background-image="background.svg" data-background-size="contain" id="slides">Slides</h3>
+<h3 id="slides">Slides</h3>
 <div id="qr1" class="qrcode"></div>
 <script type="text/javascript">
 var qrcode = new QRCode("qr1", {"colorDark":"#000000","colorLight":"#ffffff","height":"400","text":"https://ensae-reproductibilite.github.io/slides/","width":"400"});
 </script>
     
 </div><div class="column" style="width:50%;">
-<h3 data-background-image="background.svg" data-background-size="contain" id="site-web">Site web</h3>
+<h3 id="site-web">Site web</h3>
 <div id="qr2" class="qrcode"></div>
 <script type="text/javascript">
 var qrcode = new QRCode("qr2", {"colorDark":"#000000","colorLight":"#ffffff","height":"400","text":"https://ensae-reproductibilite.github.io/website/","width":"400"});
@@ -243,14 +243,14 @@ var qrcode = new QRCode("qr2", {"colorDark":"#000000","colorLight":"#ffffff","he
     
 </div></div>
 </section>
-<section id="contexte" class="slide level2 nonincremental" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
+<section id="contexte" class="slide level2 nonincremental" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Contexte</h2>
 
 <img data-src="https://minio.lab.sspcloud.fr/lgaliana/generative-art/mise-en-prod/slides-comic.jpg" class="quarto-figure quarto-figure-center r-stretch"><ul>
 <li class="fragment"><span class="orange"><strong>Qui sommes-nous ?</strong></span></li>
 </ul>
 </section>
-<section id="contexte-1" class="slide level2 nonincremental" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
+<section id="contexte-1" class="slide level2 nonincremental" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Contexte</h2>
 
 <img data-src="https://minio.lab.sspcloud.fr/lgaliana/generative-art/mise-en-prod/slides-comic.jpg" class="quarto-figure quarto-figure-center r-stretch"><ul>
@@ -273,7 +273,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </script><noscript>lino.galiana at insee dot fr</noscript></li>
 </ul>
 </section>
-<section id="quest-ce-quun-data-scientist" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="quest-ce-quun-data-scientist" class="slide level2">
 <h2>Qu’est ce qu’un data scientist ?</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -288,7 +288,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="la-notion-de-mise-en-production" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="la-notion-de-mise-en-production" class="slide level2">
 <h2>La notion de mise en production</h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Mettre en production</strong></span> : faire <span class="blue2"><strong>vivre</strong></span> une application dans l’espace de ses <span class="blue2"><strong>utilisateurs</strong></span>
@@ -303,7 +303,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="la-notion-de-bonnes-pratiques" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="la-notion-de-bonnes-pratiques" class="slide level2">
 <h2>La notion de bonnes pratiques</h2>
 <ul>
 <li class="fragment"><p><span class="blue2"><strong>Origine</strong></span> : communauté des développeurs logiciels</p></li>
@@ -315,7 +315,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment"><p><span class="blue2"><strong>Conséquence</strong></span> : un ensemble de <span class="orange"><strong>règles informelles</strong></span>, conventionnellement acceptées comme produisant des logiciels <span class="orange"><strong>fiables</strong></span>, <span class="orange"><strong>évolutifs</strong></span> et <span class="orange"><strong>maintenables</strong></span></p></li>
 </ul>
 </section>
-<section id="pourquoi-sintéresser-aux-bonnes-pratiques" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="pourquoi-sintéresser-aux-bonnes-pratiques" class="slide level2">
 <h2>Pourquoi s’intéresser aux bonnes pratiques ?</h2>
 <p><br></p>
 <p>L’activité du <em>datascientist</em> tend à se rapprocher de celle du développeur :</p>
@@ -326,7 +326,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment"><p><span class="blue2"><strong>déploiement</strong></span> d’applications pour valoriser les modèles</p></li>
 </ul>
 </section>
-<section id="contenu-du-cours" class="slide level2 scrollable smaller" data-background-image="background.svg" data-background-size="contain">
+<section id="contenu-du-cours" class="slide level2 scrollable smaller">
 <h2>Contenu du cours</h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Pré-requis</strong></span>
@@ -350,7 +350,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="site-web-du-cours" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="site-web-du-cours" class="slide level2">
 <h2>Site web du cours</h2>
 <ul>
 <li class="fragment"><p><a href="https://ensae-reproductibilite.github.io/website/">https://ensae-reproductibilite.github.io/website/</a></p></li>
@@ -361,7 +361,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="modalités-pédagogiques" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="modalités-pédagogiques" class="slide level2">
 <h2>Modalités pédagogiques</h2>
 <ul>
 <li class="fragment">Apprentissage par la pratique
@@ -381,7 +381,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="evaluation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="evaluation" class="slide level2">
 <h2>Evaluation</h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Objectif</strong></span> : mise en pratique <span class="orange"><strong>réaliste</strong></span> des notions étudiées
@@ -397,11 +397,11 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul>
 </section></section>
 <section>
-<section id="partie-1-bonnes-pratiques-de-développement" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<section id="partie-1-bonnes-pratiques-de-développement" class="title-slide slide level1 center">
 <h1>Partie <span class="emoji" data-emoji="one">1️⃣</span> : bonnes pratiques de développement</h1>
 
 </section>
-<section id="plan-de-la-partie" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="plan-de-la-partie" class="slide level2">
 <h2>Plan de la partie</h2>
 <p><span class="emoji" data-emoji="one">1️⃣</span> <span class="blue2"><strong>Travail collaboratif</strong></span> avec <code>Git</code></p>
 <p><span class="emoji" data-emoji="two">2️⃣</span> <span class="blue2"><strong>Qualité</strong></span> du code</p>
@@ -410,11 +410,11 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <p><span class="emoji" data-emoji="five">5️⃣</span> Favoriser la <span class="blue2"><strong>portabilité</strong></span> d’une application</p>
 </section></section>
 <section>
-<section id="le-travail-collaboratif-avec-git" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<section id="le-travail-collaboratif-avec-git" class="title-slide slide level1 center">
 <h1><span class="emoji" data-emoji="one">1️⃣</span> Le travail collaboratif avec <code>Git</code></h1>
 
 </section>
-<section id="pourquoi-utiliser-git" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="pourquoi-utiliser-git" class="slide level2">
 <h2>Pourquoi utiliser Git ?</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -423,7 +423,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </figure>
 </div>
 </section>
-<section id="concepts-essentiels" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="concepts-essentiels" class="slide level2">
 <h2>Concepts essentiels</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -432,7 +432,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </figure>
 </div>
 </section>
-<section id="bonnes-pratiques" class="slide level2 smaller" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
+<section id="bonnes-pratiques" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Bonnes pratiques</h2>
 <p><strong>Que versionne-t-on ?</strong></p>
 <ul>
@@ -458,7 +458,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="bonnes-pratiques-1" class="slide level2 smaller" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
+<section id="bonnes-pratiques-1" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Bonnes pratiques</h2>
 <p><strong>Format des commits</strong></p>
 <div class="quarto-layout-panel" data-layout="[40,60]">
@@ -483,7 +483,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="outils-pour-le-travail-collaboratif" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="outils-pour-le-travail-collaboratif" class="slide level2">
 <h2>Outils pour le travail collaboratif</h2>
 <ul>
 <li class="fragment">L’éco-système <code>Git</code> <span class="blue2"><strong>facilite</strong> le travail collaboratif</span>
@@ -493,7 +493,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="le-modèle-des-branches" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="le-modèle-des-branches" class="slide level2">
 <h2>Le modèle des branches</h2>
 <div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
 <div class="quarto-layout-row">
@@ -513,7 +513,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="les-outils-de-contribution" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="les-outils-de-contribution" class="slide level2">
 <h2>Les outils de contribution</h2>
 <ul>
 <li class="fragment"><p><span class="orange"><strong><em>Issue</em></strong></span> : soumettre un <span class="blue2"><strong>problème</strong></span> ou une <span class="blue2"><strong>suggestion</strong></span> aux développeurs d’un projet</p></li>
@@ -524,17 +524,17 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="une-organisation-courante-le-github-flow" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="une-organisation-courante-le-github-flow" class="slide level2">
 <h2>Une organisation courante : le <em>GitHub flow</em></h2>
 
 <img data-src="img/ghflow.png" class="r-stretch"><p>Description plus détaillée : <a href="https://docs.github.com/en/get-started/quickstart/github-flow">ici</a></p>
 </section></section>
 <section>
-<section id="qualité-du-code" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<section id="qualité-du-code" class="title-slide slide level1 center">
 <h1><span class="emoji" data-emoji="two">2️⃣</span> Qualité du code</h1>
 
 </section>
-<section id="enjeux" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="enjeux" class="slide level2">
 <h2>Enjeux</h2>
 <ul>
 <li class="fragment"><p>D’une vision utilitariste du code à une vision du code comme <span class="orange"><strong>outil de communication</strong></span></p></li>
@@ -542,7 +542,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment"><p>Faciliter la <span class="orange"><strong>réutilisation</strong></span></p></li>
 </ul>
 </section>
-<section id="principes-généraux" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="principes-généraux" class="slide level2">
 <h2>Principes généraux</h2>
 <ul>
 <li class="fragment"><p>Adopter les <span class="orange"><strong>standards communautaires</strong></span></p></li>
@@ -550,7 +550,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment"><p><span class="orange"><strong>(Auto-)documenter</strong></span> son code</p></li>
 </ul>
 </section>
-<section id="standards-communautaires" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="standards-communautaires" class="slide level2">
 <h2><span class="emoji" data-emoji="one">1️⃣</span> Standards communautaires</h2>
 <blockquote>
 <p><em>“Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread”</em></p>
@@ -564,7 +564,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment">La <span class="orange"><strong>cohérence intra-projet</strong></span> doit toujours primer</li>
 </ul>
 </section>
-<section id="standards-communautaires---outils" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<section id="standards-communautaires---outils" class="slide level2 smaller">
 <h2><span class="emoji" data-emoji="one">1️⃣</span> Standards communautaires - Outils</h2>
 <ul>
 <li class="fragment"><span class="blue2"><strong>Linters</strong></span> : diagnostic de qualité du code
@@ -601,7 +601,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="utiliser-des-fonctions" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<section id="utiliser-des-fonctions" class="slide level2 smaller">
 <h2><span class="emoji" data-emoji="two">2️⃣</span> Utiliser des fonctions</h2>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
@@ -642,7 +642,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="documenter-son-code" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="documenter-son-code" class="slide level2">
 <h2><span class="emoji" data-emoji="three">3️⃣</span> Documenter son code</h2>
 <ul>
 <li class="fragment"><p>Documenter le <span class="orange"><strong>pourquoi</strong></span> plutôt que le <span class="orange"><strong>comment</strong></span></p></li>
@@ -669,11 +669,11 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </section></section>
 <section>
-<section id="structure-des-projets" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<section id="structure-des-projets" class="title-slide slide level1 center">
 <h1><span class="emoji" data-emoji="three">3️⃣</span> Structure des projets</h1>
 
 </section>
-<section id="enjeux-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="enjeux-1" class="slide level2">
 <h2>Enjeux</h2>
 <ul>
 <li class="fragment"><p>Favoriser la <span class="orange"><strong>lisibilité</strong></span> et la <span class="orange"><strong>maintenabilité</strong></span></p></li>
@@ -685,7 +685,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="principes-généraux-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="principes-généraux-1" class="slide level2">
 <h2>Principes généraux</h2>
 <ul>
 <li class="fragment"><p>Favoriser une <span class="blue2"><strong>structure modulaire</strong></span> selon l’état du projet</p>
@@ -697,7 +697,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment"><p><span class="orange"><strong>(Auto-)documenter</strong></span> son projet</p></li>
 </ul>
 </section>
-<section id="phase-dexploration-notebooks" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="phase-dexploration-notebooks" class="slide level2">
 <h2><span class="emoji" data-emoji="one">1️⃣</span> Phase d’exploration : <em>notebooks</em></h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Avantages</strong></span>
@@ -713,7 +713,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="industrialisation-structure-modulaire" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="industrialisation-structure-modulaire" class="slide level2">
 <h2><span class="emoji" data-emoji="two">2️⃣</span> Industrialisation : structure modulaire</h2>
 <ul>
 <li class="fragment"><p><span class="orange"><strong>Premier niveau</strong></span> : structuration du <span class="orange"><strong>code</strong></span></p></li>
@@ -725,7 +725,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="industrialisation-structure-modulaire-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="industrialisation-structure-modulaire-1" class="slide level2">
 <h2><span class="emoji" data-emoji="two">2️⃣</span> Industrialisation : structure modulaire</h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Deuxième niveau</strong></span> : structuration du <span class="orange"><strong>projet</strong></span></li>
@@ -738,7 +738,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="adopter-les-standards-communautaires" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="adopter-les-standards-communautaires" class="slide level2">
 <h2><span class="emoji" data-emoji="three">3️⃣</span> Adopter les standards communautaires</h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Templates</strong></span> de projets : <span class="blue2"><strong>Cookiecutters</strong></span>
@@ -749,13 +749,13 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment">La <span class="orange"><strong>cohérence intra-projet</strong></span> doit toujours primer</li>
 </ul>
 </section>
-<section id="documenter-son-projet" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="documenter-son-projet" class="slide level2">
 <h2><span class="emoji" data-emoji="four">4️⃣</span> Documenter son projet</h2>
 <ul>
 <li class="fragment">Favoriser l’<span class="orange"><strong>auto-documentation</strong></span> via des nommages pertinents</li>
 </ul>
 </section>
-<section id="lauto-documentation-illustration" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="lauto-documentation-illustration" class="slide level2">
 <h2>L’auto-documentation : illustration</h2>
 <pre><code>├── report.ipynb
 ├── correlation.png
@@ -775,7 +775,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="lauto-documentation-illustration-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="lauto-documentation-illustration-1" class="slide level2">
 <h2>L’auto-documentation : illustration</h2>
 <pre><code>├── data
 │   ├── raw
@@ -802,7 +802,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="lauto-documentation-illustration-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="lauto-documentation-illustration-2" class="slide level2">
 <h2>L’auto-documentation : illustration</h2>
 <pre><code>├── data
 │   ├── raw
@@ -830,7 +830,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="documenter-son-projet-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="documenter-son-projet-1" class="slide level2">
 <h2><span class="emoji" data-emoji="four">4️⃣</span> Documenter son projet</h2>
 <ul>
 <li class="fragment"><p>Favoriser l’<span class="orange"><strong>auto-documentation</strong></span> via des nommages pertinents</p></li>
@@ -843,11 +843,11 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul>
 </section></section>
 <section>
-<section id="application" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<section id="application" class="title-slide slide level1 center">
 <h1>Application</h1>
 
 </section>
-<section id="bonnes-pratiques-de-développement" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="bonnes-pratiques-de-développement" class="slide level2">
 <h2>Bonnes pratiques de développement</h2>
 <ul>
 <li class="fragment">Consignes sur le <a href="https://ensae-reproductibilite.github.io/website/chapters/application.html">site du cours</a>
@@ -859,11 +859,11 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul>
 </section></section>
 <section>
-<section id="traitement-des-données-volumineuses" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<section id="traitement-des-données-volumineuses" class="title-slide slide level1 center">
 <h1><span class="emoji" data-emoji="four">4️⃣</span> Traitement des données volumineuses</h1>
 
 </section>
-<section id="the-obligatory-intro-slide" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="the-obligatory-intro-slide" class="slide level2">
 <h2>“The obligatory intro slide”</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -872,7 +872,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </figure>
 </div>
 </section>
-<section id="enjeux-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="enjeux-2" class="slide level2">
 <h2>Enjeux</h2>
 <ul>
 <li class="fragment">Tendance à la <span class="orange"><strong>massification</strong></span> des données
@@ -889,7 +889,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="choisir-des-technologies-adaptées" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="choisir-des-technologies-adaptées" class="slide level2">
 <h2>Choisir des technologies adaptées</h2>
 <p><span class="emoji" data-emoji="one">1️⃣</span> <span class="orange"><strong>Infrastructures</strong></span> de données</p>
 <div class="fragment">
@@ -899,7 +899,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <p><span class="emoji" data-emoji="three">3️⃣</span> <span class="orange"><strong><em>Frameworks</em></strong></span> de traitement de données</p>
 </div>
 </section>
-<section id="infrastructures-historique" class="slide level2 scrollable" data-background-image="background.svg" data-background-size="contain">
+<section id="infrastructures-historique" class="slide level2 scrollable">
 <h2><span class="emoji" data-emoji="one">1️⃣</span> Infrastructures : historique</h2>
 <ul>
 <li class="fragment"><p>Historiquement : stockage dans des <span class="orange"><strong>bases de données</strong></span></p></li>
@@ -917,7 +917,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="limite-des-data-warehouses" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="limite-des-data-warehouses" class="slide level2">
 <h2><span class="emoji" data-emoji="one">1️⃣</span> Limite des <em>data warehouses</em></h2>
 <ul>
 <li class="fragment">Peu adaptées aux données <em>big data</em>
@@ -928,7 +928,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment">2010’s : modèle du <span class="orange"><strong><em>data lake</em></strong></span></li>
 </ul>
 </section>
-<section id="le-data-lake" class="slide level2 scrollable" data-background-image="background.svg" data-background-size="contain">
+<section id="le-data-lake" class="slide level2 scrollable">
 <h2><span class="emoji" data-emoji="one">1️⃣</span> Le <em>data lake</em></h2>
 <ul>
 <li class="fragment">Un stockage <span class="orange"><strong>peu coûteux</strong></span> fait pour des <span class="orange"><strong>données</strong></span>
@@ -947,7 +947,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="le-stockage-objet" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="le-stockage-objet" class="slide level2">
 <h2><span class="emoji" data-emoji="one">1️⃣</span> Le stockage objet</h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Standard</strong></span> des <em>data lakes</em> dans le <span class="orange"><strong><em>cloud</em></strong></span>
@@ -965,7 +965,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="formats-de-données" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="formats-de-données" class="slide level2">
 <h2><span class="emoji" data-emoji="two">2️⃣</span> Formats de données</h2>
 <ul>
 <li class="fragment">Le choix d’un format de données répond à un <span class="orange"><strong>arbitrage</strong></span> entre plusieurs critères :
@@ -977,7 +977,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="limites-des-formats-usuels" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="limites-des-formats-usuels" class="slide level2">
 <h2><span class="emoji" data-emoji="two">2️⃣</span> Limites des formats usuels</h2>
 <ul>
 <li class="fragment">Les <span class="orange"><strong>formats usuels</strong></span> (<code>CSV</code>, <code>JSON</code>, <code>XML</code>) sont utiles pour :
@@ -992,7 +992,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="orientation-ligne-vs.-orientation-colonne" class="slide level2 scrollable" data-background-image="background.svg" data-background-size="contain">
+<section id="orientation-ligne-vs.-orientation-colonne" class="slide level2 scrollable">
 <h2><span class="emoji" data-emoji="two">2️⃣</span> Orientation ligne vs.&nbsp;orientation colonne</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1001,7 +1001,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </figure>
 </div>
 </section>
-<section id="parquet-propriétés" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="parquet-propriétés" class="slide level2">
 <h2><span class="emoji" data-emoji="two">2️⃣</span> <code>Parquet</code> : propriétés</h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Orienté colonne</strong></span>
@@ -1020,7 +1020,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="parquet-partitionnement" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="parquet-partitionnement" class="slide level2">
 <h2><span class="emoji" data-emoji="two">2️⃣</span> <code>Parquet</code> : partitionnement</h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Division en blocs</strong></span> des données selon un <span class="orange"><strong>critère</strong></span>
@@ -1037,7 +1037,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="traitement-in-memory" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="traitement-in-memory" class="slide level2">
 <h2><span class="emoji" data-emoji="three">3️⃣</span> Traitement <em>in-memory</em></h2>
 <ul>
 <li class="fragment"><code>Parquet</code> ne résout pas tout
@@ -1048,7 +1048,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment">Le <em>framework</em> adapté dépend de la <span class="orange"><strong>volumétrie</strong></span></li>
 </ul>
 </section>
-<section id="données-volumineuses" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="données-volumineuses" class="slide level2">
 <h2><span class="emoji" data-emoji="three">3️⃣</span> Données volumineuses</h2>
 <ul>
 <li class="fragment">Calcul <span class="blue2"><strong><em>larger than memory</em> optimisé</strong></span>
@@ -1067,7 +1067,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="données-massives" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="données-massives" class="slide level2">
 <h2><span class="emoji" data-emoji="three">3️⃣</span> Données massives</h2>
 <ul>
 <li class="fragment">Calcul <span class="blue2"><strong>distribué</strong></span> sur un <span class="blue2"><strong>cluster</strong></span> de machines
@@ -1085,7 +1085,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="en-résumé-pour-traiter-la-volumétrie" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="en-résumé-pour-traiter-la-volumétrie" class="slide level2">
 <h2>En résumé : pour traiter la volumétrie</h2>
 <ul>
 <li class="fragment"><p>Utiliser un <span class="orange"><strong>format</strong></span> de données adapté (<code>Parquet</code>)</p></li>
@@ -1096,7 +1096,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="big-data-is-dead" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="big-data-is-dead" class="slide level2">
 <h2>“Big Data is dead” ?</h2>
 <ul>
 <li class="fragment">Jordan Tigani : <a href="https://motherduck.com/blog/big-data-is-dead/">Big Data is dead</a>
@@ -1112,11 +1112,11 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul>
 </section></section>
 <section>
-<section id="portabilité" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<section id="portabilité" class="title-slide slide level1 center">
 <h1><span class="emoji" data-emoji="five">5️⃣</span> Portabilité</h1>
 
 </section>
-<section id="it-works-on-my-machine" class="slide level2 scrollable" data-background-image="background.svg" data-background-size="contain">
+<section id="it-works-on-my-machine" class="slide level2 scrollable">
 <h2>“It works… on my machine”</h2>
 <ul>
 <li class="fragment"><p>On a construit un projet <span class="orange"><strong>lisible</strong></span>, <span class="orange"><strong>structuré</strong></span> et <span class="orange"><strong>versionné</strong></span></p></li>
@@ -1135,7 +1135,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="le-critère-de-la-portabilité" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="le-critère-de-la-portabilité" class="slide level2">
 <h2>Le critère de la portabilité</h2>
 <ul>
 <li class="fragment">Un code ne vit jamais dans une bulle isolée, il contient en général de nombreuses <span class="orange"><strong>adhérences</strong></span>
@@ -1146,7 +1146,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment">Un code est <span class="orange"><strong>portable</strong></span> s’il peut être exécuté dans un environnement différent que celui du développement</li>
 </ul>
 </section>
-<section id="limites-du-mode-de-travail-usuel" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="limites-du-mode-de-travail-usuel" class="slide level2">
 <h2>Limites du mode de travail usuel</h2>
 <ul>
 <li class="fragment"><em>Workflow</em> <span class="orange"><strong>classique</strong></span>
@@ -1158,7 +1158,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment">Quels <span class="orange"><strong>problèmes</strong></span> peuvent se poser ?</li>
 </ul>
 </section>
-<section id="limites-du-mode-de-travail-usuel-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="limites-du-mode-de-travail-usuel-1" class="slide level2">
 <h2>Limites du mode de travail usuel</h2>
 <ul>
 <li class="fragment"><p><span class="orange"><strong>Conflits de version</strong></span> : différents projets peuvent requérir des versions différentes d’un même <em>package</em></p></li>
@@ -1167,7 +1167,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment"><p><span class="orange"><strong>Portabilité limitée</strong></span> : difficile de fixer dans un fichier les dépendances spécifiques à un projet</p></li>
 </ul>
 </section>
-<section id="comment-favoriser-la-portabilité" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="comment-favoriser-la-portabilité" class="slide level2">
 <h2>Comment favoriser la portabilité ?</h2>
 <ul>
 <li class="fragment">Enjeu central pour la <span class="orange"><strong>mise en production</strong></span>
@@ -1181,7 +1181,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="environnements-virtuels-fonctionnement" class="slide level2 scrollable" data-background-image="background.svg" data-background-size="contain">
+<section id="environnements-virtuels-fonctionnement" class="slide level2 scrollable">
 <h2>Environnements virtuels : fonctionnement</h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Dossier auto-suffisant</strong></span> qui :
@@ -1199,7 +1199,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="environnements-virtuels-implémentations" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="environnements-virtuels-implémentations" class="slide level2">
 <h2>Environnements virtuels : implémentations</h2>
 <ul>
 <li class="fragment"><p>Implémentation standard : <a href="https://docs.python.org/fr/3/library/venv.html">venv</a></p></li>
@@ -1210,7 +1210,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment"><p>D’autres implémentations existent : <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>, <a href="https://github.com/pyenv/pyenv">pyenv</a>…</p></li>
 </ul>
 </section>
-<section id="venv-utilisation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="venv-utilisation" class="slide level2">
 <h2><code>venv</code> : utilisation</h2>
 <ul>
 <li class="fragment"><p><code>venv</code> fait partie de la librairie standard de <code>Python</code></p></li>
@@ -1223,7 +1223,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="spécifier-les-dépendances" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="spécifier-les-dépendances" class="slide level2">
 <h2>Spécifier les dépendances</h2>
 <ul>
 <li class="fragment">Développer dans un <span class="orange"><strong>environnement virtuel</strong></span> favorise :
@@ -1238,7 +1238,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="le-fichier-requirements.txt" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="le-fichier-requirements.txt" class="slide level2">
 <h2>Le fichier <code>requirements.txt</code></h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>beautifulsoup4<span class="op">==</span><span class="fl">4.12.3</span></span>
 <span id="cb4-2"><a></a>expecttest<span class="op">!=</span><span class="fl">0.2.0</span></span>
@@ -1253,7 +1253,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="environnements-virtuels-limites" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="environnements-virtuels-limites" class="slide level2">
 <h2>Environnements virtuels : limites</h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Reproductibilité</strong></span> :
@@ -1268,7 +1268,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="le-gold-standard-de-la-portabilité" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="le-gold-standard-de-la-portabilité" class="slide level2">
 <h2>Le <em>gold-standard</em> de la portabilité</h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Idée</strong></span> : au lieu de distribuer la recette pour recréer la bonne machine, peut-on <span class="orange"><strong>distribuer directement la bonne machine</strong></span> ?
@@ -1279,11 +1279,11 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment">Les <span class="orange"><strong>conteneurs</strong></span> offrent le compromis idéal</li>
 </ul>
 </section>
-<section id="conteneurs-vs.-machines-virtuelles" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="conteneurs-vs.-machines-virtuelles" class="slide level2">
 <h2>Conteneurs vs.&nbsp;machines virtuelles</h2>
 
 <img data-src="img/docker-vm.png" class="r-stretch quarto-figure-center"><p class="caption">Source : <a href="https://www.docker.com/resources/what-container/">docker.com</a></p></section>
-<section id="conteneurs-implémentations" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="conteneurs-implémentations" class="slide level2">
 <h2>Conteneurs : implémentations</h2>
 <ul>
 <li class="fragment">Plusieurs implémentations des conteneurs
@@ -1299,7 +1299,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="docker-installation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="docker-installation" class="slide level2">
 <h2><code>Docker</code> : installation</h2>
 <ul>
 <li class="fragment"><code>Docker</code> : outil en ligne de commande (CLI)
@@ -1316,7 +1316,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="le-dockerfile" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="le-dockerfile" class="slide level2">
 <h2>Le <code>Dockerfile</code></h2>
 <ul>
 <li class="fragment">Exemple : <a href="https://fastapi.tiangolo.com/deployment/docker/">conteneurisation d’une API avec FastAPI</a></li>
@@ -1341,11 +1341,11 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <span id="cb5-17"><a></a><span class="kw">CMD</span> [<span class="st">"uvicorn"</span>, <span class="st">"app.main:app"</span>, <span class="st">"--host"</span>, <span class="st">"0.0.0.0"</span>, <span class="st">"--port"</span>, <span class="st">"80"</span>, <span class="st">"--proxy-headers"</span>]</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="docker-fonctionnement" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="docker-fonctionnement" class="slide level2">
 <h2><code>Docker</code> : fonctionnement</h2>
 
 <img data-src="img/docker-workflow.png" class="r-stretch quarto-figure-center"><p class="caption">Source : <a href="https://k21academy.com/docker-kubernetes/docker-and-kubernetes/">k21academy.com</a></p></section>
-<section id="docker-en-pratique" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="docker-en-pratique" class="slide level2">
 <h2><code>Docker</code> en pratique</h2>
 <ul>
 <li class="fragment">Présentation détaillée sur la <a href="https://ensae-reproductibilite.github.io/website/chapters/portability.html#les-conteneurs">page du cours</a>
@@ -1357,11 +1357,11 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul>
 </section></section>
 <section>
-<section id="application-1" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<section id="application-1" class="title-slide slide level1 center">
 <h1>Application</h1>
 
 </section>
-<section id="portabilité-du-projet" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="portabilité-du-projet" class="slide level2">
 <h2>Portabilité du projet</h2>
 <ul>
 <li class="fragment">Consignes sur le <a href="https://ensae-reproductibilite.github.io/website/chapters/application.html">site du cours</a>
@@ -1375,18 +1375,18 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul>
 </section></section>
 <section>
-<section id="partie-2-mise-en-production" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<section id="partie-2-mise-en-production" class="title-slide slide level1 center">
 <h1>Partie <span class="emoji" data-emoji="two">2️⃣</span> : mise en production</h1>
 
 </section>
-<section id="le-mur-de-la-production" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="le-mur-de-la-production" class="slide level2">
 <h2>Le “mur de la production”</h2>
 <ul>
 <li class="fragment"><p>La majorité des projets “<em>data-driven</em>” <span class="blue2"><strong>ne délivrent pas de valeur</strong></span> (<a href="https://sloanreview.mit.edu/projects/expanding-ais-impact-with-organizational-learning/">1</a>, <a href="https://hdsr.mitpress.mit.edu/pub/2fu65ujf/release/6">2</a>, <a href="https://www.researchgate.net/publication/346647451_Beyond_the_Hype_Why_Do_Data-Driven_Projects_Fail">3</a>)</p></li>
 <li class="fragment"><p>Comment <span class="orange"><strong>dépasser le stade de l’expérimentation</strong></span> ?</p></li>
 </ul>
 </section>
-<section id="mise-en-production" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="mise-en-production" class="slide level2">
 <h2>Mise en production</h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Mettre en production</strong></span> : faire <span class="blue2"><strong>vivre</strong></span> une application dans l’espace de ses <span class="blue2"><strong>utilisateurs</strong></span>
@@ -1397,7 +1397,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment"><span class="orange"><strong>Multiples dimensions</strong></span> : connaissance métier, organisation, infrastructure, outils techniques..</li>
 </ul>
 </section>
-<section id="favoriser-la-continuité" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="favoriser-la-continuité" class="slide level2">
 <h2>Favoriser la continuité</h2>
 
 <img data-src="img/exploration-production.png" class="r-stretch quarto-figure-center"><p class="caption">Source : <a href="https://public.dhe.ibm.com/software/data/sw-library/analytics/data-science-lifecycle/#model-implementation">ibm.com</a></p><ul>
@@ -1408,7 +1408,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="le-dataops" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="le-dataops" class="slide level2">
 <h2>Le DataOps</h2>
 <ul>
 <li class="fragment">Origine : mouvement <a href="https://fr.wikipedia.org/wiki/Devops">DevOps</a></li>
@@ -1426,18 +1426,18 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul>
 </div>
 </section>
-<section id="plan-de-la-partie-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="plan-de-la-partie-1" class="slide level2">
 <h2>Plan de la partie</h2>
 <p><span class="emoji" data-emoji="six">6️⃣</span> Introduction au format <span class="blue2"><strong>YAML</strong></span></p>
 <p><span class="emoji" data-emoji="seven">7️⃣</span> <span class="blue2"><strong>Déploiement</strong></span></p>
 <p><span class="emoji" data-emoji="eight">8️⃣</span> <span class="blue2"><strong>MLOps</strong></span></p>
 </section></section>
 <section>
-<section id="introduction-au-format-yaml" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<section id="introduction-au-format-yaml" class="title-slide slide level1 center">
 <h1><span class="emoji" data-emoji="six">6️⃣</span> Introduction au format <code>YAML</code></h1>
 
 </section>
-<section id="quest-ce-que-le-format-yaml" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="quest-ce-que-le-format-yaml" class="slide level2">
 <h2>Qu’est-ce que le format <code>YAML</code> ?</h2>
 <ul>
 <li class="fragment"><a href="https://yaml.org/"><em>YAML Ain’t Markup Language</em></a>
@@ -1464,7 +1464,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <span id="cb6-15"><a></a><span class="pp">---</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="pourquoi-sintéresser-au-yaml" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="pourquoi-sintéresser-au-yaml" class="slide level2">
 <h2>Pourquoi s’intéresser au <code>YAML</code> ?</h2>
 <ul>
 <li class="fragment">Outil standard pour les fichiers de <span class="orange"><strong>configuration</strong></span>
@@ -1490,7 +1490,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <span id="cb7-10"><a></a><span class="at">      </span><span class="fu">value</span><span class="kw">:</span><span class="at"> deepseek-ai/DeepSeek-R1</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="yaml-vs.-json" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="yaml-vs.-json" class="slide level2">
 <h2><code>YAML</code> vs.&nbsp;<code>JSON</code></h2>
 <ul>
 <li class="fragment"><code>YAML</code> est un <span class="orange"><strong>superset</strong></span> de <code>JSON</code>
@@ -1526,7 +1526,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul>
 </div>
 </section>
-<section id="caractéristiques-dun-fichier-yaml" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="caractéristiques-dun-fichier-yaml" class="slide level2">
 <h2>Caractéristiques d’un fichier <code>YAML</code></h2>
 <ul>
 <li class="fragment"><p>Extension : <code>.yaml</code> ou <code>.yml</code></p></li>
@@ -1550,7 +1550,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <span id="cb10-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">containerPort</span><span class="kw">:</span><span class="at"> </span><span class="dv">8000</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="validation-et-erreurs-fréquentes" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="validation-et-erreurs-fréquentes" class="slide level2">
 <h2>Validation et erreurs fréquentes</h2>
 <ul>
 <li class="fragment">Principale erreur : mauvaise <span class="orange"><strong>indentation</strong></span>
@@ -1564,7 +1564,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="yaml-et-lapproche-gitops" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="yaml-et-lapproche-gitops" class="slide level2">
 <h2><code>YAML</code> et l’approche <code>GitOps</code></h2>
 <ul>
 <li class="fragment">Le <span class="orange"><strong>YAML</strong></span> est le langage privilégié de l’<span class="orange"><strong>approche GitOps</strong></span>
@@ -1581,11 +1581,11 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul>
 </section></section>
 <section>
-<section id="déploiement" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<section id="déploiement" class="title-slide slide level1 center">
 <h1><span class="emoji" data-emoji="seven">7️⃣</span> Déploiement</h1>
 
 </section>
-<section id="un-sujet-large" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="un-sujet-large" class="slide level2">
 <h2>Un sujet large</h2>
 <ul>
 <li class="fragment">Les <span class="orange"><strong>questions essentielles</strong></span> à se poser :
@@ -1601,7 +1601,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="formats-de-valorisation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="formats-de-valorisation" class="slide level2">
 <h2>Formats de valorisation</h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Critères</strong></span> à prendre en compte :
@@ -1620,13 +1620,13 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="cas-dusage" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="cas-dusage" class="slide level2">
 <h2>Cas d’usage</h2>
 <ul>
 <li class="fragment">Servir un modèle de ML via une API</li>
 </ul>
 </section>
-<section id="les-apis" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="les-apis" class="slide level2">
 <h2>Les APIs</h2>
 <blockquote>
 <p>Une API (application programming interface ou « interface de programmation d’application ») est une interface logicielle qui permet de « connecter » un logiciel ou un service à un autre logiciel ou service afin d’échanger des données et des fonctionnalités.</p>
@@ -1640,7 +1640,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="les-apis-rest" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="les-apis-rest" class="slide level2">
 <h2>Les APIs REST</h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>API RESTful</strong></span> : API conforme au style d’architecture <a href="https://fr.wikipedia.org/wiki/Representational_state_transfer">REST</a>
@@ -1654,7 +1654,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="architecture-cible" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="architecture-cible" class="slide level2">
 <h2>Architecture cible</h2>
 <ul>
 <li class="fragment">Construire une <span class="orange"><strong>API</strong></span> pour <span class="orange"><strong>servir</strong></span> le modèle
@@ -1670,7 +1670,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="environnement-de-production" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="environnement-de-production" class="slide level2">
 <h2>Environnement de production</h2>
 <ul>
 <li class="fragment"><p>Dépend essentiellement de l’infrastructure à disposition</p></li>
@@ -1693,7 +1693,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="fonctionnement-de-kubernetes" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="fonctionnement-de-kubernetes" class="slide level2">
 <h2>Fonctionnement de Kubernetes</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1702,7 +1702,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </figure>
 </div>
 </section>
-<section id="lapproche-cicd" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="lapproche-cicd" class="slide level2">
 <h2>L’approche CI/CD</h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Intégration continue</strong></span> (CI) : chaque commit déclenche un processus “<span class="blue2"><strong>test, build and release</strong></span>”
@@ -1716,7 +1716,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="ci-implémentation-avec-github-actions" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="ci-implémentation-avec-github-actions" class="slide level2">
 <h2>CI : implémentation avec <code>GitHub Actions</code></h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Principe</strong></span> : commit -&gt; exécution d’une série d’étapes
@@ -1732,7 +1732,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="ci-anatomie-dun-fichier-de-ci" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="ci-anatomie-dun-fichier-de-ci" class="slide level2">
 <h2>CI : anatomie d’un fichier de CI</h2>
 <ul>
 <li class="fragment">Spécification : fichier <code>.yaml</code> qui paramétrise le <em>runner</em>
@@ -1780,7 +1780,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="cicd-implémentation-sur-kubernetes" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="cicd-implémentation-sur-kubernetes" class="slide level2">
 <h2>CI/CD : implémentation sur <code>Kubernetes</code></h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1788,7 +1788,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </figure>
 </div>
 </section>
-<section id="pipeline-dataops-complet" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="pipeline-dataops-complet" class="slide level2">
 <h2>Pipeline <span class="orange"><strong><em>DataOps</em></strong></span> complet</h2>
 <ul>
 <li class="fragment">Intégration des étapes dans un <span class="orange"><strong>pipeline</strong></span> (<span class="blue2"><strong>DAG</strong></span>)</li>
@@ -1808,7 +1808,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul>
 </div>
 </section>
-<section id="conclusion" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>
 <ul>
 <li class="fragment">On a construit un pipeline <span class="orange"><strong>reproductible</strong></span> et <span class="orange"><strong>automatisé</strong></span></li>
@@ -1829,11 +1829,11 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </section></section>
 <section>
-<section id="application-2" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<section id="application-2" class="title-slide slide level1 center">
 <h1>Application</h1>
 
 </section>
-<section id="mise-en-production-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="mise-en-production-1" class="slide level2">
 <h2>Mise en production</h2>
 <ul>
 <li class="fragment">Consignes sur le <a href="https://ensae-reproductibilite.github.io/website/chapters/application.html">site du cours</a>
@@ -1844,11 +1844,11 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul>
 </section></section>
 <section>
-<section id="mlops" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<section id="mlops" class="title-slide slide level1 center">
 <h1><span class="emoji" data-emoji="eight">8️⃣</span> MLOps</h1>
 
 </section>
-<section id="motivation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="motivation" class="slide level2">
 <h2>Motivation</h2>
 <ul>
 <li class="fragment">Intégrer :
@@ -1866,7 +1866,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="mlops-principes" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="mlops-principes" class="slide level2">
 <h2>MLOps : principes</h2>
 <ul>
 <li class="fragment"><p><span class="orange"><strong>Reproductibilité</strong></span></p></li>
@@ -1876,7 +1876,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment"><p><span class="orange"><strong>Monitoring</strong></span></p></li>
 </ul>
 </section>
-<section id="mlops-implémentation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="mlops-implémentation" class="slide level2">
 <h2>MLOps : implémentation</h2>
 <ul>
 <li class="fragment">De nombreux <span class="orange"><strong>frameworks</strong></span> implémentent les principes du MLOps
@@ -1892,7 +1892,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="mlflow-vue-densemble" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="mlflow-vue-densemble" class="slide level2">
 <h2><code>MLFlow</code> : vue d’ensemble</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1901,7 +1901,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </figure>
 </div>
 </section>
-<section id="mlflow-tracking-server" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="mlflow-tracking-server" class="slide level2">
 <h2><code>MLFlow</code> : Tracking server</h2>
 <ul>
 <li class="fragment">“Une <span class="orange"><strong>API</strong></span> et une <span class="orange"><strong>interface utilisateur</strong></span> pour <span class="orange"><strong>enregistrer</strong></span> les paramètres, les versions du code, les métriques et les artefacts”</li>
@@ -1915,7 +1915,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="mlflow-models" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="mlflow-models" class="slide level2">
 <h2><code>MLFlow</code> : Models</h2>
 <ul>
 <li class="fragment">“Une convention pour <span class="orange"><strong>‘packager’</strong></span> des <span class="orange"><strong>modèles</strong></span> de <em>machine learning</em> sous plusieurs <span class="orange"><strong>formes</strong></span>”</li>
@@ -1929,7 +1929,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="mlflow-model-registry" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="mlflow-model-registry" class="slide level2">
 <h2><code>MLFlow</code> : Model registry</h2>
 <ul>
 <li class="fragment">“Un <span class="orange"><strong>entrepôt centralisé de modèles</strong></span>, un ensemble d’API et une interface utilisateur pour gérer <span class="orange"><strong>collaborativement</strong></span> le cycle de vie complet d’un modèle MLflow”</li>
@@ -1943,15 +1943,15 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="servir-le-modèle-sans-mlflow" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="servir-le-modèle-sans-mlflow" class="slide level2">
 <h2>Servir le modèle (sans <code>MLFlow</code>)</h2>
 
 <img data-src="img/api-no-mlflow.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="servir-le-modèle-avec-mlflow" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="servir-le-modèle-avec-mlflow" class="slide level2">
 <h2>Servir le modèle (avec <code>MLFlow</code>)</h2>
 
 <img data-src="img/api-with-mlflow.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="suivi-du-modèle" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="suivi-du-modèle" class="slide level2">
 <h2>Suivi du modèle</h2>
 <ul>
 <li class="fragment">Pourquoi <span class="orange"><strong>surveiller</strong></span> un modèle en production ?
@@ -1963,7 +1963,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment">⚠️ Le mot <span class="orange"><strong>surveillance</strong></span> d’une application/modèle recouvre des <span class="blue2"><strong>réalités différentes</strong></span></li>
 </ul>
 </section>
-<section id="surveillance-selon-linformaticien" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="surveillance-selon-linformaticien" class="slide level2">
 <h2>Surveillance selon l’informaticien</h2>
 <ul>
 <li class="fragment"><p>Surveiller une application est partie intégrante de l’approche <span class="orange"><strong>DevOps</strong></span></p></li>
@@ -1976,7 +1976,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="surveillance-selon-le-data-scientist" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="surveillance-selon-le-data-scientist" class="slide level2">
 <h2>Surveillance selon le data scientist</h2>
 <ul>
 <li class="fragment"><p>Surveiller un modèle ML est partie intégrante de l’approche <span class="orange"><strong>MLOps</strong></span></p></li>
@@ -1988,7 +1988,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section>
-<section id="comment-surveiller-un-modèle-en-production" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="comment-surveiller-un-modèle-en-production" class="slide level2">
 <h2>Comment surveiller un modèle en production ?</h2>
 <ul>
 <li class="fragment"><p>Intégration de <span class="orange"><strong>logs</strong></span> dans l’API</p></li>
@@ -1997,16 +1997,16 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment"><p>Mise en place d’un système d’<span class="orange"><strong>alertes</strong></span></p></li>
 </ul>
 </section>
-<section id="résultat-un-pipeline-reproductible" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="résultat-un-pipeline-reproductible" class="slide level2">
 <h2>Résultat : un pipeline reproductible</h2>
 
 <img data-src="img/ML-model-lifecycle.png" class="r-stretch quarto-figure-center"><p class="caption">Source: <a href="martinfowler.com">martinfowler.com</a></p></section></section>
 <section>
-<section id="application-3" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<section id="application-3" class="title-slide slide level1 center">
 <h1>Application</h1>
 
 </section>
-<section id="mlops-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="mlops-1" class="slide level2">
 <h2>MLOps</h2>
 <ul>
 <li class="fragment">Consignes sur le <a href="https://ensae-reproductibilite.github.io/website/chapters/application.html">site du cours</a>
@@ -2015,7 +2015,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </section></section>
-<section id="conclusion-1" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<section id="conclusion-1" class="title-slide slide level1 center">
 <h1>Conclusion</h1>
 <ul>
 <li class="fragment">La <span class="orange"><strong>mise en production</strong></span> met en lumière le <span class="orange"><strong>rôle d’interface</strong></span>
