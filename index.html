@@ -871,14 +871,14 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <figcaption>Source : <a href="https://motherduck.com/blog/big-data-is-dead/">motherduck.com</a></figcaption>
 </figure>
 </div>
+<ul>
+<li class="fragment">Conclusion : tout le monde a besoin d’une <span class="orange"><strong>infrastructure <em>big data</em></strong></span> ? 🤔</li>
+</ul>
 </section>
 <section id="enjeux-2" class="slide level2">
 <h2>Enjeux</h2>
 <ul>
-<li class="fragment">Tendance à la <span class="orange"><strong>massification</strong></span> des données
-<ul>
-<li class="fragment">Relatif aux <span class="blue2"><strong>capacités de stockage et de traitement</strong></span></li>
-</ul></li>
+<li class="fragment">Tendance à la <span class="orange"><strong>massification</strong></span> des données</li>
 </ul>
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
@@ -889,18 +889,24 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="choisir-des-technologies-adaptées" class="slide level2">
-<h2>Choisir des technologies adaptées</h2>
-<p><span class="emoji" data-emoji="one">1️⃣</span> <span class="orange"><strong>Infrastructures</strong></span> de données</p>
-<div class="fragment">
-<p><span class="emoji" data-emoji="two">2️⃣</span> <span class="orange"><strong>Formats</strong></span> de données</p>
-</div>
-<div class="fragment">
-<p><span class="emoji" data-emoji="three">3️⃣</span> <span class="orange"><strong><em>Frameworks</em></strong></span> de traitement de données</p>
-</div>
+<section id="enjeux-3" class="slide level2">
+<h2>Enjeux</h2>
+<ul>
+<li class="fragment">Nécessité de bien distinguer :
+<ul>
+<li class="fragment"><span class="blue2"><strong><em>Storage</em></strong></span> : qu’est-ce que l’on stocke et comment ?</li>
+<li class="fragment"><span class="blue2"><strong><em>Compute</em></strong></span> : qu’est-ce que l’on calcule et où ?</li>
+</ul></li>
+<li class="fragment">Evolutions des <span class="orange"><strong>infrastructures de données</strong></span> :
+<ul>
+<li class="fragment"><span class="blue2"><strong>Bases de données</strong></span> : couplage fort, scalabilité verticale</li>
+<li class="fragment"><span class="blue2"><strong>Infrastructures <em>big data</em></strong></span> : couplage fort, scalabilité horizontale</li>
+<li class="fragment"><span class="blue2"><strong>Infrastructures <em>cloud</em></strong></span> : couplage faible, scalabilité hybride</li>
+</ul></li>
+</ul>
 </section>
-<section id="infrastructures-historique" class="slide level2 scrollable">
-<h2><span class="emoji" data-emoji="one">1️⃣</span> Infrastructures : historique</h2>
+<section id="a-lorigine-les-bases-de-données" class="slide level2">
+<h2><span class="emoji" data-emoji="one">1️⃣</span> A l’origine : les bases de données</h2>
 <ul>
 <li class="fragment"><p>Historiquement : stockage dans des <span class="orange"><strong>bases de données</strong></span></p></li>
 <li class="fragment"><p>80’s : essor des <a href="https://fr.wikipedia.org/wiki/Base_de_donn%C3%A9es_relationnelle">bases de données relationnelles</a></p>
@@ -911,7 +917,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/data-warehouse.png" height="250"></p>
+<p><img data-src="img/data-warehouse.png" height="300"></p>
 <figcaption>Source : <a href="https://corporatefinanceinstitute.com/resources/business-intelligence/data-warehousing/">corporatefinanceinstitute.com</a></figcaption>
 </figure>
 </div>
@@ -920,16 +926,24 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <section id="limite-des-data-warehouses" class="slide level2">
 <h2><span class="emoji" data-emoji="one">1️⃣</span> Limite des <em>data warehouses</em></h2>
 <ul>
-<li class="fragment">Peu adaptées aux données <em>big data</em>
+<li class="fragment">Peu adaptées aux <span class="orange"><strong>données <em>big data</em></strong></span>
 <ul>
-<li class="fragment">Passage à l’échelle <span class="blue2"><strong>coûteux</strong></span></li>
 <li class="fragment">Limitées aux <span class="blue2"><strong>données structurées</strong></span></li>
+<li class="fragment">Nécessiter de fixer un <span class="blue2"><strong>schéma a priori</strong></span></li>
+<li class="fragment">Passage à l’échelle <span class="blue2"><strong>coûteux</strong></span></li>
 </ul></li>
-<li class="fragment">2010’s : modèle du <span class="orange"><strong><em>data lake</em></strong></span></li>
 </ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/vertical-scaling-pgsql.png" height="250"></p>
+<figcaption>Source : <a href="https://dev.to/yugabyte/horizontal-scaling-vs-vertical-scaling-for-sql-what-s-the-difference-kn2">https://dev.to</a></figcaption>
+</figure>
+</div>
+</div>
 </section>
-<section id="le-data-lake" class="slide level2 scrollable">
-<h2><span class="emoji" data-emoji="one">1️⃣</span> Le <em>data lake</em></h2>
+<section id="infrastructures-big-data" class="slide level2 scrollable">
+<h2><span class="emoji" data-emoji="two">2️⃣</span> Infrastructures <em>big data</em></h2>
 <ul>
 <li class="fragment">Un stockage <span class="orange"><strong>peu coûteux</strong></span> fait pour des <span class="orange"><strong>données</strong></span>
 <ul>
@@ -941,14 +955,32 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/datalake.png" height="400"></p>
+<p><img data-src="img/datalake.png" height="300"></p>
 <figcaption>Source : <a href="https://www.qlik.com/us/data-lake">qlik.com</a></figcaption>
 </figure>
 </div>
 </div>
 </section>
-<section id="le-stockage-objet" class="slide level2">
-<h2><span class="emoji" data-emoji="one">1️⃣</span> Le stockage objet</h2>
+<section id="infrastructures-big-data-1" class="slide level2">
+<h2><span class="emoji" data-emoji="two">2️⃣</span> Infrastructures <em>big data</em></h2>
+<ul>
+<li class="fragment">Calcul <span class="blue2"><strong>distribué</strong></span> sur un <span class="blue2"><strong>cluster</strong></span> de machines
+<ul>
+<li class="fragment"><a href="https://spark.apache.org/">Spark</a></li>
+</ul></li>
+<li class="fragment">Base : <span class="blue2"><strong>paradigme MapReduce</strong></span></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/mapreduce.png" height="350"></p>
+<figcaption>Source : <a href="https://www3.nd.edu/~pbui/teaching/cse.30331.fa16/challenge11.html">nd.edu</a></figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="infrastructures-cloud" class="slide level2">
+<h2><span class="emoji" data-emoji="three">3️⃣</span> Infrastructures <em>cloud</em></h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Standard</strong></span> des <em>data lakes</em> dans le <span class="orange"><strong><em>cloud</em></strong></span>
 <ul>
@@ -1067,24 +1099,6 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="données-massives" class="slide level2">
-<h2><span class="emoji" data-emoji="three">3️⃣</span> Données massives</h2>
-<ul>
-<li class="fragment">Calcul <span class="blue2"><strong>distribué</strong></span> sur un <span class="blue2"><strong>cluster</strong></span> de machines
-<ul>
-<li class="fragment"><a href="https://spark.apache.org/">Spark</a></li>
-</ul></li>
-<li class="fragment">Base : <span class="blue2"><strong>paradigme MapReduce</strong></span></li>
-</ul>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/mapreduce.png" height="350"></p>
-<figcaption>Source : <a href="https://www3.nd.edu/~pbui/teaching/cse.30331.fa16/challenge11.html">nd.edu</a></figcaption>
-</figure>
-</div>
-</div>
-</section>
 <section id="en-résumé-pour-traiter-la-volumétrie" class="slide level2">
 <h2>En résumé : pour traiter la volumétrie</h2>
 <ul>
@@ -1105,12 +1119,24 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment">“Most people don’t have that much data”</li>
 <li class="fragment">“Most data is rarely queried”</li>
 </ul></li>
-<li class="fragment">Plaidoyer pour une <span class="orange"><strong>parcimonie</strong></span>…
+<li class="fragment">Plaidoyer pour un <span class="orange"><strong>découplage</strong></span>…
 <ul>
 <li class="fragment">… qui <span class="blue2"><strong>facilite la mise en production</strong></span> !</li>
 </ul></li>
 </ul>
-</section></section>
+</section>
+<section id="les-vertus-du-découplage" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Les vertus du découplage</h2>
+
+<img data-src="img/environment_messy.png" class="r-stretch"></section>
+<section id="les-vertus-du-découplage-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Les vertus du découplage</h2>
+
+<img data-src="img/environment_clean.png" class="r-stretch"></section>
+<section id="les-vertus-du-découplage-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Les vertus du découplage</h2>
+
+<img data-src="img/environment_cloud.png" class="r-stretch"></section></section>
 <section>
 <section id="portabilité" class="title-slide slide level1 center">
 <h1><span class="emoji" data-emoji="five">5️⃣</span> Portabilité</h1>

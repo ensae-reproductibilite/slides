@@ -270,49 +270,56 @@
     "href": "index.html#the-obligatory-intro-slide",
     "title": "Mise en production des projets de data science",
     "section": "“The obligatory intro slide”",
-    "text": "“The obligatory intro slide”\n\n\n\nSource : motherduck.com"
+    "text": "“The obligatory intro slide”\n\n\n\nSource : motherduck.com\n\n\n\nConclusion : tout le monde a besoin d’une infrastructure big data ? 🤔"
   },
   {
     "objectID": "index.html#enjeux-2",
     "href": "index.html#enjeux-2",
     "title": "Mise en production des projets de data science",
     "section": "Enjeux",
-    "text": "Enjeux\n\nTendance à la massification des données\n\nRelatif aux capacités de stockage et de traitement\n\n\n\n\n\n\nSource : AI with Python"
+    "text": "Enjeux\n\nTendance à la massification des données\n\n\n\n\n\nSource : AI with Python"
   },
   {
-    "objectID": "index.html#choisir-des-technologies-adaptées",
-    "href": "index.html#choisir-des-technologies-adaptées",
+    "objectID": "index.html#enjeux-3",
+    "href": "index.html#enjeux-3",
     "title": "Mise en production des projets de data science",
-    "section": "Choisir des technologies adaptées",
-    "text": "Choisir des technologies adaptées\n1️⃣ Infrastructures de données\n\n2️⃣ Formats de données\n\n\n3️⃣ Frameworks de traitement de données"
+    "section": "Enjeux",
+    "text": "Enjeux\n\nNécessité de bien distinguer :\n\nStorage : qu’est-ce que l’on stocke et comment ?\nCompute : qu’est-ce que l’on calcule et où ?\n\nEvolutions des infrastructures de données :\n\nBases de données : couplage fort, scalabilité verticale\nInfrastructures big data : couplage fort, scalabilité horizontale\nInfrastructures cloud : couplage faible, scalabilité hybride"
   },
   {
-    "objectID": "index.html#infrastructures-historique",
-    "href": "index.html#infrastructures-historique",
+    "objectID": "index.html#a-lorigine-les-bases-de-données",
+    "href": "index.html#a-lorigine-les-bases-de-données",
     "title": "Mise en production des projets de data science",
-    "section": "1️⃣ Infrastructures : historique",
-    "text": "1️⃣ Infrastructures : historique\n\nHistoriquement : stockage dans des bases de données\n80’s : essor des bases de données relationnelles\n\nModèle de la data warehouse\n\n\n\n\n\n\nSource : corporatefinanceinstitute.com"
+    "section": "1️⃣ A l’origine : les bases de données",
+    "text": "1️⃣ A l’origine : les bases de données\n\nHistoriquement : stockage dans des bases de données\n80’s : essor des bases de données relationnelles\n\nModèle de la data warehouse\n\n\n\n\n\n\nSource : corporatefinanceinstitute.com"
   },
   {
     "objectID": "index.html#limite-des-data-warehouses",
     "href": "index.html#limite-des-data-warehouses",
     "title": "Mise en production des projets de data science",
     "section": "1️⃣ Limite des data warehouses",
-    "text": "1️⃣ Limite des data warehouses\n\nPeu adaptées aux données big data\n\nPassage à l’échelle coûteux\nLimitées aux données structurées\n\n2010’s : modèle du data lake"
+    "text": "1️⃣ Limite des data warehouses\n\nPeu adaptées aux données big data\n\nLimitées aux données structurées\nNécessiter de fixer un schéma a priori\nPassage à l’échelle coûteux\n\n\n\n\n\n\nSource : https://dev.to"
   },
   {
-    "objectID": "index.html#le-data-lake",
-    "href": "index.html#le-data-lake",
+    "objectID": "index.html#infrastructures-big-data",
+    "href": "index.html#infrastructures-big-data",
     "title": "Mise en production des projets de data science",
-    "section": "1️⃣ Le data lake",
-    "text": "1️⃣ Le data lake\n\nUn stockage peu coûteux fait pour des données\n\nVolumineuses\nBrutes\nIssues de sources variées\n\n\n\n\n\n\nSource : qlik.com"
+    "section": "2️⃣ Infrastructures big data",
+    "text": "2️⃣ Infrastructures big data\n\nUn stockage peu coûteux fait pour des données\n\nVolumineuses\nBrutes\nIssues de sources variées\n\n\n\n\n\n\nSource : qlik.com"
   },
   {
-    "objectID": "index.html#le-stockage-objet",
-    "href": "index.html#le-stockage-objet",
+    "objectID": "index.html#infrastructures-big-data-1",
+    "href": "index.html#infrastructures-big-data-1",
     "title": "Mise en production des projets de data science",
-    "section": "1️⃣ Le stockage objet",
-    "text": "1️⃣ Le stockage objet\n\nStandard des data lakes dans le cloud\n\nImplémentation dominante : Amazon S3\nImplémentation open-source : MinIO\n\n\n\n\n\n\nSource : min.io"
+    "section": "2️⃣ Infrastructures big data",
+    "text": "2️⃣ Infrastructures big data\n\nCalcul distribué sur un cluster de machines\n\nSpark\n\nBase : paradigme MapReduce\n\n\n\n\n\nSource : nd.edu"
+  },
+  {
+    "objectID": "index.html#infrastructures-cloud",
+    "href": "index.html#infrastructures-cloud",
+    "title": "Mise en production des projets de data science",
+    "section": "3️⃣ Infrastructures cloud",
+    "text": "3️⃣ Infrastructures cloud\n\nStandard des data lakes dans le cloud\n\nImplémentation dominante : Amazon S3\nImplémentation open-source : MinIO\n\n\n\n\n\n\nSource : min.io"
   },
   {
     "objectID": "index.html#formats-de-données",
@@ -364,13 +371,6 @@
     "text": "3️⃣ Données volumineuses\n\nCalcul larger than memory optimisé\n\nArrow : orientation fichier (Parquet)\nDuckDB : orientation base de données (SQL)\n\nAutre avantage : interopérabilité\n\n\n\n\n\nSource : Arrow"
   },
   {
-    "objectID": "index.html#données-massives",
-    "href": "index.html#données-massives",
-    "title": "Mise en production des projets de data science",
-    "section": "3️⃣ Données massives",
-    "text": "3️⃣ Données massives\n\nCalcul distribué sur un cluster de machines\n\nSpark\n\nBase : paradigme MapReduce\n\n\n\n\n\nSource : nd.edu"
-  },
-  {
     "objectID": "index.html#en-résumé-pour-traiter-la-volumétrie",
     "href": "index.html#en-résumé-pour-traiter-la-volumétrie",
     "title": "Mise en production des projets de data science",
@@ -382,7 +382,28 @@
     "href": "index.html#big-data-is-dead",
     "title": "Mise en production des projets de data science",
     "section": "“Big Data is dead” ?",
-    "text": "“Big Data is dead” ?\n\nJordan Tigani : Big Data is dead\n\n“The big data frontier keeps receding”\n“Most people don’t have that much data”\n“Most data is rarely queried”\n\nPlaidoyer pour une parcimonie…\n\n… qui facilite la mise en production !"
+    "text": "“Big Data is dead” ?\n\nJordan Tigani : Big Data is dead\n\n“The big data frontier keeps receding”\n“Most people don’t have that much data”\n“Most data is rarely queried”\n\nPlaidoyer pour un découplage…\n\n… qui facilite la mise en production !"
+  },
+  {
+    "objectID": "index.html#les-vertus-du-découplage",
+    "href": "index.html#les-vertus-du-découplage",
+    "title": "Mise en production des projets de data science",
+    "section": "Les vertus du découplage",
+    "text": "Les vertus du découplage"
+  },
+  {
+    "objectID": "index.html#les-vertus-du-découplage-1",
+    "href": "index.html#les-vertus-du-découplage-1",
+    "title": "Mise en production des projets de data science",
+    "section": "Les vertus du découplage",
+    "text": "Les vertus du découplage"
+  },
+  {
+    "objectID": "index.html#les-vertus-du-découplage-2",
+    "href": "index.html#les-vertus-du-découplage-2",
+    "title": "Mise en production des projets de data science",
+    "section": "Les vertus du découplage",
+    "text": "Les vertus du découplage"
   },
   {
     "objectID": "index.html#it-works-on-my-machine",
