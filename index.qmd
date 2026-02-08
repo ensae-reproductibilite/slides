@@ -529,8 +529,6 @@ portion de code plus de deux fois ([**_don't repeat yourself_ (DRY)**]{.red2})
 
 ![Source : [motherduck.com](https://motherduck.com/blog/big-data-is-dead/)](img/intro-big-data.png){fig-align="center" height=400}
 
-- Conclusion : tout le monde a besoin d'une [**infrastructure *big data***]{.orange} ? 🤔
-
 ## Enjeux
 
 - Tendance à la [**massification**]{.orange} des données
@@ -557,66 +555,70 @@ portion de code plus de deux fois ([**_don't repeat yourself_ (DRY)**]{.red2})
 
 ![Source : [corporatefinanceinstitute.com](https://corporatefinanceinstitute.com/resources/business-intelligence/data-warehousing/)](img/data-warehouse.png){height="300" fig-align="center" .fragment}
 
-## :one: Limite des *data warehouses*
+## :one: Limites des *data warehouses*
 
 - Peu adaptées aux [**données *big data***]{.orange} 
     - Limitées aux [**données structurées**]{.blue2}
     - Nécessiter de fixer un [**schéma a priori**]{.blue2}
-    - Passage à l'échelle [**coûteux**]{.blue2}
+    - Passage à l'échelle coûteux : [**scalabilité verticale**]{.blue2}
 
 ![Source : [https://dev.to](https://dev.to/yugabyte/horizontal-scaling-vs-vertical-scaling-for-sql-what-s-the-difference-kn2)](img/vertical-scaling-pgsql.png){height="250" fig-align="center" .fragment}
 
-## :two: Infrastructures *big data* {.scrollable}
+## :two: L'arrivée du *data lake* (fin 2000's) {.scrollable}
 
 - Un stockage [**peu coûteux**]{.orange} fait pour des [**données**]{.orange}
   - [**Volumineuses**]{.blue2}
   - [**Brutes**]{.blue2}
-  - Issues de [**sources variées**]{.blue2}
+  - Sans [**structure définie a priori**]{.blue2}
 
 ![Source : [qlik.com](https://www.qlik.com/us/data-lake)](img/datalake.png){height="300" fig-align="center" .fragment}
 
-## :two: Infrastructures *big data*
+## :two: Infrastructures *big data* {.scrollable}
 
-- Calcul [**distribué**]{.blue2} sur un [**cluster**]{.blue2} de machines
-    - [Spark](https://spark.apache.org/)
+- Fin 2000's : une architecture de référence ([Hadoop](https://fr.wikipedia.org/wiki/Hadoop))
+    - Une [***data lake***]{.blue2} avec du [**stockage distribué**]{.blue2} (HDFS)
+    - Des [**frameworks de calcul distribué**]{.blue2} ([MapReduce](https://fr.wikipedia.org/wiki/MapReduce), [Spark](https://fr.wikipedia.org/wiki/Apache_Spark))
 
-- Base : [**paradigme MapReduce**]{.blue2}
+![Source : [glennklockwood.com](https://www.glennklockwood.com/data-intensive/hadoop/overview.html)](img/mapreduce-hdfs.png){fig-align="center" height="350" .fragment}
 
-![Source : [nd.edu](https://www3.nd.edu/~pbui/teaching/cse.30331.fa16/challenge11.html)](img/mapreduce.png){fig-align="center" height="350" .fragment}
+## :three: "Big Data is dead" ?
+
+- 2010's : déclin de popularité des infrastructures Hadoop
+    - Limite : [**co-localisation**]{.blue2} du stockage et du calcul
+
+- Jordan Tigani : [Big Data is dead](https://motherduck.com/blog/big-data-is-dead/)
+    - Besoins de [***storage***]{.blue2} >> besoins de [***compute***]{.blue2}
+
+![](img/tigani-compute-storage.png){height="330" fig-align="center" .fragment}
 
 ## :three: Infrastructures *cloud*
 
-- [**Standard**]{.orange} des *data lakes* dans le [***cloud***]{.orange}
-    - Implémentation dominante : [Amazon S3](https://aws.amazon.com/fr/s3/)
-    - Implémentation open-source : [MinIO](https://min.io/)
+- Fin 2010's : [**les technologies *cloud***]{.orange} permettent l'émergence d'architectures [**faiblement couplées**]{.orange}
+    - [***Storage***]{.blue2} : [***data lake***]{.blue2} basé sur du [**stockage objet**]{.blue2}
+    - [***Compute***]{.blue2} : des environnements de traitement élastiques aux besoins ([**conteneurs**]{.blue2})
 
-![Source : [min.io](https://min.io/)](img/minio.svg){height="300" fig-align="center" .fragment}
+![](img/environment_cloud.png){height="300" fig-align="center" .fragment}
 
-## :two: Formats de données
+## :three: La frontière du *big data* se décale
 
-::: {.incremental}
-- Le choix d'un format de données répond à un [**arbitrage**]{.orange} entre plusieurs critères :
-    - [**Public cible**]{.blue2}
-    - [**Finalité**]{.blue2} (traitement, analyse, diffusion)
-    - [**Volumétrie**]{.blue2}
-    - [**Interopérabilité**]{.blue2}
-:::
+- [**Innovations matérielles**]{.orange} (serveurs, CPUs, RAM)
 
-## :two: Limites des formats usuels
+- [**Formats de données**]{.orange} plus efficients ([**Parquet**]{.orange})
 
-- Les [**formats usuels**]{.orange} (`CSV`, `JSON`, `XML`) sont utiles pour :
-    - Le traitement de [**faibles volumes**]{.blue2} de données
-    - La [**diffusion**]{.blue2} de données
+- Des outils de [**traitement *larger-than-memory***]{.orange}
 
-- [**Limités**]{.orange} pour le traitement de [**données volumineuses**]{.orange}
-  - [**Non-compressés**]{.blue2} : espace disque élevé
-  - [**Orientés ligne**]{.blue2} : peu adaptés aux traitements analytiques
+![](img/tigani-big-data-frontier.png){height="330" fig-align="center" .fragment}
 
-## :two: Orientation ligne vs. orientation colonne {.scrollable}
+## :three: Le format `CSV`
 
-![Source : [towardsdatascience.com](https://towardsdatascience.com/demystifying-the-parquet-file-format-13adb0206705)](img/row-column.png){height="350" fig-align="center"}
+- Le format usuel pour les [**données tabulaires**]{.orange} est le `CSV`
+    - Facilement [**lisible**]{.blue2} 
+    - [**Non-compressé**]{.blue2} : espace disque élevé
+    - [**Orienté ligne**]{.blue2} : mal adapté aux traitements analytiques
 
-## :two: `Parquet` : propriétés
+![](img/columnar-storage.png){height="300" fig-align="center" .fragment}
+
+## :three: Le format `Parquet` : propriétés
 
 - [**Orienté colonne**]{.orange}
   - Adapté aux [**traitements analytiques**]{.blue2}
@@ -629,60 +631,43 @@ portion de code plus de deux fois ([**_don't repeat yourself_ (DRY)**]{.red2})
 - [**Interopérable**]{.orange}
     - Gestion native des [**méta-données**]{.blue2}
 
-## :two: `Parquet` : partitionnement
+## :three: `Parquet` : partitionnement
 
 - [**Division en blocs**]{.orange} des données selon un [**critère**]{.orange}
-  - [**Optimise la lecture**]{.blue2} pour certaines *queries*
+  - [**Optimise la lecture**]{.blue2} pour certaines requêtes
 
-![Source : [datio.com](https://www.datio.com/iaas/understanding-the-data-partitioning-technique/)](img/partitions.png){fig-align="center" .fragment}
+![](img/parquet-partition.png){height="400" fig-align="center" .fragment}
 
-## :three: Traitement *in-memory*
+## :three: Traitement en mémoire
 
 - `Parquet` ne résout pas tout
   - L'espace disque est optimisé
   - Les données décompressées doivent [**passer en RAM**]{.blue2}
 
-- Le *framework* adapté dépend de la [**volumétrie**]{.orange}
-
-## :three: Données volumineuses
+## :three: Traitement *larger-than-memory*
 
 - Calcul [***larger than memory* optimisé**]{.blue2}
     - [Arrow](https://arrow.apache.org/overview/) : orientation fichier (`Parquet`)
     - [DuckDB](https://duckdb.org/) : orientation base de données (`SQL`)
 
-- Autre avantage : [**interopérabilité**]{.blue2}
+- Principes communs : 
+    - [**Orientation colonne**]{.blue2} : synergie avec `Parquet`
+    - [**Lazy evaluation**]{.blue2} : très efficient en données
 
-![Source : [Arrow](https://arrow.apache.org/overview/)](img/arrow-interoperability.png){fig-align="center" .fragment}
+## :three: `DuckDB` : un connecteur fortement interopérable
 
-## En résumé : pour traiter la volumétrie
+![](img/duckdb-intero.png){height="500" fig-align="center" .fragment}
+
+## Résumé : pour traiter la volumétrie
+
+- Choisir une [**infrastructure**]{.orange} adaptée aux besoins
+    - Les [**technologies *cloud***]{.blue2} offrent un très bon compromis coût / flexibilité
 
 - Utiliser un [**format**]{.orange} de données adapté (`Parquet`)
 
-- Utiliser des [**outils**]{.orange} informatiques adaptés
-  - Suffisant la plupart du temps : [**calcul *larger than memory* optimisé**]{.blue2} (`Arrow` / `DuckDB`)
+- Utiliser des [**outils**]{.orange} de traitement adaptés
+  - Suffisant la plupart du temps : [**calcul *larger than memory* optimisé**]{.blue2} (`DuckDB`)
   - Si volumétrie massive : [**calcul distribué**]{.blue2} (`Spark`)
-
-## "Big Data is dead" ?
-
-- Jordan Tigani : [Big Data is dead](https://motherduck.com/blog/big-data-is-dead/)
-    - "The big data frontier keeps receding"
-    - "Most people don't have that much data"
-    - "Most data is rarely queried"
-
-- Plaidoyer pour un [**découplage**]{.orange}...
-    - ... qui [**facilite la mise en production**]{.blue2} !
-
-## Les vertus du découplage {auto-animate=true}
-
-![](img/environment_messy.png)
-
-## Les vertus du découplage {auto-animate=true}
-
-![](img/environment_clean.png)
-
-## Les vertus du découplage {auto-animate=true}
-
-![](img/environment_cloud.png)
 
 # :five: Portabilité
 
