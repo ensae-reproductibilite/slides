@@ -638,11 +638,16 @@ portion de code plus de deux fois ([**_don't repeat yourself_ (DRY)**]{.red2})
 
 ![](img/parquet-partition.png){height="400" fig-align="center" .fragment}
 
-## :three: Traitement en mémoire
+## :three: Traitement *in-memory*
 
 - `Parquet` ne résout pas tout
   - L'espace disque est optimisé
   - Les données décompressées doivent [**passer en RAM**]{.blue2}
+
+- Avec un *framework* traditionnel de [**calcul en mémoire**]{.orange} (`Pandas`, `dplyr` en `R`, etc.)
+    - [**Gain en lecture**]{.blue2} grâce à la compression `Parquet`
+    - Obligé de charger [**l'ensemble du fichier en mémoire**]{.blue2}
+    - [**Perte de l'avantage de la structure en colonne**]{.blue2}
 
 ## :three: Traitement *larger-than-memory*
 
@@ -654,7 +659,9 @@ portion de code plus de deux fois ([**_don't repeat yourself_ (DRY)**]{.red2})
     - [**Orientation colonne**]{.blue2} : synergie avec `Parquet`
     - [**Lazy evaluation**]{.blue2} : très efficient en données
 
-## :three: `DuckDB` : un connecteur fortement interopérable
+![](img/parquet-read-columns.png){height="200" fig-align="center" .fragment}
+
+## :three: `DuckDB` : un connecteur interopérable entre sources de données
 
 ![](img/duckdb-intero.png){height="500" fig-align="center" .fragment}
 
