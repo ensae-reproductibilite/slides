@@ -392,81 +392,88 @@
     "text": "“It works… on my machine”\n\nOn a construit un projet lisible, structuré et versionné\nPeut-on partager notre projet ?\n\nEn théorie, oui !\nEn pratique, c’est toujours plus compliqué…\n\n\n\n\n\n\nSource : simply-the-test.blogspot.com"
   },
   {
+    "objectID": "index.html#pourquoi-se-préoccuper-de-portabilité",
+    "href": "index.html#pourquoi-se-préoccuper-de-portabilité",
+    "title": "Mise en production des projets de data science",
+    "section": "Pourquoi se préoccuper de portabilité ?",
+    "text": "Pourquoi se préoccuper de portabilité ?\n\nConsidérons un workflow standard de data science\n\nInstaller une distribution de Python sur son poste\nDévelopper un projet en installant les packages nécessaires\nPasser au projet suivant et ainsi de suite\n\nQuels problèmes peuvent se poser ?"
+  },
+  {
+    "objectID": "index.html#pourquoi-se-préoccuper-de-portabilité-1",
+    "href": "index.html#pourquoi-se-préoccuper-de-portabilité-1",
+    "title": "Mise en production des projets de data science",
+    "section": "Pourquoi se préoccuper de portabilité ?",
+    "text": "Pourquoi se préoccuper de portabilité ?\n\nConflits de version : différents projets peuvent requérir des versions différentes d’un même package\nVersion de Python fixe, celle de l’installation système\nReproductibilité limitée : difficile de dire quel projet nécessite quel package\nPortabilité limitée : difficile de fixer dans un fichier les dépendances spécifiques à un projet"
+  },
+  {
     "objectID": "index.html#le-critère-de-la-portabilité",
     "href": "index.html#le-critère-de-la-portabilité",
     "title": "Mise en production des projets de data science",
     "section": "Le critère de la portabilité",
-    "text": "Le critère de la portabilité\n\nUn code ne vit jamais dans une bulle isolée, il contient en général de nombreuses adhérences\n\nDes dépendances\nDes librairies système\n\nUn code est portable s’il peut être exécuté dans un environnement différent que celui du développement"
-  },
-  {
-    "objectID": "index.html#limites-du-mode-de-travail-usuel",
-    "href": "index.html#limites-du-mode-de-travail-usuel",
-    "title": "Mise en production des projets de data science",
-    "section": "Limites du mode de travail usuel",
-    "text": "Limites du mode de travail usuel\n\nWorkflow classique\n\nInstaller une distribution de Python sur son poste\nDévelopper un projet en installant les packages nécessaires\nPasser au projet suivant et ainsi de suite\n\nQuels problèmes peuvent se poser ?"
-  },
-  {
-    "objectID": "index.html#limites-du-mode-de-travail-usuel-1",
-    "href": "index.html#limites-du-mode-de-travail-usuel-1",
-    "title": "Mise en production des projets de data science",
-    "section": "Limites du mode de travail usuel",
-    "text": "Limites du mode de travail usuel\n\nConflits de version : différents projets peuvent requérir des versions différentes d’un même package\nVersion de Python fixe, celle de l’installation système\nReproductibilité limitée : difficile de dire quel projet nécessite quel package\nPortabilité limitée : difficile de fixer dans un fichier les dépendances spécifiques à un projet"
+    "text": "Le critère de la portabilité\n\nUn code n’est pas auto-suffisant, il contient en général de nombreuses adhérences\n\nUn langage de programmation et sa version\nDes dépendances\nDes librairies système\n\nPortabilité : capacité d’un code à s’exécuter dans un environnement différent que celui de développement\n\nEnjeu central de la mise en production !"
   },
   {
     "objectID": "index.html#comment-favoriser-la-portabilité",
     "href": "index.html#comment-favoriser-la-portabilité",
     "title": "Mise en production des projets de data science",
     "section": "Comment favoriser la portabilité ?",
-    "text": "Comment favoriser la portabilité ?\n\nEnjeu central pour la mise en production\n\nPasser d’un environnement de développement à un environnement de production\n\nBesoin de nouveaux outils\n\nLes environnements virtuels\nLes conteneurs"
+    "text": "Comment favoriser la portabilité ?\n\nConstuire des “bulles” plus ou moins isolées autour de son projet afin de packager l’environnement nécessaire\nDes outils dédiés :\n\nLes environnements virtuels : très simples à prendre en main, portabilité moyenne\nLes conteneurs : plus complexes d’utilisation, portabilité maximale"
   },
   {
     "objectID": "index.html#environnements-virtuels-fonctionnement",
     "href": "index.html#environnements-virtuels-fonctionnement",
     "title": "Mise en production des projets de data science",
     "section": "Environnements virtuels : fonctionnement",
-    "text": "Environnements virtuels : fonctionnement\n\nDossier auto-suffisant qui :\n\ncontient un intepréteur Python et des packages\nest isolé des autres environnements existants\n\n\n\n\n\n\nSource : dataquest.io"
+    "text": "Environnements virtuels : fonctionnement\n\nDossier “auto-suffisant” qui :\n\ncontient un intepréteur Python et des packages\nest isolé des autres environnements existants\n\n\n\n\n\n\nSource : dataquest.io"
   },
   {
     "objectID": "index.html#environnements-virtuels-implémentations",
     "href": "index.html#environnements-virtuels-implémentations",
     "title": "Mise en production des projets de data science",
     "section": "Environnements virtuels : implémentations",
-    "text": "Environnements virtuels : implémentations\n\nImplémentation standard : venv\nUne implémentation populaire en data science : conda\n\nÉgalement un package manager (comme pip, mais multi-langages)\n\nD’autres implémentations existent : virtualenv, pyenv…"
+    "text": "Environnements virtuels : implémentations\n\nImplémentation standard de Python : venv\n\nIl en existe bien d’autres (virtualenv, pipenv, etc.)\n\nTrès lié au mode d’installation des packages\n\nPython “standard” : venv + pip\nLimites :\n\nLenteur de la résolution des dépendances\nDépendance à la version système de Python\n\n\nUne implémentation qui monte très (très) vite : uv"
   },
   {
-    "objectID": "index.html#venv-utilisation",
-    "href": "index.html#venv-utilisation",
+    "objectID": "index.html#uv-un-outil-pour-les-gouverner-tous",
+    "href": "index.html#uv-un-outil-pour-les-gouverner-tous",
     "title": "Mise en production des projets de data science",
-    "section": "venv : utilisation",
-    "text": "venv : utilisation\n\nvenv fait partie de la librairie standard de Python\nUtilisation basique (sous Linux)\n\nCréer un environnement : python -m venv myenv\nActiver l’environnement : source myenv/bin/activate\nInstaller des packages : pip install scikit-learn\nQuitter l’environnement : deactivate"
+    "section": "uv : un outil pour les gouverner tous",
+    "text": "uv : un outil pour les gouverner tous\n\n\n\n\nSource : alpopkes.com"
   },
   {
-    "objectID": "index.html#spécifier-les-dépendances",
-    "href": "index.html#spécifier-les-dépendances",
+    "objectID": "index.html#uv-utilisation",
+    "href": "index.html#uv-utilisation",
     "title": "Mise en production des projets de data science",
-    "section": "Spécifier les dépendances",
-    "text": "Spécifier les dépendances\n\nDévelopper dans un environnement virtuel favorise :\n\nla reproductibilité : fixer les packages utilisés et leurs versions\nla portabilité : distribuer ces spécifications\n\nConvention : fichier requirements.txt à la racine du projet (à commit !)\n\nGénération : pip freeze &gt; requirements.txt\nInstallation : pip install -r requirements.txt"
+    "section": "uv : utilisation",
+    "text": "uv : utilisation\n\nInitialiser un projet : uv init &lt;nom_du_projet&gt;\n\nGénère une structure de projet\n\nInstaller un package : uv add scikit-learn\n\nGénère automatiquement un environnement virtuel (venv)\n\nExécuter un script : uv run script.py\n\nLe script est exécuté avec l’interpéteur Python de l’environnement virtuel"
   },
   {
-    "objectID": "index.html#le-fichier-requirements.txt",
-    "href": "index.html#le-fichier-requirements.txt",
+    "objectID": "index.html#spécifier-lenvironnement-du-projet",
+    "href": "index.html#spécifier-lenvironnement-du-projet",
     "title": "Mise en production des projets de data science",
-    "section": "Le fichier requirements.txt",
-    "text": "Le fichier requirements.txt\nbeautifulsoup4==4.12.3\nexpecttest!=0.2.0\nnetworkx&gt;=3.0.0\nnumpy\npandas\n\nArbitrage à trouver entre :\n\nReproductibilité : spécifier finement les versions\nSécurité : laisser les versions évoluer"
+    "section": "Spécifier l’environnement du projet",
+    "text": "Spécifier l’environnement du projet\n\nDévelopper dans un environnement virtuel est une bonne pratique\nFavorise la reproductibilité\n\nA chaque installation d’un package, uv met à jour le fichier uv.lock qui spécifie toutes les dépendances\nuv sync -&gt; recrée l’environnement complet\n\nFavorise la portabilité\n\nA chaque installation d’un package, uv maj le fichier pyproject.yaml qui spécifie les packages nécessaires\nA commit sur Git pour distribuer la “recette” de l’environnement"
+  },
+  {
+    "objectID": "index.html#faire-évoluer-les-versions",
+    "href": "index.html#faire-évoluer-les-versions",
+    "title": "Mise en production des projets de data science",
+    "section": "Faire évoluer les versions",
+    "text": "Faire évoluer les versions\n\nArbitrage à trouver entre :\n\nReproductibilité : spécifier finement les versions\nFonctionnalités et sécurité : faire évoluer les versions"
   },
   {
     "objectID": "index.html#environnements-virtuels-limites",
     "href": "index.html#environnements-virtuels-limites",
     "title": "Mise en production des projets de data science",
     "section": "Environnements virtuels : limites",
-    "text": "Environnements virtuels : limites\n\nReproductibilité :\n\nVersion de Python non-gérée\nLibrairies système non-gérées\n\nPeu adaptés aux environnements de production :\n\nReproductibilité limitée -&gt; portabilité limitée\nLourdeur de gestion des environnements"
+    "text": "Environnements virtuels : limites\n\nLimités au langage de programmation et ses packages :\n\nPas de gestion des librairies système qui dépendent du système d’exploitation\nNon adaptés à des projets multi-langages\n\nLes environnements virtuels facilitent la portabilité, mais ne suffisent pas à la garantir"
   },
   {
     "objectID": "index.html#le-gold-standard-de-la-portabilité",
     "href": "index.html#le-gold-standard-de-la-portabilité",
     "title": "Mise en production des projets de data science",
     "section": "Le gold-standard de la portabilité",
-    "text": "Le gold-standard de la portabilité\n\nIdée : au lieu de distribuer la recette pour recréer la bonne machine, peut-on distribuer directement la bonne machine ?\n\nOn ne peut pas distribuer des machines physiques\nLes machines virtuelles sont coûteuses à redistribuer\n\nLes conteneurs offrent le compromis idéal"
+    "text": "Le gold-standard de la portabilité\n\nAu lieu de distribuer la recette pour recréer la bonne machine, peut-on distribuer directement la bonne machine ?\n\nIdée 1 : distribuer des machines physiques : complexe…\nIdée 2 : distribuer des machines virtuelles : possible mais coûteux\n\nLes conteneurs offrent le compromis idéal\n\nIsolation complète de l’environnement\nRelativement légers et donc facilement redistribuables"
   },
   {
     "objectID": "index.html#conteneurs-vs.-machines-virtuelles",
@@ -494,7 +501,7 @@
     "href": "index.html#le-dockerfile",
     "title": "Mise en production des projets de data science",
     "section": "Le Dockerfile",
-    "text": "Le Dockerfile\n\nExemple : conteneurisation d’une API avec FastAPI\n\n\n# Image Docker de base\nFROM python:3.11\n\n# Définition du répertoire de travail\nWORKDIR /code\n\n# Copie des fichiers nécessaires sur l'image\nCOPY requirements.txt /code/requirements.txt\n\n# Installation des dépendances\nRUN pip install --no-cache-dir --upgrade -r /code/requirements.txt && \\\n    python -m spacy download en_core_web_sm\n\nCOPY app/ code/app\n\n# Commande lancée par l'image au runtime\nCMD [\"uvicorn\", \"app.main:app\", \"--host\", \"0.0.0.0\", \"--port\", \"80\", \"--proxy-headers\"]"
+    "text": "Le Dockerfile\n\nExemple : conteneurisation d’une API avec FastAPI\n\n\nFROM ubuntu:20.04\n\nRUN apt-get update -y && \\\n    apt-get install -y python3-pip python3-dev\n\nWORKDIR /app\n\nCOPY requirements.txt /app/requirements.txt\nRUN pip install -r requirements.txt\n\nCOPY . /app\n\nENV FLASK_APP=\"my-app.py\"\nEXPOSE 5000\n\nCMD [\"flask\", \"run\", \"--host=0.0.0.0\"]"
   },
   {
     "objectID": "index.html#docker-fonctionnement",

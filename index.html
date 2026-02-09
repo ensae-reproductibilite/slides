@@ -1154,21 +1154,10 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="le-critère-de-la-portabilité" class="slide level2">
-<h2>Le critère de la portabilité</h2>
+<section id="pourquoi-se-préoccuper-de-portabilité" class="slide level2">
+<h2>Pourquoi se préoccuper de portabilité ?</h2>
 <ul>
-<li class="fragment">Un code ne vit jamais dans une bulle isolée, il contient en général de nombreuses <span class="orange"><strong>adhérences</strong></span>
-<ul>
-<li class="fragment">Des <span class="blue2"><strong>dépendances</strong></span></li>
-<li class="fragment">Des <span class="blue2"><strong>librairies système</strong></span></li>
-</ul></li>
-<li class="fragment">Un code est <span class="orange"><strong>portable</strong></span> s’il peut être exécuté dans un environnement différent que celui du développement</li>
-</ul>
-</section>
-<section id="limites-du-mode-de-travail-usuel" class="slide level2">
-<h2>Limites du mode de travail usuel</h2>
-<ul>
-<li class="fragment"><em>Workflow</em> <span class="orange"><strong>classique</strong></span>
+<li class="fragment">Considérons un <span class="orange"><strong><em>workflow</em> standard</strong></span> de <em>data science</em>
 <ul>
 <li class="fragment">Installer une distribution de <code>Python</code> sur son poste</li>
 <li class="fragment">Développer un projet en installant les packages nécessaires</li>
@@ -1177,8 +1166,8 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment">Quels <span class="orange"><strong>problèmes</strong></span> peuvent se poser ?</li>
 </ul>
 </section>
-<section id="limites-du-mode-de-travail-usuel-1" class="slide level2">
-<h2>Limites du mode de travail usuel</h2>
+<section id="pourquoi-se-préoccuper-de-portabilité-1" class="slide level2">
+<h2>Pourquoi se préoccuper de portabilité ?</h2>
 <ul>
 <li class="fragment"><p><span class="orange"><strong>Conflits de version</strong></span> : différents projets peuvent requérir des versions différentes d’un même <em>package</em></p></li>
 <li class="fragment"><p><span class="orange"><strong>Version de <code>Python</code> fixe</strong></span>, celle de l’installation système</p></li>
@@ -1186,24 +1175,36 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment"><p><span class="orange"><strong>Portabilité limitée</strong></span> : difficile de fixer dans un fichier les dépendances spécifiques à un projet</p></li>
 </ul>
 </section>
+<section id="le-critère-de-la-portabilité" class="slide level2">
+<h2>Le critère de la portabilité</h2>
+<ul>
+<li class="fragment">Un code n’est pas auto-suffisant, il contient en général de nombreuses <span class="orange"><strong>adhérences</strong></span>
+<ul>
+<li class="fragment">Un <span class="blue2"><strong>langage de programmation</strong></span> et sa <span class="blue2"><strong>version</strong></span></li>
+<li class="fragment">Des <span class="blue2"><strong>dépendances</strong></span></li>
+<li class="fragment">Des <span class="blue2"><strong>librairies système</strong></span></li>
+</ul></li>
+<li class="fragment"><span class="orange"><strong>Portabilité</strong></span> : capacité d’un code à s’exécuter dans un environnement différent que celui de développement
+<ul>
+<li class="fragment">Enjeu central de la <span class="blue2"><strong>mise en production</strong></span> !</li>
+</ul></li>
+</ul>
+</section>
 <section id="comment-favoriser-la-portabilité" class="slide level2">
 <h2>Comment favoriser la portabilité ?</h2>
 <ul>
-<li class="fragment">Enjeu central pour la <span class="orange"><strong>mise en production</strong></span>
+<li class="fragment"><p>Constuire des <span class="orange"><strong>“bulles” plus ou moins isolées</strong></span> autour de son projet afin de <span class="orange"><strong><em>packager</em> l’environnement</strong></span> nécessaire</p></li>
+<li class="fragment"><p>Des outils dédiés :</p>
 <ul>
-<li class="fragment">Passer d’un <span class="blue2"><strong>environnement de développement</strong></span> à un <span class="blue2"><strong>environnement de production</strong></span></li>
-</ul></li>
-<li class="fragment">Besoin de <span class="orange"><strong>nouveaux outils</strong></span>
-<ul>
-<li class="fragment">Les <span class="blue2"><strong>environnements virtuels</strong></span></li>
-<li class="fragment">Les <span class="blue2"><strong>conteneurs</strong></span></li>
+<li class="fragment">Les <span class="blue2"><strong>environnements virtuels</strong></span> : très simples à prendre en main, <span class="blue2"><strong>portabilité moyenne</strong></span></li>
+<li class="fragment">Les <span class="blue2"><strong>conteneurs</strong></span> : plus complexes d’utilisation, <span class="blue2"><strong>portabilité maximale</strong></span></li>
 </ul></li>
 </ul>
 </section>
 <section id="environnements-virtuels-fonctionnement" class="slide level2 scrollable">
 <h2>Environnements virtuels : fonctionnement</h2>
 <ul>
-<li class="fragment"><span class="orange"><strong>Dossier auto-suffisant</strong></span> qui :
+<li class="fragment"><span class="orange"><strong>Dossier “auto-suffisant”</strong></span> qui :
 <ul>
 <li class="fragment">contient un <span class="blue2"><strong>intepréteur</strong></span> <code>Python</code> et des <span class="blue2"><strong>packages</strong></span></li>
 <li class="fragment">est <span class="orange"><strong>isolé</strong></span> des autres environnements existants</li>
@@ -1221,81 +1222,100 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <section id="environnements-virtuels-implémentations" class="slide level2">
 <h2>Environnements virtuels : implémentations</h2>
 <ul>
-<li class="fragment"><p>Implémentation standard : <a href="https://docs.python.org/fr/3/library/venv.html">venv</a></p></li>
-<li class="fragment"><p>Une implémentation populaire en data science : <a href="https://docs.conda.io/en/latest/">conda</a></p>
+<li class="fragment"><span class="orange"><strong>Implémentation standard</strong></span> de <code>Python</code> : <a href="https://docs.python.org/fr/3/library/venv.html">venv</a>
 <ul>
-<li class="fragment">Également un <em>package manager</em> (comme <a href="https://pip.pypa.io/en/stable/getting-started/">pip</a>, mais multi-langages)</li>
+<li class="fragment">Il en existe bien d’autres (<code>virtualenv</code>, <code>pipenv</code>, etc.)</li>
 </ul></li>
-<li class="fragment"><p>D’autres implémentations existent : <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>, <a href="https://github.com/pyenv/pyenv">pyenv</a>…</p></li>
+<li class="fragment">Très lié au <span class="orange"><strong>mode d’installation des <em>packages</em></strong></span>
+<ul>
+<li class="fragment">Python “standard” : <code>venv</code> + <code>pip</code></li>
+<li class="fragment">Limites :
+<ul>
+<li class="fragment">Lenteur de la <span class="blue2"><strong>résolution des dépendances</strong></span></li>
+<li class="fragment">Dépendance à la version système de <code>Python</code></li>
+</ul></li>
+</ul></li>
+<li class="fragment"><span class="orange"><strong>Une implémentation qui monte</strong></span> très (très) vite : <a href="https://docs.astral.sh/uv/">uv</a></li>
 </ul>
 </section>
-<section id="venv-utilisation" class="slide level2">
-<h2><code>venv</code> : utilisation</h2>
+<section id="uv-un-outil-pour-les-gouverner-tous" class="slide level2">
+<h2><code>uv</code> : un outil pour les gouverner tous</h2>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/uv-venn.png" height="500"></p>
+<figcaption>Source : <a href="https://alpopkes.com/posts/python/packaging_tools/?ref=blog.ippon.fr/">alpopkes.com</a></figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="uv-utilisation" class="slide level2">
+<h2><code>uv</code> : utilisation</h2>
 <ul>
-<li class="fragment"><p><code>venv</code> fait partie de la librairie standard de <code>Python</code></p></li>
-<li class="fragment"><p>Utilisation basique (sous <code>Linux</code>)</p>
+<li class="fragment"><span class="orange"><strong>Initialiser</strong></span> un projet : <code>uv init &lt;nom_du_projet&gt;</code>
 <ul>
-<li class="fragment"><span class="orange"><strong>Créer</strong></span> un environnement : <code>python -m venv myenv</code></li>
-<li class="fragment"><span class="orange"><strong>Activer</strong></span> l’environnement : <code>source myenv/bin/activate</code></li>
-<li class="fragment"><span class="orange"><strong>Installer</strong></span> des packages : <code>pip install scikit-learn</code></li>
-<li class="fragment"><span class="orange"><strong>Quitter</strong></span> l’environnement : <code>deactivate</code></li>
+<li class="fragment">Génère une <span class="blue2"><strong>structure de projet</strong></span></li>
+</ul></li>
+<li class="fragment"><span class="orange"><strong>Installer</strong></span> un package : <code>uv add scikit-learn</code>
+<ul>
+<li class="fragment">Génère automatiquement un <span class="blue2"><strong>environnement virtuel</strong></span> (<code>venv</code>)</li>
+</ul></li>
+<li class="fragment"><span class="orange"><strong>Exécuter</strong></span> un script : <code>uv run script.py</code>
+<ul>
+<li class="fragment">Le script est exécuté avec l’interpéteur <code>Python</code> <span class="blue2"><strong>de l’environnement virtuel</strong></span></li>
 </ul></li>
 </ul>
 </section>
-<section id="spécifier-les-dépendances" class="slide level2">
-<h2>Spécifier les dépendances</h2>
+<section id="spécifier-lenvironnement-du-projet" class="slide level2">
+<h2>Spécifier l’environnement du projet</h2>
 <ul>
-<li class="fragment">Développer dans un <span class="orange"><strong>environnement virtuel</strong></span> favorise :
+<li class="fragment"><p>Développer dans un <span class="orange"><strong>environnement virtuel</strong></span> est une bonne pratique</p></li>
+<li class="fragment"><p>Favorise la <span class="orange"><strong>reproductibilité</strong></span></p>
 <ul>
-<li class="fragment">la <span class="blue2"><strong>reproductibilité</strong></span> : fixer les packages utilisés et leurs versions</li>
-<li class="fragment">la <span class="blue2"><strong>portabilité</strong></span> : distribuer ces spécifications</li>
+<li class="fragment">A chaque installation d’un <em>package</em>, <code>uv</code> met à jour le fichier <code>uv.lock</code> qui <span class="blue2"><strong>spécifie toutes les dépendances</strong></span></li>
+<li class="fragment"><code>uv sync</code> -&gt; <span class="blue2"><strong>recrée l’environnement complet</strong></span></li>
 </ul></li>
-<li class="fragment"><span class="orange"><strong>Convention</strong></span> : fichier <code>requirements.txt</code> à la <span class="blue2"><strong>racine</strong></span> du projet (à <em>commit</em> !)
+<li class="fragment"><p>Favorise la <span class="orange"><strong>portabilité</strong></span></p>
 <ul>
-<li class="fragment"><span class="blue2"><strong>Génération</strong></span> : <code>pip freeze &gt; requirements.txt</code></li>
-<li class="fragment"><span class="blue2"><strong>Installation</strong></span> : <code>pip install -r requirements.txt</code></li>
+<li class="fragment">A chaque installation d’un <em>package</em>, <code>uv</code> maj le fichier <code>pyproject.yaml</code> qui <span class="blue2"><strong>spécifie les <em>packages</em> nécessaires</strong></span></li>
+<li class="fragment">A <em>commit</em> sur <code>Git</code> pour <span class="blue2"><strong>distribuer la “recette” de l’environnement</strong></span></li>
 </ul></li>
 </ul>
 </section>
-<section id="le-fichier-requirements.txt" class="slide level2">
-<h2>Le fichier <code>requirements.txt</code></h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>beautifulsoup4<span class="op">==</span><span class="fl">4.12.3</span></span>
-<span id="cb4-2"><a></a>expecttest<span class="op">!=</span><span class="fl">0.2.0</span></span>
-<span id="cb4-3"><a></a>networkx<span class="op">&gt;=</span><span class="fl">3.0.0</span></span>
-<span id="cb4-4"><a></a>numpy</span>
-<span id="cb4-5"><a></a>pandas</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="faire-évoluer-les-versions" class="slide level2">
+<h2>Faire évoluer les versions</h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Arbitrage</strong></span> à trouver entre :
 <ul>
 <li class="fragment"><span class="blue2"><strong>Reproductibilité</strong></span> : <span class="blue2"><strong>spécifier</strong></span> finement les versions</li>
-<li class="fragment"><span class="blue2"><strong>Sécurité</strong></span> : laisser les versions <span class="blue2"><strong>évoluer</strong></span></li>
+<li class="fragment"><span class="blue2"><strong>Fonctionnalités et sécurité</strong></span> : faire <span class="blue2"><strong>évoluer</strong></span> les versions</li>
 </ul></li>
 </ul>
 </section>
 <section id="environnements-virtuels-limites" class="slide level2">
 <h2>Environnements virtuels : limites</h2>
 <ul>
-<li class="fragment"><span class="orange"><strong>Reproductibilité</strong></span> :
+<li class="fragment"><span class="orange"><strong>Limités au langage</strong></span> de programmation et ses <em>packages</em> :
 <ul>
-<li class="fragment"><span class="blue2"><strong>Version de <code>Python</code></strong></span> non-gérée</li>
-<li class="fragment"><span class="blue2"><strong>Librairies système</strong></span> non-gérées</li>
+<li class="fragment">Pas de gestion des <span class="blue2"><strong>librairies système</strong></span> qui dépendent du système d’exploitation</li>
+<li class="fragment">Non adaptés à des <span class="blue2"><strong>projets multi-langages</strong></span></li>
 </ul></li>
-<li class="fragment">Peu adaptés aux environnements de <span class="orange"><strong>production</strong></span> :
-<ul>
-<li class="fragment">Reproductibilité limitée -&gt; <span class="blue2"><strong>portabilité limitée</strong></span></li>
-<li class="fragment"><span class="blue2"><strong>Lourdeur</strong></span> de gestion des environnements</li>
-</ul></li>
+<li class="fragment">Les environnements virtuels <span class="orange"><strong>facilitent la portabilité, mais ne suffisent pas à la garantir</strong></span></li>
 </ul>
 </section>
 <section id="le-gold-standard-de-la-portabilité" class="slide level2">
 <h2>Le <em>gold-standard</em> de la portabilité</h2>
 <ul>
-<li class="fragment"><span class="orange"><strong>Idée</strong></span> : au lieu de distribuer la recette pour recréer la bonne machine, peut-on <span class="orange"><strong>distribuer directement la bonne machine</strong></span> ?
+<li class="fragment">Au lieu de distribuer la <span class="orange"><strong>recette</strong></span> pour recréer la bonne machine, peut-on <span class="orange"><strong>distribuer directement la bonne machine</strong></span> ?
 <ul>
-<li class="fragment">On ne peut pas distribuer des <span class="blue2"><strong>machines physiques</strong></span></li>
-<li class="fragment">Les <span class="blue2"><strong>machines virtuelles</strong></span> sont <span class="blue2"><strong>coûteuses</strong></span> à redistribuer</li>
+<li class="fragment">Idée 1 : distribuer des <span class="blue2"><strong>machines physiques</strong></span> : complexe…</li>
+<li class="fragment">Idée 2 : distribuer des <span class="blue2"><strong>machines virtuelles</strong></span> : possible mais coûteux</li>
 </ul></li>
-<li class="fragment">Les <span class="orange"><strong>conteneurs</strong></span> offrent le compromis idéal</li>
+<li class="fragment">Les <span class="orange"><strong>conteneurs</strong></span> offrent le compromis idéal
+<ul>
+<li class="fragment"><span class="blue2"><strong>Isolation complète</strong></span> de l’environnement</li>
+<li class="fragment">Relativement <span class="blue2"><strong>légers</strong></span> et donc facilement redistribuables</li>
+</ul></li>
 </ul>
 </section>
 <section id="conteneurs-vs.-machines-virtuelles" class="slide level2">
@@ -1341,23 +1361,22 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment">Exemple : <a href="https://fastapi.tiangolo.com/deployment/docker/">conteneurisation d’une API avec FastAPI</a></li>
 </ul>
 <div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource dockerfile number-lines code-with-copy"><code class="sourceCode dockerfile"><span id="cb5-1"><a></a><span class="co"># Image Docker de base</span></span>
-<span id="cb5-2"><a></a><span class="kw">FROM</span> python:3.11</span>
-<span id="cb5-3"><a></a></span>
-<span id="cb5-4"><a></a><span class="co"># Définition du répertoire de travail</span></span>
-<span id="cb5-5"><a></a><span class="kw">WORKDIR</span> /code</span>
-<span id="cb5-6"><a></a></span>
-<span id="cb5-7"><a></a><span class="co"># Copie des fichiers nécessaires sur l'image</span></span>
-<span id="cb5-8"><a></a><span class="kw">COPY</span> requirements.txt /code/requirements.txt</span>
-<span id="cb5-9"><a></a></span>
-<span id="cb5-10"><a></a><span class="co"># Installation des dépendances</span></span>
-<span id="cb5-11"><a></a><span class="kw">RUN</span> <span class="ex">pip</span> install <span class="at">--no-cache-dir</span> <span class="at">--upgrade</span> <span class="at">-r</span> /code/requirements.txt <span class="kw">&amp;&amp;</span> <span class="dt">\</span></span>
-<span id="cb5-12"><a></a>    <span class="ex">python</span> <span class="at">-m</span> spacy download en_core_web_sm</span>
-<span id="cb5-13"><a></a></span>
-<span id="cb5-14"><a></a><span class="kw">COPY</span> app/ code/app</span>
-<span id="cb5-15"><a></a></span>
-<span id="cb5-16"><a></a><span class="co"># Commande lancée par l'image au runtime</span></span>
-<span id="cb5-17"><a></a><span class="kw">CMD</span> [<span class="st">"uvicorn"</span>, <span class="st">"app.main:app"</span>, <span class="st">"--host"</span>, <span class="st">"0.0.0.0"</span>, <span class="st">"--port"</span>, <span class="st">"80"</span>, <span class="st">"--proxy-headers"</span>]</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource dockerfile scrollable number-lines code-with-copy"><code class="sourceCode dockerfile"><span id="cb4-1"><a></a><span class="kw">FROM</span> ubuntu:20.04</span>
+<span id="cb4-2"><a></a></span>
+<span id="cb4-3"><a></a><span class="kw">RUN</span> <span class="ex">apt-get</span> update <span class="at">-y</span> <span class="kw">&amp;&amp;</span> <span class="dt">\</span></span>
+<span id="cb4-4"><a></a>    <span class="ex">apt-get</span> install <span class="at">-y</span> python3-pip python3-dev</span>
+<span id="cb4-5"><a></a></span>
+<span id="cb4-6"><a></a><span class="kw">WORKDIR</span> /app</span>
+<span id="cb4-7"><a></a></span>
+<span id="cb4-8"><a></a><span class="kw">COPY</span> requirements.txt /app/requirements.txt</span>
+<span id="cb4-9"><a></a><span class="kw">RUN</span> <span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
+<span id="cb4-10"><a></a></span>
+<span id="cb4-11"><a></a><span class="kw">COPY</span> . /app</span>
+<span id="cb4-12"><a></a></span>
+<span id="cb4-13"><a></a><span class="kw">ENV</span> FLASK_APP=<span class="st">"my-app.py"</span></span>
+<span id="cb4-14"><a></a><span class="kw">EXPOSE</span> 5000</span>
+<span id="cb4-15"><a></a></span>
+<span id="cb4-16"><a></a><span class="kw">CMD</span> [<span class="st">"flask"</span>, <span class="st">"run"</span>, <span class="st">"--host=0.0.0.0"</span>]</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="docker-fonctionnement" class="slide level2">
@@ -1466,21 +1485,21 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 <div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a></a><span class="pp">---</span></span>
-<span id="cb6-2"><a></a><span class="fu">source</span><span class="kw">:</span><span class="at"> ambient-it.net</span></span>
-<span id="cb6-3"><a></a><span class="fu">domain</span><span class="kw">:</span></span>
-<span id="cb6-4"><a></a><span class="at"> </span><span class="kw">-</span><span class="at"> devops</span></span>
-<span id="cb6-5"><a></a><span class="fu">tutorial</span><span class="kw">:</span></span>
-<span id="cb6-6"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">yaml</span><span class="kw">:</span></span>
-<span id="cb6-7"><a></a><span class="at">      </span><span class="fu">name</span><span class="kw">:</span><span class="at"> YAML Ain't Markup Language</span></span>
-<span id="cb6-8"><a></a><span class="at">      </span><span class="fu">born</span><span class="kw">:</span><span class="at"> </span><span class="dv">2001</span></span>
-<span id="cb6-9"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">json</span><span class="kw">:</span></span>
-<span id="cb6-10"><a></a><span class="at">      </span><span class="fu">name</span><span class="kw">:</span><span class="at"> JavaScript Object Notation</span></span>
-<span id="cb6-11"><a></a><span class="at">      </span><span class="fu">born</span><span class="kw">:</span><span class="at"> </span><span class="dv">2001</span></span>
-<span id="cb6-12"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">xml</span><span class="kw">:</span></span>
-<span id="cb6-13"><a></a><span class="at">      </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Extensible Markup Language</span></span>
-<span id="cb6-14"><a></a><span class="at">      </span><span class="fu">born</span><span class="kw">:</span><span class="at"> </span><span class="dv">1996</span></span>
-<span id="cb6-15"><a></a><span class="pp">---</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="pp">---</span></span>
+<span id="cb5-2"><a></a><span class="fu">source</span><span class="kw">:</span><span class="at"> ambient-it.net</span></span>
+<span id="cb5-3"><a></a><span class="fu">domain</span><span class="kw">:</span></span>
+<span id="cb5-4"><a></a><span class="at"> </span><span class="kw">-</span><span class="at"> devops</span></span>
+<span id="cb5-5"><a></a><span class="fu">tutorial</span><span class="kw">:</span></span>
+<span id="cb5-6"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">yaml</span><span class="kw">:</span></span>
+<span id="cb5-7"><a></a><span class="at">      </span><span class="fu">name</span><span class="kw">:</span><span class="at"> YAML Ain't Markup Language</span></span>
+<span id="cb5-8"><a></a><span class="at">      </span><span class="fu">born</span><span class="kw">:</span><span class="at"> </span><span class="dv">2001</span></span>
+<span id="cb5-9"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">json</span><span class="kw">:</span></span>
+<span id="cb5-10"><a></a><span class="at">      </span><span class="fu">name</span><span class="kw">:</span><span class="at"> JavaScript Object Notation</span></span>
+<span id="cb5-11"><a></a><span class="at">      </span><span class="fu">born</span><span class="kw">:</span><span class="at"> </span><span class="dv">2001</span></span>
+<span id="cb5-12"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">xml</span><span class="kw">:</span></span>
+<span id="cb5-13"><a></a><span class="at">      </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Extensible Markup Language</span></span>
+<span id="cb5-14"><a></a><span class="at">      </span><span class="fu">born</span><span class="kw">:</span><span class="at"> </span><span class="dv">1996</span></span>
+<span id="cb5-15"><a></a><span class="pp">---</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="pourquoi-sintéresser-au-yaml" class="slide level2">
@@ -1497,16 +1516,16 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 <div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a></a><span class="fu">kind</span><span class="kw">:</span><span class="at"> Pod</span></span>
-<span id="cb7-2"><a></a><span class="fu">metadata</span><span class="kw">:</span></span>
-<span id="cb7-3"><a></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> my-api-pod</span></span>
-<span id="cb7-4"><a></a><span class="fu">spec</span><span class="kw">:</span></span>
-<span id="cb7-5"><a></a><span class="at">  </span><span class="fu">containers</span><span class="kw">:</span></span>
-<span id="cb7-6"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> api</span></span>
-<span id="cb7-7"><a></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> my_dh_account/my_fast_api:0.0.1</span></span>
-<span id="cb7-8"><a></a><span class="at">    </span><span class="fu">env</span><span class="kw">:</span></span>
-<span id="cb7-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> MODEL</span></span>
-<span id="cb7-10"><a></a><span class="at">      </span><span class="fu">value</span><span class="kw">:</span><span class="at"> deepseek-ai/DeepSeek-R1</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a></a><span class="fu">kind</span><span class="kw">:</span><span class="at"> Pod</span></span>
+<span id="cb6-2"><a></a><span class="fu">metadata</span><span class="kw">:</span></span>
+<span id="cb6-3"><a></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> my-api-pod</span></span>
+<span id="cb6-4"><a></a><span class="fu">spec</span><span class="kw">:</span></span>
+<span id="cb6-5"><a></a><span class="at">  </span><span class="fu">containers</span><span class="kw">:</span></span>
+<span id="cb6-6"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> api</span></span>
+<span id="cb6-7"><a></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> my_dh_account/my_fast_api:0.0.1</span></span>
+<span id="cb6-8"><a></a><span class="at">    </span><span class="fu">env</span><span class="kw">:</span></span>
+<span id="cb6-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> MODEL</span></span>
+<span id="cb6-10"><a></a><span class="at">      </span><span class="fu">value</span><span class="kw">:</span><span class="at"> deepseek-ai/DeepSeek-R1</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="yaml-vs.-json" class="slide level2">
@@ -1526,17 +1545,17 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a></a><span class="fu">user</span><span class="kw">:</span></span>
-<span id="cb8-2"><a></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Alice</span></span>
-<span id="cb8-3"><a></a><span class="at">  </span><span class="fu">age</span><span class="kw">:</span><span class="at"> </span><span class="dv">30</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a></a><span class="fu">user</span><span class="kw">:</span></span>
+<span id="cb7-2"><a></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Alice</span></span>
+<span id="cb7-3"><a></a><span class="at">  </span><span class="fu">age</span><span class="kw">:</span><span class="at"> </span><span class="dv">30</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb9-1"><a></a><span class="fu">{</span></span>
-<span id="cb9-2"><a></a>  <span class="dt">"user"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb9-3"><a></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Alice"</span><span class="fu">,</span></span>
-<span id="cb9-4"><a></a>    <span class="dt">"age"</span><span class="fu">:</span> <span class="dv">30</span></span>
-<span id="cb9-5"><a></a>  <span class="fu">}</span></span>
-<span id="cb9-6"><a></a><span class="fu">}</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb8-1"><a></a><span class="fu">{</span></span>
+<span id="cb8-2"><a></a>  <span class="dt">"user"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb8-3"><a></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Alice"</span><span class="fu">,</span></span>
+<span id="cb8-4"><a></a>    <span class="dt">"age"</span><span class="fu">:</span> <span class="dv">30</span></span>
+<span id="cb8-5"><a></a>  <span class="fu">}</span></span>
+<span id="cb8-6"><a></a><span class="fu">}</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1553,20 +1572,20 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment"><p>Différents <span class="blue2"><strong>types</strong></span> à disposition (numériques, <em>strings</em>, booléens, listes)</p></li>
 </ul>
 <div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a></a><span class="fu">kind</span><span class="kw">:</span><span class="at"> Pod</span></span>
-<span id="cb10-2"><a></a><span class="fu">metadata</span><span class="kw">:</span></span>
-<span id="cb10-3"><a></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> my-api-pod</span></span>
-<span id="cb10-4"><a></a><span class="fu">spec</span><span class="kw">:</span></span>
-<span id="cb10-5"><a></a><span class="at">  </span><span class="fu">containers</span><span class="kw">:</span></span>
-<span id="cb10-6"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> api</span></span>
-<span id="cb10-7"><a></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> my_dh_account/my_fast_api:0.0.1</span></span>
-<span id="cb10-8"><a></a><span class="at">    </span><span class="fu">env</span><span class="kw">:</span></span>
-<span id="cb10-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> MODEL</span></span>
-<span id="cb10-10"><a></a><span class="at">      </span><span class="fu">value</span><span class="kw">:</span><span class="at"> deepseek-ai/DeepSeek-R1</span></span>
-<span id="cb10-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> DEBUG</span></span>
-<span id="cb10-12"><a></a><span class="at">      </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb10-13"><a></a><span class="at">    </span><span class="fu">ports</span><span class="kw">:</span></span>
-<span id="cb10-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">containerPort</span><span class="kw">:</span><span class="at"> </span><span class="dv">8000</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a></a><span class="fu">kind</span><span class="kw">:</span><span class="at"> Pod</span></span>
+<span id="cb9-2"><a></a><span class="fu">metadata</span><span class="kw">:</span></span>
+<span id="cb9-3"><a></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> my-api-pod</span></span>
+<span id="cb9-4"><a></a><span class="fu">spec</span><span class="kw">:</span></span>
+<span id="cb9-5"><a></a><span class="at">  </span><span class="fu">containers</span><span class="kw">:</span></span>
+<span id="cb9-6"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> api</span></span>
+<span id="cb9-7"><a></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> my_dh_account/my_fast_api:0.0.1</span></span>
+<span id="cb9-8"><a></a><span class="at">    </span><span class="fu">env</span><span class="kw">:</span></span>
+<span id="cb9-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> MODEL</span></span>
+<span id="cb9-10"><a></a><span class="at">      </span><span class="fu">value</span><span class="kw">:</span><span class="at"> deepseek-ai/DeepSeek-R1</span></span>
+<span id="cb9-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> DEBUG</span></span>
+<span id="cb9-12"><a></a><span class="at">      </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb9-13"><a></a><span class="at">    </span><span class="fu">ports</span><span class="kw">:</span></span>
+<span id="cb9-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">containerPort</span><span class="kw">:</span><span class="at"> </span><span class="dv">8000</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="validation-et-erreurs-fréquentes" class="slide level2">
@@ -1764,38 +1783,38 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <div class="code-with-filename-file">
 <pre><strong>.github/workflows/ci.yaml</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-filename=".github/workflows/ci.yaml"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Build Docker image</span></span>
-<span id="cb11-2"><a></a></span>
-<span id="cb11-3"><a></a><span class="fu">on</span><span class="kw">:</span></span>
-<span id="cb11-4"><a></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
-<span id="cb11-5"><a></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span></span>
-<span id="cb11-6"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> main</span></span>
-<span id="cb11-7"><a></a><span class="at">    </span><span class="fu">tags</span><span class="kw">:</span></span>
-<span id="cb11-8"><a></a></span>
-<span id="cb11-9"><a></a><span class="fu">jobs</span><span class="kw">:</span></span>
-<span id="cb11-10"><a></a><span class="at">  </span><span class="fu">docker</span><span class="kw">:</span></span>
-<span id="cb11-11"><a></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="cb11-12"><a></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb11-13"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up QEMU</span></span>
-<span id="cb11-14"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/setup-qemu-action@v3</span></span>
-<span id="cb11-15"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Docker Buildx</span></span>
-<span id="cb11-16"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/setup-buildx-action@v3</span></span>
-<span id="cb11-17"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Docker meta</span></span>
-<span id="cb11-18"><a></a><span class="at">        </span><span class="fu">id</span><span class="kw">:</span><span class="at"> meta</span></span>
-<span id="cb11-19"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/metadata-action@v5</span></span>
-<span id="cb11-20"><a></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb11-21"><a></a><span class="at">          </span><span class="fu">images</span><span class="kw">:</span><span class="at"> ensae-reproductibilite/api-titanic</span></span>
-<span id="cb11-22"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Login to Docker Hub</span></span>
-<span id="cb11-23"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/login-action@v3</span></span>
-<span id="cb11-24"><a></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb11-25"><a></a><span class="at">          </span><span class="fu">username</span><span class="kw">:</span><span class="at"> ${{ secrets.DOCKERHUB_USERNAME }}</span></span>
-<span id="cb11-26"><a></a><span class="at">          </span><span class="fu">password</span><span class="kw">:</span><span class="at"> ${{ secrets.DOCKERHUB_TOKEN }}</span></span>
-<span id="cb11-27"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Build and push</span></span>
-<span id="cb11-28"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/build-push-action@v5</span></span>
-<span id="cb11-29"><a></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb11-30"><a></a><span class="at">          </span><span class="fu">push</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb11-31"><a></a><span class="at">          </span><span class="fu">tags</span><span class="kw">:</span><span class="at"> ${{ steps.meta.outputs.tags }}</span></span>
-<span id="cb11-32"><a></a><span class="at">          </span><span class="fu">labels</span><span class="kw">:</span><span class="at"> ${{ steps.meta.outputs.labels }}</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-filename=".github/workflows/ci.yaml"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Build Docker image</span></span>
+<span id="cb10-2"><a></a></span>
+<span id="cb10-3"><a></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb10-4"><a></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb10-5"><a></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span></span>
+<span id="cb10-6"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> main</span></span>
+<span id="cb10-7"><a></a><span class="at">    </span><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb10-8"><a></a></span>
+<span id="cb10-9"><a></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb10-10"><a></a><span class="at">  </span><span class="fu">docker</span><span class="kw">:</span></span>
+<span id="cb10-11"><a></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb10-12"><a></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb10-13"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up QEMU</span></span>
+<span id="cb10-14"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/setup-qemu-action@v3</span></span>
+<span id="cb10-15"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Docker Buildx</span></span>
+<span id="cb10-16"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/setup-buildx-action@v3</span></span>
+<span id="cb10-17"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Docker meta</span></span>
+<span id="cb10-18"><a></a><span class="at">        </span><span class="fu">id</span><span class="kw">:</span><span class="at"> meta</span></span>
+<span id="cb10-19"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/metadata-action@v5</span></span>
+<span id="cb10-20"><a></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb10-21"><a></a><span class="at">          </span><span class="fu">images</span><span class="kw">:</span><span class="at"> ensae-reproductibilite/api-titanic</span></span>
+<span id="cb10-22"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Login to Docker Hub</span></span>
+<span id="cb10-23"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/login-action@v3</span></span>
+<span id="cb10-24"><a></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb10-25"><a></a><span class="at">          </span><span class="fu">username</span><span class="kw">:</span><span class="at"> ${{ secrets.DOCKERHUB_USERNAME }}</span></span>
+<span id="cb10-26"><a></a><span class="at">          </span><span class="fu">password</span><span class="kw">:</span><span class="at"> ${{ secrets.DOCKERHUB_TOKEN }}</span></span>
+<span id="cb10-27"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Build and push</span></span>
+<span id="cb10-28"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/build-push-action@v5</span></span>
+<span id="cb10-29"><a></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb10-30"><a></a><span class="at">          </span><span class="fu">push</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb10-31"><a></a><span class="at">          </span><span class="fu">tags</span><span class="kw">:</span><span class="at"> ${{ steps.meta.outputs.tags }}</span></span>
+<span id="cb10-32"><a></a><span class="at">          </span><span class="fu">labels</span><span class="kw">:</span><span class="at"> ${{ steps.meta.outputs.labels }}</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
