@@ -357,11 +357,11 @@
     "text": "3️⃣ Parquet : partitionnement\n\nDivision en blocs des données selon un critère\n\nOptimise la lecture pour certaines requêtes"
   },
   {
-    "objectID": "index.html#traitement-en-mémoire",
-    "href": "index.html#traitement-en-mémoire",
+    "objectID": "index.html#traitement-in-memory",
+    "href": "index.html#traitement-in-memory",
     "title": "Mise en production des projets de data science",
-    "section": "3️⃣ Traitement en mémoire",
-    "text": "3️⃣ Traitement en mémoire\n\nParquet ne résout pas tout\n\nL’espace disque est optimisé\nLes données décompressées doivent passer en RAM"
+    "section": "3️⃣ Traitement in-memory",
+    "text": "3️⃣ Traitement in-memory\n\nParquet ne résout pas tout\n\nL’espace disque est optimisé\nLes données décompressées doivent passer en RAM\n\nAvec un framework traditionnel de calcul en mémoire (Pandas, dplyr en R, etc.)\n\nGain en lecture grâce à la compression Parquet\nObligé de charger l’ensemble du fichier en mémoire\nPerte de l’avantage de la structure en colonne"
   },
   {
     "objectID": "index.html#traitement-larger-than-memory",
@@ -371,11 +371,11 @@
     "text": "3️⃣ Traitement larger-than-memory\n\nCalcul larger than memory optimisé\n\nArrow : orientation fichier (Parquet)\nDuckDB : orientation base de données (SQL)\n\nPrincipes communs :\n\nOrientation colonne : synergie avec Parquet\nLazy evaluation : très efficient en données"
   },
   {
-    "objectID": "index.html#duckdb-un-connecteur-fortement-interopérable",
-    "href": "index.html#duckdb-un-connecteur-fortement-interopérable",
+    "objectID": "index.html#duckdb-un-connecteur-interopérable-entre-sources-de-données",
+    "href": "index.html#duckdb-un-connecteur-interopérable-entre-sources-de-données",
     "title": "Mise en production des projets de data science",
-    "section": "3️⃣ DuckDB : un connecteur fortement interopérable",
-    "text": "3️⃣ DuckDB : un connecteur fortement interopérable"
+    "section": "3️⃣ DuckDB : un connecteur interopérable entre sources de données",
+    "text": "3️⃣ DuckDB : un connecteur interopérable entre sources de données"
   },
   {
     "objectID": "index.html#résumé-pour-traiter-la-volumétrie",

@@ -1071,13 +1071,19 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </figure>
 </div>
 </section>
-<section id="traitement-en-mémoire" class="slide level2">
-<h2><span class="emoji" data-emoji="three">3️⃣</span> Traitement en mémoire</h2>
+<section id="traitement-in-memory" class="slide level2">
+<h2><span class="emoji" data-emoji="three">3️⃣</span> Traitement <em>in-memory</em></h2>
 <ul>
 <li class="fragment"><code>Parquet</code> ne résout pas tout
 <ul>
 <li class="fragment">L’espace disque est optimisé</li>
 <li class="fragment">Les données décompressées doivent <span class="blue2"><strong>passer en RAM</strong></span></li>
+</ul></li>
+<li class="fragment">Avec un <em>framework</em> traditionnel de <span class="orange"><strong>calcul en mémoire</strong></span> (<code>Pandas</code>, <code>dplyr</code> en <code>R</code>, etc.)
+<ul>
+<li class="fragment"><span class="blue2"><strong>Gain en lecture</strong></span> grâce à la compression <code>Parquet</code></li>
+<li class="fragment">Obligé de charger <span class="blue2"><strong>l’ensemble du fichier en mémoire</strong></span></li>
+<li class="fragment"><span class="blue2"><strong>Perte de l’avantage de la structure en colonne</strong></span></li>
 </ul></li>
 </ul>
 </section>
@@ -1095,9 +1101,14 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment"><span class="blue2"><strong>Lazy evaluation</strong></span> : très efficient en données</li>
 </ul></li>
 </ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/parquet-read-columns.png" class="fragment quarto-figure quarto-figure-center" height="200"></p>
+</figure>
+</div>
 </section>
-<section id="duckdb-un-connecteur-fortement-interopérable" class="slide level2">
-<h2><span class="emoji" data-emoji="three">3️⃣</span> <code>DuckDB</code> : un connecteur fortement interopérable</h2>
+<section id="duckdb-un-connecteur-interopérable-entre-sources-de-données" class="slide level2">
+<h2><span class="emoji" data-emoji="three">3️⃣</span> <code>DuckDB</code> : un connecteur interopérable entre sources de données</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/duckdb-intero.png" class="fragment quarto-figure quarto-figure-center" height="500"></p>
