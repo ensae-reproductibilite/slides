@@ -28,11 +28,11 @@
     "text": "Servir un projet de ML\n\nMettre à disposition le code pour entraîner le modèle\n\nReproductible… si on a les données et les ressources\n\nMettre à disposition le modèle entraîné\n\nAudience technique et adhérence au framework d’entraînement du modèle\n\nExposer le modèle via une API\n\nAudience technique mais plus large car interopérable\n\nExposer le modèle via une interface interactive\n\nAudience large mais plus coûteux"
   },
   {
-    "objectID": "index.html#servir-un-projet-de-ml-via-une-api",
-    "href": "index.html#servir-un-projet-de-ml-via-une-api",
+    "objectID": "index.html#servir-un-modèle-de-ml-via-une-api",
+    "href": "index.html#servir-un-modèle-de-ml-via-une-api",
     "title": "Mise en production des projets de data science",
-    "section": "Servir un projet de ML via une API",
-    "text": "Servir un projet de ML via une API\n\n\n\n\nSource : ubuntu.com"
+    "section": "Servir un modèle de ML via une API",
+    "text": "Servir un modèle de ML via une API\n\nConstruire une API pour servir le modèle\n\nInterface entre l’utilisateur et le modèle entraîné\n\n\n\n\n\n\nSource : https://machinelearningmastery.com"
   },
   {
     "objectID": "index.html#les-apis-définition-formelle",
@@ -60,7 +60,7 @@
     "href": "index.html#exemples-dapi-rest",
     "title": "Mise en production des projets de data science",
     "section": "Exemples d’API REST",
-    "text": "Exemples d’API REST\n\nLe client :\n\nenvoie des requêtes HTTP (GET, POST, etc.)\nà un serveur accessible depuis une URL\nsur un certain endpoint qui expose le service\n\n\n\nExemple : https://api-adresse.data.gouv.fr/search/?q=comédie&type=street\n\n\n\nLe serveur renvoie une réponse : un code retour et de la donnée (en l’absence d’erreur), souvent au format JSON"
+    "text": "Exemples d’API REST\n\nLe client :\n\nenvoie des requêtes HTTP (GET, POST, etc.)\nà un serveur accessible depuis une URL\nsur un certain endpoint qui expose le service\n\n\n\nExemple : https://api-adresse.data.gouv.fr/search/?q=comédie&type=street\n\nLe serveur renvoie une réponse : un code retour et de la donnée (en l’absence d’erreur), souvent au format JSON"
   },
   {
     "objectID": "index.html#architecture-cible",
@@ -68,6 +68,13 @@
     "title": "Mise en production des projets de data science",
     "section": "Architecture cible",
     "text": "Architecture cible\n\nConstruire une API pour servir le modèle\n\nInterface entre l’utilisateur et le modèle entraîné"
+  },
+  {
+    "objectID": "index.html#de-lapi-locale-au-service-déployé",
+    "href": "index.html#de-lapi-locale-au-service-déployé",
+    "title": "Mise en production des projets de data science",
+    "section": "De l’API locale au service déployé",
+    "text": "De l’API locale au service déployé\n\nOn a les outils pour construire une API locale\n\nDu code applicatif auquel il faut rajouter une API\nUne couche de stockage pour le modèle entraîné\nLa conteneurisation pour encapsuler l’application\n\nIl nous manque des outils pour en faire un service déployé et résilient\n\nUn environnement de production pour le déploiement\nDes outils de supervision pour gérer la charge\nDes outils d’automatisation pour l’amélioration en continu de l’application"
   },
   {
     "objectID": "index.html#environnement-de-production",
@@ -81,7 +88,7 @@
     "href": "index.html#fonctionnement-de-kubernetes",
     "title": "Mise en production des projets de data science",
     "section": "Fonctionnement de Kubernetes",
-    "text": "Fonctionnement de Kubernetes\n\n\n\nSource : DBA Consulting Blog"
+    "text": "Fonctionnement de Kubernetes\n\nApproche Infrastructure As Code : on déclare l’état désiré du déploiement, Kubernetes s’assure en continu qu’il correspond à l’état réel\n\n\n\n\n\nSource : DBA Consulting Blog"
   },
   {
     "objectID": "index.html#lapproche-cicd",
@@ -91,11 +98,11 @@
     "text": "L’approche CI/CD\n\nIntégration continue (CI) : chaque commit déclenche un processus “test, build and release”\n\nGitHub  : GitHub Actions\nGitLab  : GitLab CI/CD\n\nDéploiement continu (CD) : les nouvelles releases sont automatiquement déployées\n\nSur le SSP Cloud : ArgoCD"
   },
   {
-    "objectID": "index.html#ci-implémentation-avec-github-actions",
-    "href": "index.html#ci-implémentation-avec-github-actions",
+    "objectID": "index.html#ci-implémentation",
+    "href": "index.html#ci-implémentation",
     "title": "Mise en production des projets de data science",
-    "section": "CI : implémentation avec GitHub Actions",
-    "text": "CI : implémentation avec GitHub Actions\n\nPrincipe : commit -&gt; exécution d’une série d’étapes\n\nScript exécuté sur une VM : runner\nMise à disposition d’un output : artifact\n\nMultiples outputs possibles\n\nImage Docker\nSlides\nSite internet"
+    "section": "CI : implémentation",
+    "text": "CI : implémentation\n\nPrincipe : commit -&gt; exécution d’une série d’étapes\n\nScript exécuté sur une VM : runner\nMise à disposition d’un output : artifact\n\nMultiples outputs possibles\n\nImage Docker\nSlides\nSite internet"
   },
   {
     "objectID": "index.html#ci-anatomie-dun-fichier-de-ci",
@@ -110,13 +117,6 @@
     "title": "Mise en production des projets de data science",
     "section": "CI/CD : implémentation sur Kubernetes",
     "text": "CI/CD : implémentation sur Kubernetes"
-  },
-  {
-    "objectID": "index.html#pipeline-dataops-complet",
-    "href": "index.html#pipeline-dataops-complet",
-    "title": "Mise en production des projets de data science",
-    "section": "Pipeline DataOps complet",
-    "text": "Pipeline DataOps complet\n\nIntégration des étapes dans un pipeline (DAG)\n\n\n\n\n\nSource : ubuntu.com\n\n\n\n\nEn pratique : utilisation d’un orchestrateur\n\nSur le SSP Cloud : Argo Workflows"
   },
   {
     "objectID": "index.html#conclusion",

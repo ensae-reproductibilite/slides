@@ -1012,13 +1012,19 @@ CMD ["flask", "run", "--host=0.0.0.0"]
 </ul></li>
 </ul>
 </section>
-<section id="servir-un-projet-de-ml-via-une-api" class="slide level2">
-<h2>Servir un projet de ML via une API</h2>
+<section id="servir-un-modèle-de-ml-via-une-api" class="slide level2">
+<h2>Servir un modèle de ML via une API</h2>
+<ul>
+<li class="fragment">Construire une <span class="orange"><strong>API</strong></span> pour <span class="orange"><strong>servir</strong></span> le modèle
+<ul>
+<li class="fragment"><span class="blue2"><strong>Interface</strong></span> entre <span class="blue2"><strong>l’utilisateur</strong></span> et le <span class="blue2"><strong>modèle</strong></span> entraîné</li>
+</ul></li>
+</ul>
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/model-serving.png" height="250"></p>
-<figcaption>Source : <a href="https://ubuntu.com/blog/guide-to-ml-model-serving">ubuntu.com</a></figcaption>
+<p><img data-src="img/api-serve-ml-model.png" height="350"></p>
+<figcaption>Source : <a href="https://machinelearningmastery.com/a-practical-guide-to-deploying-machine-learning-models/">https://machinelearningmastery.com</a></figcaption>
 </figure>
 </div>
 </div>
@@ -1074,8 +1080,6 @@ CMD ["flask", "run", "--host=0.0.0.0"]
 </ul>
 <div class="fragment">
 <p>Exemple : <a href="https://api-adresse.data.gouv.fr/search/?q=comédie&amp;type=street">https://api-adresse.data.gouv.fr/search/?q=comédie&amp;type=street</a></p>
-</div>
-<div class="fragment">
 <ul>
 <li class="fragment">Le <span class="blue2"><strong>serveur</strong></span> renvoie une <span class="blue2"><strong>réponse</strong></span> : un <a href="https://restfulapi.net/http-status-codes/">code retour</a> et de la donnée (en l’absence d’erreur), souvent au format <code>JSON</code></li>
 </ul>
@@ -1089,11 +1093,30 @@ CMD ["flask", "run", "--host=0.0.0.0"]
 <li class="fragment"><span class="blue2"><strong>Interface</strong></span> entre <span class="blue2"><strong>l’utilisateur</strong></span> et le <span class="blue2"><strong>modèle</strong></span> entraîné</li>
 </ul></li>
 </ul>
+<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/api-no-mlflow.png" class="fragment quarto-figure quarto-figure-center" height="400"></p>
+<p><img data-src="img/api-no-mlflow.png" class="quarto-figure quarto-figure-center" height="400"></p>
 </figure>
 </div>
+</div>
+</section>
+<section id="de-lapi-locale-au-service-déployé" class="slide level2">
+<h2>De l’API locale au service déployé</h2>
+<ul>
+<li class="fragment">On a les outils pour <span class="orange"><strong>construire une API locale</strong></span>
+<ul>
+<li class="fragment">Du <span class="blue2"><strong>code applicatif</strong></span> auquel il faut rajouter une <span class="blue2"><strong>API</strong></span></li>
+<li class="fragment">Une <span class="blue2"><strong>couche de stockage</strong></span> pour le modèle entraîné</li>
+<li class="fragment">La <span class="blue2"><strong>conteneurisation</strong></span> pour encapsuler l’application</li>
+</ul></li>
+<li class="fragment">Il nous manque des outils pour en faire un <span class="orange"><strong>service déployé et résilient</strong></span>
+<ul>
+<li class="fragment">Un <span class="blue2"><strong>environnement de production</strong></span> pour le déploiement</li>
+<li class="fragment">Des <span class="blue2"><strong>outils de supervision</strong></span> pour gérer la charge</li>
+<li class="fragment">Des <span class="blue2"><strong>outils d’automatisation</strong></span> pour l’amélioration en continu de l’application</li>
+</ul></li>
+</ul>
 </section>
 <section id="environnement-de-production" class="slide level2">
 <h2>Environnement de production</h2>
@@ -1118,11 +1141,16 @@ CMD ["flask", "run", "--host=0.0.0.0"]
 </section>
 <section id="fonctionnement-de-kubernetes" class="slide level2">
 <h2>Fonctionnement de Kubernetes</h2>
+<ul>
+<li class="fragment"><span class="orange"><strong>Approche <em>Infrastructure As Code</em></strong></span> : on déclare l’<span class="blue2"><strong>état désiré du déploiement</strong></span>, <code>Kubernetes</code> s’assure en continu qu’il correspond à l’<span class="blue2"><strong>état réel</strong></span></li>
+</ul>
+<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/kubernetes-archi.png" height="400"></p>
 <figcaption>Source : <a href="https://drsalbertspijkers.blogspot.com/2017/06/red-hat-openshift-and-orchestrating.html">DBA Consulting Blog</a></figcaption>
 </figure>
+</div>
 </div>
 </section>
 <section id="lapproche-cicd" class="slide level2">
@@ -1139,8 +1167,8 @@ CMD ["flask", "run", "--host=0.0.0.0"]
 </ul></li>
 </ul>
 </section>
-<section id="ci-implémentation-avec-github-actions" class="slide level2">
-<h2>CI : implémentation avec <code>GitHub Actions</code></h2>
+<section id="ci-implémentation" class="slide level2">
+<h2>CI : implémentation</h2>
 <ul>
 <li class="fragment"><span class="orange"><strong>Principe</strong></span> : commit -&gt; exécution d’une série d’étapes
 <ul>
@@ -1155,7 +1183,7 @@ CMD ["flask", "run", "--host=0.0.0.0"]
 </ul></li>
 </ul>
 </section>
-<section id="ci-anatomie-dun-fichier-de-ci" class="slide level2">
+<section id="ci-anatomie-dun-fichier-de-ci" class="slide level2 scrollable">
 <h2>CI : anatomie d’un fichier de CI</h2>
 <ul>
 <li class="fragment">Spécification : fichier <code>.yaml</code> qui paramétrise le <em>runner</em>
@@ -1210,26 +1238,6 @@ CMD ["flask", "run", "--host=0.0.0.0"]
 <p><img data-src="img/ci-cd.png" class="quarto-figure quarto-figure-center" height="300"></p>
 </figure>
 </div>
-</section>
-<section id="pipeline-dataops-complet" class="slide level2">
-<h2>Pipeline <span class="orange"><strong><em>DataOps</em></strong></span> complet</h2>
-<ul>
-<li class="fragment">Intégration des étapes dans un <span class="orange"><strong>pipeline</strong></span> (<span class="blue2"><strong>DAG</strong></span>)</li>
-</ul>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/data-pipeline.png" height="300"></p>
-<figcaption>Source : <a href="https://ubuntu.com/blog/data-pipelines-overview">ubuntu.com</a></figcaption>
-</figure>
-</div>
-</div>
-<ul>
-<li class="fragment">En pratique : utilisation d’un <span class="orange"><strong>orchestrateur</strong></span>
-<ul>
-<li class="fragment">Sur le <code>SSP Cloud</code> : <a href="https://argoproj.github.io/workflows/">Argo Workflows</a></li>
-</ul></li>
-</ul>
 </section>
 <section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>
