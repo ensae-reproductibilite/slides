@@ -31,7 +31,7 @@ from: markdown+emoji
 
 {{< include sections/introduction.qmd >}}
 
-{{< include sections/plan-part1.qmd >}}
+{{< include sections/intro-part1.qmd >}}
 
 {{< include sections/git.qmd >}}
 
@@ -43,7 +43,7 @@ from: markdown+emoji
 
 {{< include sections/portability.qmd >}}
 
-{{< include sections/plan-part2.qmd >}}
+{{< include sections/intro-part2.qmd >}}
 
 {{< include sections/yaml101.qmd >}}
 
