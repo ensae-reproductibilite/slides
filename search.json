@@ -501,7 +501,7 @@
     "href": "index.html#le-dockerfile",
     "title": "Mise en production des projets de data science",
     "section": "Le Dockerfile",
-    "text": "Le Dockerfile\n\nExemple : conteneurisation d’une API avec FastAPI\n\n\nFROM ubuntu:20.04\n\nRUN apt-get update -y && \\\n    apt-get install -y python3-pip python3-dev\n\nWORKDIR /app\n\nCOPY requirements.txt /app/requirements.txt\nRUN pip install -r requirements.txt\n\nCOPY . /app\n\nENV FLASK_APP=\"my-app.py\"\nEXPOSE 5000\n\nCMD [\"flask\", \"run\", \"--host=0.0.0.0\"]"
+    "text": "Le Dockerfile\n\nExemple : conteneurisation d’une application interactive Flask\n\n\nFROM ubuntu:20.04\n\nRUN apt-get update -y && \\\n    apt-get install -y python3-pip python3-dev\n\nWORKDIR /app\n\nCOPY requirements.txt /app/requirements.txt\nRUN pip install -r requirements.txt\n\nCOPY . /app\n\nENV FLASK_APP=\"my-app.py\"\nEXPOSE 5000\n\nCMD [\"flask\", \"run\", \"--host=0.0.0.0\"]"
   },
   {
     "objectID": "index.html#docker-fonctionnement",
