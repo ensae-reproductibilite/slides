@@ -7,7 +7,6 @@
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js"></script>
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.27">
@@ -219,545 +218,254 @@ Lino Galiana
 </div>
 
 </section>
-<section>
-<section id="introduction" class="title-slide slide level1 center">
-<h1>Introduction</h1>
+<section class="slide level2">
 
-</section>
-<section id="ressources-associées" class="slide level2">
-<h2>Ressources associées</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<h3 id="slides">Slides</h3>
-<div id="qr1" class="qrcode"></div>
-<script type="text/javascript">
-var qrcode = new QRCode("qr1", {"colorDark":"#000000","colorLight":"#ffffff","height":"400","text":"https://ensae-reproductibilite.github.io/slides/","width":"400"});
-</script>
-    
-</div><div class="column" style="width:50%;">
-<h3 id="site-web">Site web</h3>
-<div id="qr2" class="qrcode"></div>
-<script type="text/javascript">
-var qrcode = new QRCode("qr2", {"colorDark":"#000000","colorLight":"#ffffff","height":"400","text":"https://ensae-reproductibilite.github.io/website/","width":"400"});
-</script>
-    
-</div></div>
-</section>
-<section id="contexte" class="slide level2 nonincremental" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Contexte</h2>
+<!-- {{< include sections/introduction.qmd >}}
 
-<img data-src="https://minio.lab.sspcloud.fr/lgaliana/generative-art/mise-en-prod/slides-comic.jpg" class="quarto-figure quarto-figure-center r-stretch"><ul>
-<li class="fragment"><span class="orange"><strong>Qui sommes-nous ?</strong></span></li>
-</ul>
-</section>
-<section id="contexte-1" class="slide level2 nonincremental" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Contexte</h2>
+# Partie :one: : bonnes pratiques de développement
 
-<img data-src="https://minio.lab.sspcloud.fr/lgaliana/generative-art/mise-en-prod/slides-comic.jpg" class="quarto-figure quarto-figure-center r-stretch"><ul>
-<li class="fragment"><span class="orange"><strong>Qui sommes-nous ?</strong></span>
-<ul>
-<li class="fragment">des <span class="blue2"><strong>data scientists</strong></span> de l’Insee</li>
-<li class="fragment">frustrés par l’<span class="blue2"><strong>approche</strong></span> souvent purement <span class="blue2"><strong>technique</strong></span> de la data science</li>
-<li class="fragment">convaincus que les <span class="blue2"><strong>bonnes pratiques de développement</strong></span> valent à être enseignées</li>
-</ul></li>
-<li class="fragment"><i class="fa-solid fa-envelope" aria-label="envelope"></i> <script type="text/javascript">
-<!--
-h='&#x69;&#110;&#x73;&#x65;&#x65;&#46;&#102;&#114;';a='&#64;';n='&#114;&#x6f;&#x6d;&#x61;&#x69;&#110;&#46;&#x61;&#118;&#x6f;&#x75;&#x61;&#x63;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>romain.avouac at insee dot fr</noscript>, <script type="text/javascript">
-<!--
-h='&#x69;&#110;&#x73;&#x65;&#x65;&#46;&#102;&#114;';a='&#64;';n='&#108;&#x69;&#110;&#x6f;&#46;&#x67;&#x61;&#108;&#x69;&#x61;&#110;&#x61;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>lino.galiana at insee dot fr</noscript></li>
-</ul>
-</section>
-<section id="quest-ce-quun-data-scientist" class="slide level2">
-<h2>Qu’est ce qu’un data scientist ?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/sexiest-job.png" class="quarto-figure quarto-figure-center" height="250"></p>
-</figure>
-</div>
-<ul>
-<li class="fragment"><p>Tendance à la <span class="orange"><strong>spécialisation</strong></span> : <em>data analyst</em>, <em>data engineer</em>, <em>ML Engineer</em>…</p></li>
-<li class="fragment"><p>Rôle d’<span class="orange"><strong>interface</strong></span> entre métier et équipes techniques</p>
-<ul>
-<li class="fragment"><span class="blue2"><strong>Compétences mixtes</strong></span> : savoir métier, modélisation, IT</li>
-</ul></li>
-</ul>
-</section>
-<section id="la-notion-de-mise-en-production" class="slide level2">
-<h2>La notion de mise en production</h2>
-<ul>
-<li class="fragment"><span class="orange"><strong>Mettre en production</strong></span> : faire <span class="blue2"><strong>vivre</strong></span> une application dans l’espace de ses <span class="blue2"><strong>utilisateurs</strong></span>
-<ul>
-<li class="fragment">Notion simple mais mise en oeuvre compliquée !</li>
-</ul></li>
-<li class="fragment"><span class="orange"><strong>Dépasser le stade de l’expérimentation</strong></span>
-<ul>
-<li class="fragment">Comprendre les <span class="blue2"><strong>besoins</strong></span> des utilisateurs</li>
-<li class="fragment"><span class="blue2"><strong>Bonnes pratiques</strong></span> de développement</li>
-<li class="fragment">Techniques informatiques d’<span class="blue2"><strong>industrialisation</strong></span></li>
-</ul></li>
-</ul>
-</section>
-<section id="la-notion-de-bonnes-pratiques" class="slide level2">
-<h2>La notion de bonnes pratiques</h2>
-<ul>
-<li class="fragment"><p><span class="blue2"><strong>Origine</strong></span> : communauté des développeurs logiciels</p></li>
-<li class="fragment"><p><span class="blue2"><strong>Constats</strong></span> :</p>
-<ul>
-<li class="fragment">le <span class="green2"><em>“code est plus souvent lu qu’écrit”</em></span> (<a href="https://fr.wikipedia.org/wiki/Guido_van_Rossum">Guido Van Rossum</a>)</li>
-<li class="fragment">la maintenance d’un code est très coûteuse</li>
-</ul></li>
-<li class="fragment"><p><span class="blue2"><strong>Conséquence</strong></span> : un ensemble de <span class="orange"><strong>règles informelles</strong></span>, conventionnellement acceptées comme produisant des logiciels <span class="orange"><strong>fiables</strong></span>, <span class="orange"><strong>évolutifs</strong></span> et <span class="orange"><strong>maintenables</strong></span></p></li>
-</ul>
-</section>
-<section id="pourquoi-sintéresser-aux-bonnes-pratiques" class="slide level2">
-<h2>Pourquoi s’intéresser aux bonnes pratiques ?</h2>
-<p><br></p>
-<p>L’activité du <em>datascientist</em> tend à se rapprocher de celle du développeur :</p>
-<ul>
-<li class="fragment"><p>projets <span class="blue2"><strong>intenses en code</strong></span></p></li>
-<li class="fragment"><p><span class="blue2"><strong>projets collaboratifs</strong></span> et de grande envergure</p></li>
-<li class="fragment"><p><span class="blue2"><strong>complexification</strong></span> des données et des <span class="blue2"><strong>infrastructures</strong></span></p></li>
-<li class="fragment"><p><span class="blue2"><strong>déploiement</strong></span> d’applications pour valoriser les modèles</p></li>
-</ul>
-</section>
-<section id="contenu-du-cours" class="slide level2 scrollable smaller">
-<h2>Contenu du cours</h2>
-<ul>
-<li class="fragment"><span class="orange"><strong>Pré-requis</strong></span>
-<ul>
-<li class="fragment">Introduction au terminal <code>Linux</code> (<a href="https://ensae-reproductibilite.github.io/website/chapters/linux-101.html">Linux 101</a>)</li>
-<li class="fragment"><span class="blue2"><strong>Contrôle de version</strong></span> avec <code>Git</code> (<a href="https://ensae-reproductibilite.github.io/website/chapters/git.html">Git <em>refresher</em></a>)</li>
-</ul></li>
-<li class="fragment"><span class="orange"><strong>Bonnes pratiques</strong></span> de développement
-<ul>
-<li class="fragment"><span class="blue2"><strong>Travail collaboratif</strong></span> avec <code>Git</code></li>
-<li class="fragment"><span class="blue2"><strong>Qualité</strong></span> du code</li>
-<li class="fragment"><span class="blue2"><strong>Structure</strong></span> des projets</li>
-<li class="fragment">Traitement des <span class="blue2"><strong>données volumineuses</strong></span></li>
-<li class="fragment">Favoriser la <span class="blue2"><strong>portabilité</strong></span> d’une application</li>
-</ul></li>
-<li class="fragment"><span class="orange"><strong>Mise en production</strong></span>
-<ul>
-<li class="fragment">Introduction au format <code>YAML</code></li>
-<li class="fragment"><span class="blue2"><strong>Déploiement</strong></span></li>
-<li class="fragment"><span class="blue2"><strong>MLOps</strong></span></li>
-</ul></li>
-</ul>
-</section>
-<section id="site-web-du-cours" class="slide level2">
-<h2>Site web du cours</h2>
-<ul>
-<li class="fragment"><p><a href="https://ensae-reproductibilite.github.io/website/">https://ensae-reproductibilite.github.io/website/</a></p></li>
-<li class="fragment"><p>Tout le contenu du cours est en <span class="orange"><strong><em>open-source</em></strong></span></p>
-<ul>
-<li class="fragment"><a href="https://github.com/orgs/ensae-reproductibilite/repositories">GitHub</a> <i class="fa-brands fa-github" aria-label="github"></i></li>
-<li class="fragment"><em>Pull Requests</em> -&gt; bonus <i class="fa-solid fa-comment-dollar" aria-label="comment-dollar"></i></li>
-</ul></li>
-</ul>
-</section>
-<section id="modalités-pédagogiques" class="slide level2">
-<h2>Modalités pédagogiques</h2>
-<ul>
-<li class="fragment">Apprentissage par la pratique
-<ul>
-<li class="fragment"><a href="https://ensae-reproductibilite.github.io/website/chapters/application.html">Application</a> : industrialisation d’un projet de ML</li>
-</ul></li>
-<li class="fragment">Langage : <code>Python</code> <i class="fa-brands fa-python" aria-label="python"></i>
-<ul>
-<li class="fragment">Langage <span class="blue2"><strong>dominant</strong></span> dans le monde de la donnée</li>
-<li class="fragment">Les principes présentés sont <span class="blue2"><strong>agnostiques</strong></span> au langage</li>
-</ul></li>
-<li class="fragment">Environnement d’exécution : <a href="https://datalab.sspcloud.fr/">SSP Cloud</a>
-<ul>
-<li class="fragment">Environnement de développement <span class="blue2"><strong>normalisé</strong></span></li>
-<li class="fragment">Véritable environnement de <span class="blue2"><strong>production</strong></span></li>
-<li class="fragment">Acquisition des <span class="blue2"><strong>bonnes pratiques</strong></span></li>
-</ul></li>
-</ul>
-</section>
-<section id="evaluation" class="slide level2">
-<h2>Evaluation</h2>
-<ul>
-<li class="fragment"><span class="orange"><strong>Objectif</strong></span> : mise en pratique <span class="orange"><strong>réaliste</strong></span> des notions étudiées
-<ul>
-<li class="fragment"><span class="blue2"><strong>Problématique métier</strong></span></li>
-<li class="fragment"><span class="blue2"><strong>Données réelles</strong></span></li>
-</ul></li>
-<li class="fragment">Evaluation en <span class="orange"><strong>deux parties</strong></span> :
-<ul>
-<li class="fragment"><span class="blue2"><strong>En groupe</strong></span> : <span class="blue2"><strong>projet</strong></span> à construire selon 4 “parcours”</li>
-<li class="fragment"><span class="blue2"><strong>Individuel</strong></span> : <span class="blue2"><strong>revue de code</strong></span> d’un autre projet</li>
-</ul></li>
-</ul>
-</section></section>
-<section>
-<section id="partie-1-bonnes-pratiques-de-développement" class="title-slide slide level1 center">
-<h1>Partie <span class="emoji" data-emoji="one">1️⃣</span> : bonnes pratiques de développement</h1>
+## Plan de la partie
 
-</section>
-<section id="plan-de-la-partie" class="slide level2">
-<h2>Plan de la partie</h2>
-<p><span class="emoji" data-emoji="one">1️⃣</span> <span class="blue2"><strong>Travail collaboratif</strong></span> avec <code>Git</code></p>
-<p><span class="emoji" data-emoji="two">2️⃣</span> <span class="blue2"><strong>Qualité</strong></span> du code</p>
-<p><span class="emoji" data-emoji="three">3️⃣</span> <span class="blue2"><strong>Structure</strong></span> des projets</p>
-<p><span class="emoji" data-emoji="four">4️⃣</span> Traitement des <span class="blue2"><strong>données volumineuses</strong></span></p>
-<p><span class="emoji" data-emoji="five">5️⃣</span> Favoriser la <span class="blue2"><strong>portabilité</strong></span> d’une application</p>
-</section></section>
-<section>
-<section id="le-travail-collaboratif-avec-git" class="title-slide slide level1 center">
-<h1><span class="emoji" data-emoji="one">1️⃣</span> Le travail collaboratif avec <code>Git</code></h1>
+:one: [**Travail collaboratif**]{.blue2} avec `Git`
 
-</section>
-<section id="pourquoi-utiliser-git" class="slide level2">
-<h2>Pourquoi utiliser Git ?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/timeline.png" height="475"></p>
-<figcaption>Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionner-son-code/">ThinkR</a></figcaption>
-</figure>
-</div>
-</section>
-<section id="concepts-essentiels" class="slide level2">
-<h2>Concepts essentiels</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/gitallinone.png" height="400"></p>
-<figcaption>Source : <a href="http://fabacademy.org/2021/labs/bhubaneswar/students/deepak-chaudhry/ia_PPFP.html">fabacademy.org</a></figcaption>
-</figure>
-</div>
-</section>
-<section id="bonnes-pratiques" class="slide level2 smaller" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Bonnes pratiques</h2>
-<p><strong>Que versionne-t-on ?</strong></p>
-<ul>
-<li class="fragment">Essentiellement du <span class="orange"><strong>code source</strong></span></li>
-<li class="fragment"><span class="orange"><strong>Pas d’outputs</strong></span> (fichiers <code>.html</code>, <code>.pdf</code>, modèles…)</li>
-<li class="fragment"><span class="orange"><strong>Pas de données</strong></span>, d’informations locales ou sensibles</li>
-</ul>
-<div class="fragment">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p>Pour définir des règles qui évitent de committer tel ou tel fichier, on utilise un fichier nommé <strong><code>.gitignore</code></strong>.</p>
-<p>Si on mélange du code et des éléments annexes (<em>output</em>, données…) dans un même dossier, il <span class="orange"><strong>faut consacrer du temps à ce fichier</strong></span>.</p>
-<p>N’hésitez pas à y ajouter des règles conservatrices (par exemple <code>*.csv</code>, <code>*.parquet</code>).</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="bonnes-pratiques-1" class="slide level2 smaller" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Bonnes pratiques</h2>
-<p><strong>Format des commits</strong></p>
-<div class="quarto-layout-panel" data-layout="[40,60]">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: flex-start;">
-<ul>
-<li class="fragment"><span class="orange"><strong>Fréquence</strong></span>
-<ul>
-<li class="fragment">Aussi souvent que possible</li>
-<li class="fragment">Le lot de modifications doit “faire sens”</li>
-</ul></li>
-<li class="fragment"><span class="orange"><strong>Messages</strong></span>
-<ul>
-<li class="fragment">Courts et informatifs (comme un titre de mail)</li>
-<li class="fragment">Décrire <span class="orange"><strong>le pourquoi plutôt que le comment</strong></span> dans le texte</li>
-</ul></li>
-</ul>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: center;">
-<p><img data-src="img/titre-commit.png"></p>
-</div>
-</div>
-</div>
-</section>
-<section id="outils-pour-le-travail-collaboratif" class="slide level2">
-<h2>Outils pour le travail collaboratif</h2>
-<ul>
-<li class="fragment">L’éco-système <code>Git</code> <span class="blue2"><strong>facilite</strong> le travail collaboratif</span>
-<ul>
-<li class="fragment"><code>Git</code> <i class="fa-brands fa-git-alt" aria-label="git-alt"></i> : modèle des <span class="orange"><strong>branches</strong></span></li>
-<li class="fragment"><code>GitHub</code> <i class="fa-brands fa-github" aria-label="github"></i> / <code>GitLab</code> <i class="fa-brands fa-gitlab" aria-label="gitlab"></i> : <span class="orange"><strong>Issues</strong>, <strong>Pull Requests</strong>, <strong>Forks</strong></span></li>
-</ul></li>
-</ul>
-</section>
-<section id="le-modèle-des-branches" class="slide level2">
-<h2>Le modèle des branches</h2>
-<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
-<div class="quarto-layout-row">
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
-<p>&nbsp;</p>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/branches.png" height="350"></p>
-<figcaption>Source : <a href="https://lutece.paris.fr/support/jsp/site/Portal.jsp?page=wiki&amp;view=page&amp;page_name=git&amp;language=fr">lutece.paris.fr</a></figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="les-outils-de-contribution" class="slide level2">
-<h2>Les outils de contribution</h2>
-<ul>
-<li class="fragment"><p><span class="orange"><strong><em>Issue</em></strong></span> : soumettre un <span class="blue2"><strong>problème</strong></span> ou une <span class="blue2"><strong>suggestion</strong></span> aux développeurs d’un projet</p></li>
-<li class="fragment"><p><span class="orange"><strong><em>Pull Request</em></strong></span> : proposer aux développeurs d’un projet d’<span class="blue2"><strong>intégrer des modifications</strong></span></p></li>
-<li class="fragment"><p><span class="orange"><strong><em>Fork</em></strong></span> : faire la <span class="blue2"><strong>copie</strong></span> d’un projet existant dans son espace personnel</p>
-<ul>
-<li class="fragment">Indispensable pour faire une <em>pull request</em> à un dépôt sur lequel on n’a pas les droits</li>
-</ul></li>
-</ul>
-</section>
-<section id="une-organisation-courante-le-github-flow" class="slide level2">
-<h2>Une organisation courante : le <em>GitHub flow</em></h2>
+:two: [**Qualité**]{.blue2} du code
 
-<img data-src="img/ghflow.png" class="r-stretch"><p>Description plus détaillée : <a href="https://docs.github.com/en/get-started/quickstart/github-flow">ici</a></p>
-</section></section>
-<section>
-<section id="qualité-du-code" class="title-slide slide level1 center">
-<h1><span class="emoji" data-emoji="two">2️⃣</span> Qualité du code</h1>
+:three: [**Structure**]{.blue2} des projets
 
-</section>
-<section id="enjeux" class="slide level2">
-<h2>Enjeux</h2>
-<ul>
-<li class="fragment"><p>D’une vision utilitariste du code à une vision du code comme <span class="orange"><strong>outil de communication</strong></span></p></li>
-<li class="fragment"><p>Favoriser la <span class="orange"><strong>lisibilité</strong></span> et la <span class="orange"><strong>maintenabilité</strong></span></p></li>
-<li class="fragment"><p>Faciliter la <span class="orange"><strong>réutilisation</strong></span></p></li>
-</ul>
-</section>
-<section id="principes-généraux" class="slide level2">
-<h2>Principes généraux</h2>
-<ul>
-<li class="fragment"><p>Adopter les <span class="orange"><strong>standards communautaires</strong></span></p></li>
-<li class="fragment"><p>Utiliser des <span class="orange"><strong>fonctions</strong></span></p></li>
-<li class="fragment"><p><span class="orange"><strong>(Auto-)documenter</strong></span> son code</p></li>
-</ul>
-</section>
-<section id="standards-communautaires" class="slide level2">
-<h2><span class="emoji" data-emoji="one">1️⃣</span> Standards communautaires</h2>
-<blockquote>
-<p><em>“Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread”</em></p>
-<p><a href="https://style.tidyverse.org/">Tidyverse Style Guide (R)</a></p>
-</blockquote>
-<ul>
-<li class="fragment"><span class="blue2"><strong>Python</strong></span> : <a href="https://peps.python.org/pep-0008/">PEP8</a>, <a href="https://peps.python.org/pep-0257/">PEP 257</a>
-<ul>
-<li class="fragment">Des règles <em>opinionated</em>, mais <span class="blue2"><strong>conventionnelles</strong></span></li>
-</ul></li>
-<li class="fragment">La <span class="orange"><strong>cohérence intra-projet</strong></span> doit toujours primer</li>
-</ul>
-</section>
-<section id="standards-communautaires---outils" class="slide level2 smaller">
-<h2><span class="emoji" data-emoji="one">1️⃣</span> Standards communautaires - Outils</h2>
-<ul>
-<li class="fragment"><span class="blue2"><strong>Linters</strong></span> : diagnostic de qualité du code
-<ul>
-<li class="fragment"><a href="https://github.com/PyCQA/pylint">Pylint</a></li>
-</ul></li>
-<li class="fragment"><span class="blue2"><strong>Formatters</strong></span> : application automatique des standards
-<ul>
-<li class="fragment"><a href="https://github.com/psf/black">Black</a></li>
-</ul></li>
-</ul>
-<div class="fragment">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Astuce</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li class="fragment"><span class="blue2">Exemples d’erreurs repérées</span> par un <em>linter</em> :
-<ul>
-<li class="fragment">lignes de code trop longues ou mal indentées, parenthèses non équilibrées, noms de fonctions mal construits…</li>
-</ul></li>
-<li class="fragment"><span class="blue2">Exemples d’erreurs <strong>non</strong> repérées</span> par un <em>linter</em> :
-<ul>
-<li class="fragment">fonctions mal utilisées, arguments mal spécifiés, structure du code incohérente, code insuffisamment documenté…</li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="utiliser-des-fonctions" class="slide level2 smaller">
-<h2><span class="emoji" data-emoji="two">2️⃣</span> Utiliser des fonctions</h2>
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Règle d’or</strong></p>
-</div>
-<div class="callout-content">
-<p>Il faut utiliser une <span class="red2"><strong>fonction</strong></span> dès qu’on utilise une même portion de code plus de deux fois (<span class="red2"><strong><em>don’t repeat yourself</em> (DRY)</strong></span>)</p>
-</div>
-</div>
-</div>
-<ul>
-<li class="fragment"><span class="orange"><strong>Limite les risques d’erreurs</strong></span> liés aux copier/coller</li>
-<li class="fragment">Rend le code <span class="orange"><strong>plus lisible</strong></span> et <span class="orange"><strong>plus compact</strong></span></li>
-<li class="fragment"><span class="orange"><strong>Un seul endroit</strong></span> du code à modifier lorsqu’on souhaite modifier le traitement</li>
-<li class="fragment">Facilite la <span class="orange"><strong>réutilisation</strong></span> et la <span class="orange"><strong>documentation</strong></span> du code !</li>
-</ul>
-<div class="fragment">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Règles pour écrire des fonctions <strong>pertinentes</strong></strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li class="fragment">Une tâche = une fonction</li>
-<li class="fragment">Une tâche complexe = un enchaînement de fonctions réalisant chacune une tâche simple</li>
-<li class="fragment">Limiter l’utilisation de variables globales.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="documenter-son-code" class="slide level2">
-<h2><span class="emoji" data-emoji="three">3️⃣</span> Documenter son code</h2>
-<ul>
-<li class="fragment"><p>Documenter le <span class="orange"><strong>pourquoi</strong></span> plutôt que le <span class="orange"><strong>comment</strong></span></p></li>
-<li class="fragment"><p>Privilégier l’<span class="orange"><strong>auto-documentation</strong></span> via des nommages pertinents</p></li>
-</ul>
-<div class="fragment">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Comment bien documenter un script ?</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li class="fragment"><span class="orange"><strong>Minimum</strong></span> 🚦 : décrire ce que le code fait au début du script</li>
-<li class="fragment"><span class="orange"><strong>Bien</strong></span> 👍 : commenter les parties “délicates” du code</li>
-<li class="fragment"><span class="orange"><strong>Idéal</strong></span> 💪 : documenter ses fonctions avec des <em>docstrings</em></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="structure-des-projets" class="title-slide slide level1 center">
-<h1><span class="emoji" data-emoji="three">3️⃣</span> Structure des projets</h1>
+:four: Traitement des [**données volumineuses**]{.blue2}
 
-</section>
-<section id="enjeux-1" class="slide level2">
-<h2>Enjeux</h2>
-<ul>
-<li class="fragment"><p>Favoriser la <span class="orange"><strong>lisibilité</strong></span> et la <span class="orange"><strong>maintenabilité</strong></span></p></li>
-<li class="fragment"><p>Enjeux spécifiques à la data science</p>
-<ul>
-<li class="fragment"><span class="blue2"><strong>Expérimentation</strong></span></li>
-<li class="fragment"><span class="blue2"><strong>Non-linéarité</strong></span></li>
-<li class="fragment"><span class="blue2"><strong>Reproductibilité</strong></span></li>
-</ul></li>
-</ul>
-</section>
-<section id="principes-généraux-1" class="slide level2">
-<h2>Principes généraux</h2>
-<ul>
-<li class="fragment"><p>Favoriser une <span class="blue2"><strong>structure modulaire</strong></span> selon l’état du projet</p>
-<ul>
-<li class="fragment"><span class="orange"><strong>Exploration</strong></span> : travail à partir de <span class="blue2"><strong>notebooks</strong></span></li>
-<li class="fragment"><span class="orange"><strong>Industrialisation</strong></span> : adopter une structure type <span class="blue2"><strong>package</strong></span></li>
-</ul></li>
-<li class="fragment"><p>Adopter les <span class="orange"><strong>standards communautaires</strong></span></p></li>
-<li class="fragment"><p><span class="orange"><strong>(Auto-)documenter</strong></span> son projet</p></li>
-</ul>
-</section>
-<section id="phase-dexploration-notebooks" class="slide level2">
-<h2><span class="emoji" data-emoji="one">1️⃣</span> Phase d’exploration : <em>notebooks</em></h2>
-<ul>
-<li class="fragment"><span class="orange"><strong>Avantages</strong></span>
-<ul>
-<li class="fragment"><span class="blue2"><strong>Interactivité</strong></span> : idéal pour l’expérimentation</li>
-<li class="fragment"><span class="blue2"><strong>Communication</strong></span> : diffusion de résultats sous forme exécutable</li>
-</ul></li>
-<li class="fragment"><span class="orange"><strong>Inconvénients</strong></span>
-<ul>
-<li class="fragment"><span class="blue2"><strong>Reproductibilité</strong></span> généralement limitée</li>
-<li class="fragment">Pas adaptés pour l’<span class="blue2"><strong>automatisation</strong></span></li>
-<li class="fragment">Mal gérés par le <span class="blue2"><strong>contrôle de version</strong></span></li>
-</ul></li>
-</ul>
-</section>
-<section id="industrialisation-structure-modulaire" class="slide level2">
-<h2><span class="emoji" data-emoji="two">2️⃣</span> Industrialisation : structure modulaire</h2>
-<ul>
-<li class="fragment"><p><span class="orange"><strong>Premier niveau</strong></span> : structuration du <span class="orange"><strong>code</strong></span></p></li>
-<li class="fragment"><p>Adopter une structure type <span class="orange"><strong>package</strong></span></p>
-<ul>
-<li class="fragment">Des <span class="blue2"><strong>fonctions</strong></span> rangées dans des <span class="blue2"><strong>modules</strong></span></li>
-<li class="fragment">Un script principal (<code>main</code>) <span class="blue2"><strong>orchestre</strong></span> les traitements</li>
-<li class="fragment">Utilisation de <span class="blue2"><strong>chemins relatifs</strong></span> uniquement</li>
-</ul></li>
-</ul>
-</section>
-<section id="industrialisation-structure-modulaire-1" class="slide level2">
-<h2><span class="emoji" data-emoji="two">2️⃣</span> Industrialisation : structure modulaire</h2>
-<ul>
-<li class="fragment"><span class="orange"><strong>Deuxième niveau</strong></span> : structuration du <span class="orange"><strong>projet</strong></span></li>
-</ul>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/project-modularity.png" class="quarto-figure quarto-figure-center" height="350"></p>
-</figure>
-</div>
-</div>
-</section>
-<section id="adopter-les-standards-communautaires" class="slide level2">
-<h2><span class="emoji" data-emoji="three">3️⃣</span> Adopter les standards communautaires</h2>
-<ul>
-<li class="fragment"><span class="orange"><strong>Templates</strong></span> de projets : <span class="blue2"><strong>Cookiecutters</strong></span>
-<ul>
-<li class="fragment"><a href="https://drivendata.github.io/cookiecutter-data-science/">Cookiecutter Data Science</a></li>
-<li class="fragment"><a href="https://py-pkgs.org/03-how-to-package-a-python#creating-a-package-structure">Cookiecutter Python Package</a></li>
-</ul></li>
-<li class="fragment">La <span class="orange"><strong>cohérence intra-projet</strong></span> doit toujours primer</li>
-</ul>
-</section>
-<section id="documenter-son-projet" class="slide level2">
-<h2><span class="emoji" data-emoji="four">4️⃣</span> Documenter son projet</h2>
-<ul>
-<li class="fragment">Favoriser l’<span class="orange"><strong>auto-documentation</strong></span> via des nommages pertinents</li>
-</ul>
-</section>
-<section id="lauto-documentation-illustration" class="slide level2">
-<h2>L’auto-documentation : illustration</h2>
-<pre><code>├── report.ipynb
+:five: Favoriser la [**portabilité**]{.blue2} d'une application
+
+
+# :one: Le travail collaboratif avec `Git`
+
+## Pourquoi utiliser Git ?
+
+![Source : [ThinkR](https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionner-son-code/)](img/timeline.png){fig-align="center" height=475}
+
+## Concepts essentiels
+
+![Source : [fabacademy.org](http://fabacademy.org/2021/labs/bhubaneswar/students/deepak-chaudhry/ia_PPFP.html)](img/gitallinone.png){height="400" fig-align="center"}
+
+## Bonnes pratiques {auto-animate=true .smaller}
+
+__Que versionne-t-on ?__
+
+- Essentiellement du [**code source**]{.orange}
+- [__Pas d'outputs__]{.orange} (fichiers `.html`, `.pdf`, modèles...)
+- [__Pas de données__]{.orange}, d'informations locales ou sensibles
+
+. . .
+
+:::{.callout-note}
+
+Pour définir des règles qui évitent de committer tel ou tel fichier, on utilise
+un fichier nommé __`.gitignore`__.
+
+Si on mélange du code et des éléments
+annexes (_output_, données...) dans un même dossier, il [__faut consacrer du temps à ce fichier__]{.orange}.
+
+N'hésitez pas à y ajouter des règles conservatrices (par exemple `*.csv`, `*.parquet`).
+:::
+
+## Bonnes pratiques {auto-animate=true .smaller}
+
+__Format des commits__
+
+::: {layout="[40,60]"}
+
+- [**Fréquence**]{.orange}
+    - Aussi souvent que possible
+    - Le lot de modifications doit "faire sens"
+- [**Messages**]{.orange}
+    - Courts et informatifs (comme un titre de mail)
+    - Décrire [**le pourquoi plutôt que le comment**]{.orange} dans le texte
+
+![](img/titre-commit.png)
+
+:::
+
+## Outils pour le travail collaboratif
+
+- L'éco-système `Git` [**facilite** le travail collaboratif]{.blue2}
+    - `Git`  : modèle des [__branches__]{.orange}
+    - `GitHub`  / `GitLab`  : [**Issues**, **Pull Requests**, **Forks**]{.orange}
+
+## Le modèle des branches
+
+::: {layout="[[-1], [1], [-1]]"}
+![Source : [lutece.paris.fr](https://lutece.paris.fr/support/jsp/site/Portal.jsp?page=wiki&view=page&page_name=git&language=fr)](img/branches.png){fig-align="center" height=350}
+:::
+
+## Les outils de contribution
+
+- [***Issue***]{.orange} : soumettre un [**problème**]{.blue2} ou une [**suggestion**]{.blue2} aux développeurs d'un projet
+
+- [***Pull Request***]{.orange} : proposer aux développeurs d'un projet d'[**intégrer des modifications**]{.blue2}
+
+- [***Fork***]{.orange} : faire la [**copie**]{.blue2} d'un projet existant dans son espace personnel
+    - Indispensable pour faire une *pull request* à un dépôt sur lequel on n'a pas les droits
+
+## Une organisation courante : le *GitHub flow*
+
+![](img/ghflow.png)
+
+Description plus détaillée : [ici](https://docs.github.com/en/get-started/quickstart/github-flow)
+
+
+# :two: Qualité du code
+
+## Enjeux
+
+- D'une vision utilitariste du code à une vision du code comme [**outil de communication**]{.orange}
+
+- Favoriser la [**lisibilité**]{.orange} et la [**maintenabilité**]{.orange}
+
+- Faciliter la [**réutilisation**]{.orange}
+
+## Principes généraux
+
+- Adopter les [**standards communautaires**]{.orange}
+
+- Utiliser des [**fonctions**]{.orange}
+
+- [**(Auto-)documenter**]{.orange} son code
+
+## :one: Standards communautaires
+
+> *"Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread"*
+>
+> [Tidyverse Style Guide (R)](https://style.tidyverse.org/)
+
+- [**Python**]{.blue2} : [PEP8](https://peps.python.org/pep-0008/), [PEP 257](https://peps.python.org/pep-0257/)
+    - Des règles *opinionated*, mais [**conventionnelles**]{.blue2}
+
+- La [**cohérence intra-projet**]{.orange} doit toujours primer
+
+## :one: Standards communautaires - Outils {.smaller}
+
+- [**Linters**]{.blue2} : diagnostic de qualité du code
+    - [Pylint](https://github.com/PyCQA/pylint)
+
+- [**Formatters**]{.blue2} : application automatique des standards
+    - [Black](https://github.com/psf/black)
+
+. . .
+
+::: {.callout-tip}
+- [Exemples d’erreurs repérées]{.blue2} par un _linter_ :
+    + lignes de code trop longues ou mal indentées, parenthèses non équilibrées, noms de fonctions mal construits…
+- [Exemples d’erreurs __non__ repérées]{.blue2} par un _linter_ :
+    + fonctions mal utilisées, arguments mal spécifiés, structure du code incohérente, code insuffisamment documenté…
+:::
+
+## :two: Utiliser des fonctions {.smaller}
+
+::: {.callout-important}
+## Règle d'or
+
+Il faut utiliser une [**fonction**]{.red2} dès qu'on utilise une même
+portion de code plus de deux fois ([**_don't repeat yourself_ (DRY)**]{.red2})
+:::
+
+- [**Limite les risques d'erreurs**]{.orange} liés aux copier/coller
+- Rend le code [**plus lisible**]{.orange} et [**plus compact**]{.orange}
+- [**Un seul endroit**]{.orange} du code à modifier lorsqu'on souhaite modifier le traitement
+- Facilite la [**réutilisation**]{.orange} et la [**documentation**]{.orange} du code !
+
+. . .
+
+::: {.callout-tip}
+## Règles pour écrire des fonctions **pertinentes**
+
+- Une tâche = une fonction
+- Une tâche complexe = un enchaînement de fonctions réalisant chacune une tâche simple
+- Limiter l'utilisation de variables globales.
+
+:::
+
+## :three: Documenter son code
+
+- Documenter le [__pourquoi__]{.orange} plutôt que le [__comment__]{.orange}
+
+- Privilégier l'[**auto-documentation**]{.orange} via des nommages pertinents
+
+. . .
+
+::: {.callout-tip}
+## Comment bien documenter un script ?
+
+- [**Minimum**]{.orange} 🚦 : décrire ce que le code fait au début du script
+- [**Bien**]{.orange} 👍 : commenter les parties "délicates" du code
+- [**Idéal**]{.orange} 💪 : documenter ses fonctions avec des *docstrings*
+:::
+
+
+# :three: Structure des projets
+
+## Enjeux
+
+- Favoriser la [**lisibilité**]{.orange} et la [**maintenabilité**]{.orange}
+
+- Enjeux spécifiques à la data science
+    - [**Expérimentation**]{.blue2}
+    - [**Non-linéarité**]{.blue2}
+    - [**Reproductibilité**]{.blue2}
+
+## Principes généraux
+
+- Favoriser une [**structure modulaire**]{.blue2} selon l'état du projet
+    - [**Exploration**]{.orange} : travail à partir de [**notebooks**]{.blue2}
+    - [**Industrialisation**]{.orange} : adopter une structure type [**package**]{.blue2}
+
+- Adopter les [**standards communautaires**]{.orange}
+
+- [**(Auto-)documenter**]{.orange} son projet
+
+## :one: Phase d'exploration : *notebooks*
+
+- [**Avantages**]{.orange}
+  - [**Interactivité**]{.blue2} : idéal pour l'expérimentation
+  - [**Communication**]{.blue2} : diffusion de résultats sous forme exécutable
+
+- [**Inconvénients**]{.orange}
+  - [**Reproductibilité**]{.blue2} généralement limitée
+  - Pas adaptés pour l'[**automatisation**]{.blue2}
+  - Mal gérés par le [**contrôle de version**]{.blue2}
+
+## :two: Industrialisation : structure modulaire
+
+- [**Premier niveau**]{.orange} : structuration du [**code**]{.orange}
+
+- Adopter une structure type [**package**]{.orange}
+  - Des [**fonctions**]{.blue2} rangées dans des [**modules**]{.blue2}
+  - Un script principal (`main`) [**orchestre**]{.blue2} les traitements
+  - Utilisation de [**chemins relatifs**]{.blue2} uniquement
+
+## :two: Industrialisation : structure modulaire
+
+- [**Deuxième niveau**]{.orange} : structuration du [**projet**]{.orange}
+
+. . .
+
+![](img/project-modularity.png){fig-align="center" height=350}
+
+## :three: Adopter les standards communautaires
+
+- [**Templates**]{.orange} de projets : [**Cookiecutters**]{.blue2}
+    - [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/)
+    - [Cookiecutter Python Package](https://py-pkgs.org/03-how-to-package-a-python#creating-a-package-structure)
+
+- La [**cohérence intra-projet**]{.orange} doit toujours primer
+
+## :four: Documenter son projet
+
+- Favoriser l'[**auto-documentation**]{.orange} via des nommages pertinents
+
+## L'auto-documentation : illustration
+
+```
+├── report.ipynb
 ├── correlation.png
 ├── data.csv
 ├── data2.csv
@@ -766,18 +474,17 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 ├── report.pdf
 ├── partial data.csv
 ├── script.py
-└── script_final.py</code></pre>
-<ul>
-<li class="fragment">Difficile de rentrer dans le projet…
-<ul>
-<li class="fragment">Tout au <span class="blue2"><strong>même niveau</strong></span></li>
-<li class="fragment">Titres <span class="blue2"><strong>non informatifs</strong></span></li>
-</ul></li>
-</ul>
-</section>
-<section id="lauto-documentation-illustration-1" class="slide level2">
-<h2>L’auto-documentation : illustration</h2>
-<pre><code>├── data
+└── script_final.py
+```
+
+- Difficile de rentrer dans le projet...
+    - Tout au [**même niveau**]{.blue2}
+    - Titres [**non informatifs**]{.blue2}
+
+## L'auto-documentation : illustration
+
+```
+├── data
 │   ├── raw
 │   │   ├── data.csv
 │   │   └── data2.csv
@@ -794,17 +501,16 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
         ├── fig1.png
         ├── figure 2 (copy).png
         ├── figure10.png
-        └── correlation.png</code></pre>
-<ul>
-<li class="fragment">Une structure déjà plus lisible !
-<ul>
-<li class="fragment">Les titres restent <span class="blue2"><strong>non informatifs</strong></span></li>
-</ul></li>
-</ul>
-</section>
-<section id="lauto-documentation-illustration-2" class="slide level2">
-<h2>L’auto-documentation : illustration</h2>
-<pre><code>├── data
+        └── correlation.png
+```
+
+- Une structure déjà plus lisible !
+    - Les titres restent [**non informatifs**]{.blue2}
+
+## L'auto-documentation : illustration
+
+```
+├── data
 │   ├── raw
 │   │   ├── dpe_logement_202103.csv
 │   │   └── dpe_logement_202003.csv
@@ -822,820 +528,455 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
         ├── histogram_energy_diagnostic.png
         ├── barplot_consumption_pcs.png
         ├── correlation_matrix.png
-        └── correlation.png</code></pre>
-<ul>
-<li class="fragment">Une structure <span class="blue2"><strong>auto-documentée</strong></span>
-<ul>
-<li class="fragment">On comprend le projet sans même lire le code</li>
-</ul></li>
-</ul>
-</section>
-<section id="documenter-son-projet-1" class="slide level2">
-<h2><span class="emoji" data-emoji="four">4️⃣</span> Documenter son projet</h2>
-<ul>
-<li class="fragment"><p>Favoriser l’<span class="orange"><strong>auto-documentation</strong></span> via des nommages pertinents</p></li>
-<li class="fragment"><p>Inclure un fichier <code>README.md</code> à la racine du projet</p>
-<ul>
-<li class="fragment"><span class="blue2"><strong>Carte d’identité</strong></span> et <span class="blue2"><strong>vitrine</strong></span> du projet</li>
-<li class="fragment">Présente le <span class="blue2"><strong>contexte</strong></span> et le <span class="blue2"><strong>fonctionnement</strong></span> du projet</li>
-</ul></li>
-<li class="fragment"><p>Si <span class="orange"><strong>open-source</strong></span> : inclure une <a href="https://docs.github.com/fr/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">licence</a></p></li>
-</ul>
-</section></section>
-<section>
-<section id="application" class="title-slide slide level1 center">
-<h1>Application</h1>
+        └── correlation.png
+```
 
-</section>
-<section id="bonnes-pratiques-de-développement" class="slide level2">
-<h2>Bonnes pratiques de développement</h2>
-<ul>
-<li class="fragment">Consignes sur le <a href="https://ensae-reproductibilite.github.io/website/chapters/application.html">site du cours</a>
-<ul>
-<li class="fragment">Partie <span class="emoji" data-emoji="zero">0️⃣</span> : initialisation de l’environnement et du projet</li>
-<li class="fragment">Partie <span class="emoji" data-emoji="one">1️⃣</span> : qualité du code</li>
-<li class="fragment">Partie <span class="emoji" data-emoji="two">2️⃣</span> : adoption d’une structure modulaire</li>
-</ul></li>
-</ul>
-</section></section>
-<section>
-<section id="traitement-des-données-volumineuses" class="title-slide slide level1 center">
-<h1><span class="emoji" data-emoji="four">4️⃣</span> Traitement des données volumineuses</h1>
+- Une structure [**auto-documentée**]{.blue2}
+    - On comprend le projet sans même lire le code
 
-</section>
-<section id="the-obligatory-intro-slide" class="slide level2">
-<h2>“The obligatory intro slide”</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/intro-big-data.png" height="400"></p>
-<figcaption>Source : <a href="https://motherduck.com/blog/big-data-is-dead/">motherduck.com</a></figcaption>
-</figure>
-</div>
-</section>
-<section id="enjeux-2" class="slide level2">
-<h2>Enjeux</h2>
-<ul>
-<li class="fragment">Tendance à la <span class="orange"><strong>massification</strong></span> des données</li>
-</ul>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/vvv.png" height="350"></p>
-<figcaption>Source : <a href="https://www.packtpub.com/product/artificial-intelligence-with-python-second-edition/9781839219535">AI with Python</a></figcaption>
-</figure>
-</div>
-</div>
-</section>
-<section id="enjeux-3" class="slide level2">
-<h2>Enjeux</h2>
-<ul>
-<li class="fragment">Nécessité de bien distinguer :
-<ul>
-<li class="fragment"><span class="blue2"><strong><em>Storage</em></strong></span> : qu’est-ce que l’on stocke et comment ?</li>
-<li class="fragment"><span class="blue2"><strong><em>Compute</em></strong></span> : qu’est-ce que l’on calcule et où ?</li>
-</ul></li>
-<li class="fragment">Evolutions des <span class="orange"><strong>infrastructures de données</strong></span> :
-<ul>
-<li class="fragment"><span class="blue2"><strong>Bases de données</strong></span> : couplage fort, scalabilité verticale</li>
-<li class="fragment"><span class="blue2"><strong>Infrastructures <em>big data</em></strong></span> : couplage fort, scalabilité horizontale</li>
-<li class="fragment"><span class="blue2"><strong>Infrastructures <em>cloud</em></strong></span> : couplage faible, scalabilité hybride</li>
-</ul></li>
-</ul>
-</section>
-<section id="a-lorigine-les-bases-de-données" class="slide level2">
-<h2><span class="emoji" data-emoji="one">1️⃣</span> A l’origine : les bases de données</h2>
-<ul>
-<li class="fragment"><p>Historiquement : stockage dans des <span class="orange"><strong>bases de données</strong></span></p></li>
-<li class="fragment"><p>80’s : essor des <a href="https://fr.wikipedia.org/wiki/Base_de_donn%C3%A9es_relationnelle">bases de données relationnelles</a></p>
-<ul>
-<li class="fragment">Modèle de la <span class="orange"><strong><em>data warehouse</em></strong></span></li>
-</ul></li>
-</ul>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/data-warehouse.png" height="300"></p>
-<figcaption>Source : <a href="https://corporatefinanceinstitute.com/resources/business-intelligence/data-warehousing/">corporatefinanceinstitute.com</a></figcaption>
-</figure>
-</div>
-</div>
-</section>
-<section id="limites-des-data-warehouses" class="slide level2">
-<h2><span class="emoji" data-emoji="one">1️⃣</span> Limites des <em>data warehouses</em></h2>
-<ul>
-<li class="fragment">Peu adaptées aux <span class="orange"><strong>données <em>big data</em></strong></span>
-<ul>
-<li class="fragment">Limitées aux <span class="blue2"><strong>données structurées</strong></span></li>
-<li class="fragment">Nécessiter de fixer un <span class="blue2"><strong>schéma a priori</strong></span></li>
-<li class="fragment">Passage à l’échelle coûteux : <span class="blue2"><strong>scalabilité verticale</strong></span></li>
-</ul></li>
-</ul>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/vertical-scaling-pgsql.png" height="250"></p>
-<figcaption>Source : <a href="https://dev.to/yugabyte/horizontal-scaling-vs-vertical-scaling-for-sql-what-s-the-difference-kn2">https://dev.to</a></figcaption>
-</figure>
-</div>
-</div>
-</section>
-<section id="larrivée-du-data-lake-fin-2000s" class="slide level2 scrollable">
-<h2><span class="emoji" data-emoji="two">2️⃣</span> L’arrivée du <em>data lake</em> (fin 2000’s)</h2>
-<ul>
-<li class="fragment">Un stockage <span class="orange"><strong>peu coûteux</strong></span> fait pour des <span class="orange"><strong>données</strong></span>
-<ul>
-<li class="fragment"><span class="blue2"><strong>Volumineuses</strong></span></li>
-<li class="fragment"><span class="blue2"><strong>Brutes</strong></span></li>
-<li class="fragment">Sans <span class="blue2"><strong>structure définie a priori</strong></span></li>
-</ul></li>
-</ul>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/datalake.png" height="300"></p>
-<figcaption>Source : <a href="https://www.qlik.com/us/data-lake">qlik.com</a></figcaption>
-</figure>
-</div>
-</div>
-</section>
-<section id="infrastructures-big-data" class="slide level2 scrollable">
-<h2><span class="emoji" data-emoji="two">2️⃣</span> Infrastructures <em>big data</em></h2>
-<ul>
-<li class="fragment">Fin 2000’s : une architecture de référence (<a href="https://fr.wikipedia.org/wiki/Hadoop">Hadoop</a>)
-<ul>
-<li class="fragment">Une <span class="blue2"><strong><em>data lake</em></strong></span> avec du <span class="blue2"><strong>stockage distribué</strong></span> (HDFS)</li>
-<li class="fragment">Des <span class="blue2"><strong>frameworks de calcul distribué</strong></span> (<a href="https://fr.wikipedia.org/wiki/MapReduce">MapReduce</a>, <a href="https://fr.wikipedia.org/wiki/Apache_Spark">Spark</a>)</li>
-</ul></li>
-</ul>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/mapreduce-hdfs.png" height="350"></p>
-<figcaption>Source : <a href="https://www.glennklockwood.com/data-intensive/hadoop/overview.html">glennklockwood.com</a></figcaption>
-</figure>
-</div>
-</div>
-</section>
-<section id="big-data-is-dead" class="slide level2">
-<h2><span class="emoji" data-emoji="three">3️⃣</span> “Big Data is dead” ?</h2>
-<ul>
-<li class="fragment">2010’s : déclin de popularité des infrastructures Hadoop
-<ul>
-<li class="fragment">Limite : <span class="blue2"><strong>co-localisation</strong></span> du stockage et du calcul</li>
-</ul></li>
-<li class="fragment">Jordan Tigani : <a href="https://motherduck.com/blog/big-data-is-dead/">Big Data is dead</a>
-<ul>
-<li class="fragment">Besoins de <span class="blue2"><strong><em>storage</em></strong></span> &gt;&gt; besoins de <span class="blue2"><strong><em>compute</em></strong></span></li>
-</ul></li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/tigani-compute-storage.png" class="fragment quarto-figure quarto-figure-center" height="330"></p>
-</figure>
-</div>
-</section>
-<section id="infrastructures-cloud" class="slide level2">
-<h2><span class="emoji" data-emoji="three">3️⃣</span> Infrastructures <em>cloud</em></h2>
-<ul>
-<li class="fragment">Fin 2010’s : <span class="orange"><strong>les technologies <em>cloud</em></strong></span> permettent l’émergence d’architectures <span class="orange"><strong>faiblement couplées</strong></span>
-<ul>
-<li class="fragment"><span class="blue2"><strong><em>Storage</em></strong></span> : <span class="blue2"><strong><em>data lake</em></strong></span> basé sur du <span class="blue2"><strong>stockage objet</strong></span></li>
-<li class="fragment"><span class="blue2"><strong><em>Compute</em></strong></span> : des environnements de traitement élastiques aux besoins (<span class="blue2"><strong>conteneurs</strong></span>)</li>
-</ul></li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/environment_cloud.png" class="fragment quarto-figure quarto-figure-center" height="300"></p>
-</figure>
-</div>
-</section>
-<section id="la-frontière-du-big-data-se-décale" class="slide level2">
-<h2><span class="emoji" data-emoji="three">3️⃣</span> La frontière du <em>big data</em> se décale</h2>
-<ul>
-<li class="fragment"><p><span class="orange"><strong>Innovations matérielles</strong></span> (serveurs, CPUs, RAM)</p></li>
-<li class="fragment"><p><span class="orange"><strong>Formats de données</strong></span> plus efficients (<span class="orange"><strong>Parquet</strong></span>)</p></li>
-<li class="fragment"><p>Des outils de <span class="orange"><strong>traitement <em>larger-than-memory</em></strong></span></p></li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/tigani-big-data-frontier.png" class="fragment quarto-figure quarto-figure-center" height="330"></p>
-</figure>
-</div>
-</section>
-<section id="le-format-csv" class="slide level2">
-<h2><span class="emoji" data-emoji="three">3️⃣</span> Le format <code>CSV</code></h2>
-<ul>
-<li class="fragment">Le format usuel pour les <span class="orange"><strong>données tabulaires</strong></span> est le <code>CSV</code>
-<ul>
-<li class="fragment">Facilement <span class="blue2"><strong>lisible</strong></span></li>
-<li class="fragment"><span class="blue2"><strong>Non-compressé</strong></span> : espace disque élevé</li>
-<li class="fragment"><span class="blue2"><strong>Orienté ligne</strong></span> : mal adapté aux traitements analytiques</li>
-</ul></li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/columnar-storage.png" class="fragment quarto-figure quarto-figure-center" height="300"></p>
-</figure>
-</div>
-</section>
-<section id="le-format-parquet-propriétés" class="slide level2">
-<h2><span class="emoji" data-emoji="three">3️⃣</span> Le format <code>Parquet</code> : propriétés</h2>
-<ul>
-<li class="fragment"><span class="orange"><strong>Orienté colonne</strong></span>
-<ul>
-<li class="fragment">Adapté aux <span class="blue2"><strong>traitements analytiques</strong></span></li>
-<li class="fragment">Conçu pour être écrit une fois mais lu fréquemment</li>
-</ul></li>
-<li class="fragment"><span class="orange"><strong>Optimisé</strong></span>
-<ul>
-<li class="fragment"><span class="blue2"><strong>Compression</strong></span> (jusqu’à 87 % moins d’espace qu’un CSV)</li>
-<li class="fragment"><span class="blue2"><strong>Lecture</strong></span> du fichier (jusqu’à 34x plus rapide qu’un CSV)</li>
-</ul></li>
-<li class="fragment"><span class="orange"><strong>Interopérable</strong></span>
-<ul>
-<li class="fragment">Gestion native des <span class="blue2"><strong>méta-données</strong></span></li>
-</ul></li>
-</ul>
-</section>
-<section id="parquet-partitionnement" class="slide level2">
-<h2><span class="emoji" data-emoji="three">3️⃣</span> <code>Parquet</code> : partitionnement</h2>
-<ul>
-<li class="fragment"><span class="orange"><strong>Division en blocs</strong></span> des données selon un <span class="orange"><strong>critère</strong></span>
-<ul>
-<li class="fragment"><span class="blue2"><strong>Optimise la lecture</strong></span> pour certaines requêtes</li>
-</ul></li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/parquet-partition.png" class="fragment quarto-figure quarto-figure-center" height="400"></p>
-</figure>
-</div>
-</section>
-<section id="traitement-in-memory" class="slide level2">
-<h2><span class="emoji" data-emoji="three">3️⃣</span> Traitement <em>in-memory</em></h2>
-<ul>
-<li class="fragment"><code>Parquet</code> ne résout pas tout
-<ul>
-<li class="fragment">L’espace disque est optimisé</li>
-<li class="fragment">Les données décompressées doivent <span class="blue2"><strong>passer en RAM</strong></span></li>
-</ul></li>
-<li class="fragment">Avec un <em>framework</em> traditionnel de <span class="orange"><strong>calcul en mémoire</strong></span> (<code>Pandas</code>, <code>dplyr</code> en <code>R</code>, etc.)
-<ul>
-<li class="fragment"><span class="blue2"><strong>Gain en lecture</strong></span> grâce à la compression <code>Parquet</code></li>
-<li class="fragment">Obligé de charger <span class="blue2"><strong>l’ensemble du fichier en mémoire</strong></span></li>
-<li class="fragment"><span class="blue2"><strong>Perte de l’avantage de la structure en colonne</strong></span></li>
-</ul></li>
-</ul>
-</section>
-<section id="traitement-larger-than-memory" class="slide level2">
-<h2><span class="emoji" data-emoji="three">3️⃣</span> Traitement <em>larger-than-memory</em></h2>
-<ul>
-<li class="fragment">Calcul <span class="blue2"><strong><em>larger than memory</em> optimisé</strong></span>
-<ul>
-<li class="fragment"><a href="https://arrow.apache.org/overview/">Arrow</a> : orientation fichier (<code>Parquet</code>)</li>
-<li class="fragment"><a href="https://duckdb.org/">DuckDB</a> : orientation base de données (<code>SQL</code>)</li>
-</ul></li>
-<li class="fragment">Principes communs :
-<ul>
-<li class="fragment"><span class="blue2"><strong>Orientation colonne</strong></span> : synergie avec <code>Parquet</code></li>
-<li class="fragment"><span class="blue2"><strong>Lazy evaluation</strong></span> : très efficient en données</li>
-</ul></li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/parquet-read-columns.png" class="fragment quarto-figure quarto-figure-center" height="200"></p>
-</figure>
-</div>
-</section>
-<section id="duckdb-un-connecteur-interopérable-entre-sources-de-données" class="slide level2">
-<h2><span class="emoji" data-emoji="three">3️⃣</span> <code>DuckDB</code> : un connecteur interopérable entre sources de données</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/duckdb-intero.png" class="fragment quarto-figure quarto-figure-center" height="500"></p>
-</figure>
-</div>
-</section>
-<section id="résumé-pour-traiter-la-volumétrie" class="slide level2">
-<h2>Résumé : pour traiter la volumétrie</h2>
-<ul>
-<li class="fragment"><p>Choisir une <span class="orange"><strong>infrastructure</strong></span> adaptée aux besoins</p>
-<ul>
-<li class="fragment">Les <span class="blue2"><strong>technologies <em>cloud</em></strong></span> offrent un très bon compromis coût / flexibilité</li>
-</ul></li>
-<li class="fragment"><p>Utiliser un <span class="orange"><strong>format</strong></span> de données adapté (<code>Parquet</code>)</p></li>
-<li class="fragment"><p>Utiliser des <span class="orange"><strong>outils</strong></span> de traitement adaptés</p>
-<ul>
-<li class="fragment">Suffisant la plupart du temps : <span class="blue2"><strong>calcul <em>larger than memory</em> optimisé</strong></span> (<code>DuckDB</code>)</li>
-<li class="fragment">Si volumétrie massive : <span class="blue2"><strong>calcul distribué</strong></span> (<code>Spark</code>)</li>
-</ul></li>
-</ul>
-</section></section>
-<section>
-<section id="portabilité" class="title-slide slide level1 center">
-<h1><span class="emoji" data-emoji="five">5️⃣</span> Portabilité</h1>
+## :four: Documenter son projet
 
-</section>
-<section id="it-works-on-my-machine" class="slide level2 scrollable">
-<h2>“It works… on my machine”</h2>
-<ul>
-<li class="fragment"><p>On a construit un projet <span class="orange"><strong>lisible</strong></span>, <span class="orange"><strong>structuré</strong></span> et <span class="orange"><strong>versionné</strong></span></p></li>
-<li class="fragment"><p>Peut-on <span class="orange"><strong>partager</strong></span> notre projet ?</p>
-<ul>
-<li class="fragment">En théorie, oui !</li>
-<li class="fragment">En pratique, c’est toujours plus compliqué…</li>
-</ul></li>
-</ul>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/IWOMM.jpg" height="350"></p>
-<figcaption>Source : <a href="https://simply-the-test.blogspot.com/2010/05/it-works-on-my-machine.html">simply-the-test.blogspot.com</a></figcaption>
-</figure>
-</div>
-</div>
-</section>
-<section id="pourquoi-se-préoccuper-de-portabilité" class="slide level2">
-<h2>Pourquoi se préoccuper de portabilité ?</h2>
-<ul>
-<li class="fragment">Considérons un <span class="orange"><strong><em>workflow</em> standard</strong></span> de <em>data science</em>
-<ul>
-<li class="fragment">Installer une distribution de <code>Python</code> sur son poste</li>
-<li class="fragment">Développer un projet en installant les packages nécessaires</li>
-<li class="fragment">Passer au projet suivant et ainsi de suite</li>
-</ul></li>
-<li class="fragment">Quels <span class="orange"><strong>problèmes</strong></span> peuvent se poser ?</li>
-</ul>
-</section>
-<section id="pourquoi-se-préoccuper-de-portabilité-1" class="slide level2">
-<h2>Pourquoi se préoccuper de portabilité ?</h2>
-<ul>
-<li class="fragment"><p><span class="orange"><strong>Conflits de version</strong></span> : différents projets peuvent requérir des versions différentes d’un même <em>package</em></p></li>
-<li class="fragment"><p><span class="orange"><strong>Version de <code>Python</code> fixe</strong></span>, celle de l’installation système</p></li>
-<li class="fragment"><p><span class="orange"><strong>Reproductibilité limitée</strong></span> : difficile de dire quel projet nécessite quel package</p></li>
-<li class="fragment"><p><span class="orange"><strong>Portabilité limitée</strong></span> : difficile de fixer dans un fichier les dépendances spécifiques à un projet</p></li>
-</ul>
-</section>
-<section id="le-critère-de-la-portabilité" class="slide level2">
-<h2>Le critère de la portabilité</h2>
-<ul>
-<li class="fragment">Un code n’est pas auto-suffisant, il contient en général de nombreuses <span class="orange"><strong>adhérences</strong></span>
-<ul>
-<li class="fragment">Un <span class="blue2"><strong>langage de programmation</strong></span> et sa <span class="blue2"><strong>version</strong></span></li>
-<li class="fragment">Des <span class="blue2"><strong>dépendances</strong></span></li>
-<li class="fragment">Des <span class="blue2"><strong>librairies système</strong></span></li>
-</ul></li>
-<li class="fragment"><span class="orange"><strong>Portabilité</strong></span> : capacité d’un code à s’exécuter dans un environnement différent que celui de développement
-<ul>
-<li class="fragment">Enjeu central de la <span class="blue2"><strong>mise en production</strong></span> !</li>
-</ul></li>
-</ul>
-</section>
-<section id="comment-favoriser-la-portabilité" class="slide level2">
-<h2>Comment favoriser la portabilité ?</h2>
-<ul>
-<li class="fragment"><p>Constuire des <span class="orange"><strong>“bulles” plus ou moins isolées</strong></span> autour de son projet afin de <span class="orange"><strong><em>packager</em> l’environnement</strong></span> nécessaire</p></li>
-<li class="fragment"><p>Des outils dédiés :</p>
-<ul>
-<li class="fragment">Les <span class="blue2"><strong>environnements virtuels</strong></span> : très simples à prendre en main, <span class="blue2"><strong>portabilité moyenne</strong></span></li>
-<li class="fragment">Les <span class="blue2"><strong>conteneurs</strong></span> : plus complexes d’utilisation, <span class="blue2"><strong>portabilité maximale</strong></span></li>
-</ul></li>
-</ul>
-</section>
-<section id="environnements-virtuels-fonctionnement" class="slide level2 scrollable">
-<h2>Environnements virtuels : fonctionnement</h2>
-<ul>
-<li class="fragment"><span class="orange"><strong>Dossier “auto-suffisant”</strong></span> qui :
-<ul>
-<li class="fragment">contient un <span class="blue2"><strong>intepréteur</strong></span> <code>Python</code> et des <span class="blue2"><strong>packages</strong></span></li>
-<li class="fragment">est <span class="orange"><strong>isolé</strong></span> des autres environnements existants</li>
-</ul></li>
-</ul>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/venv.png" height="350"></p>
-<figcaption>Source : <a href="https://www.dataquest.io/blog/a-complete-guide-to-python-virtual-environments/">dataquest.io</a></figcaption>
-</figure>
-</div>
-</div>
-</section>
-<section id="environnements-virtuels-implémentations" class="slide level2">
-<h2>Environnements virtuels : implémentations</h2>
-<ul>
-<li class="fragment"><span class="orange"><strong>Implémentation standard</strong></span> de <code>Python</code> : <a href="https://docs.python.org/fr/3/library/venv.html">venv</a>
-<ul>
-<li class="fragment">Il en existe bien d’autres (<code>virtualenv</code>, <code>pipenv</code>, etc.)</li>
-</ul></li>
-<li class="fragment">Très lié au <span class="orange"><strong>mode d’installation des <em>packages</em></strong></span>
-<ul>
-<li class="fragment">Python “standard” : <code>venv</code> + <code>pip</code></li>
-<li class="fragment">Limites :
-<ul>
-<li class="fragment">Lenteur de la <span class="blue2"><strong>résolution des dépendances</strong></span></li>
-<li class="fragment">Dépendance à la version système de <code>Python</code></li>
-</ul></li>
-</ul></li>
-<li class="fragment"><span class="orange"><strong>Une implémentation qui monte</strong></span> très (très) vite : <a href="https://docs.astral.sh/uv/">uv</a></li>
-</ul>
-</section>
-<section id="uv-un-outil-pour-les-gouverner-tous" class="slide level2">
-<h2><code>uv</code> : un outil pour les gouverner tous</h2>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/uv-venn.png" height="500"></p>
-<figcaption>Source : <a href="https://alpopkes.com/posts/python/packaging_tools/?ref=blog.ippon.fr/">alpopkes.com</a></figcaption>
-</figure>
-</div>
-</div>
-</section>
-<section id="uv-utilisation" class="slide level2">
-<h2><code>uv</code> : utilisation</h2>
-<ul>
-<li class="fragment"><span class="orange"><strong>Initialiser</strong></span> un projet : <code>uv init &lt;nom_du_projet&gt;</code>
-<ul>
-<li class="fragment">Génère une <span class="blue2"><strong>structure de projet</strong></span></li>
-</ul></li>
-<li class="fragment"><span class="orange"><strong>Installer</strong></span> un package : <code>uv add scikit-learn</code>
-<ul>
-<li class="fragment">Génère automatiquement un <span class="blue2"><strong>environnement virtuel</strong></span> (<code>venv</code>)</li>
-</ul></li>
-<li class="fragment"><span class="orange"><strong>Exécuter</strong></span> un script : <code>uv run script.py</code>
-<ul>
-<li class="fragment">Le script est exécuté avec l’interpéteur <code>Python</code> <span class="blue2"><strong>de l’environnement virtuel</strong></span></li>
-</ul></li>
-</ul>
-</section>
-<section id="spécifier-lenvironnement-du-projet" class="slide level2">
-<h2>Spécifier l’environnement du projet</h2>
-<ul>
-<li class="fragment"><p>Développer dans un <span class="orange"><strong>environnement virtuel</strong></span> est une bonne pratique</p></li>
-<li class="fragment"><p>Favorise la <span class="orange"><strong>reproductibilité</strong></span></p>
-<ul>
-<li class="fragment">A chaque installation d’un <em>package</em>, <code>uv</code> met à jour le fichier <code>uv.lock</code> qui <span class="blue2"><strong>spécifie toutes les dépendances</strong></span></li>
-<li class="fragment"><code>uv sync</code> -&gt; <span class="blue2"><strong>recrée l’environnement complet</strong></span></li>
-</ul></li>
-<li class="fragment"><p>Favorise la <span class="orange"><strong>portabilité</strong></span></p>
-<ul>
-<li class="fragment">A chaque installation d’un <em>package</em>, <code>uv</code> maj le fichier <code>pyproject.yaml</code> qui <span class="blue2"><strong>spécifie les <em>packages</em> nécessaires</strong></span></li>
-<li class="fragment">A <em>commit</em> sur <code>Git</code> pour <span class="blue2"><strong>distribuer la “recette” de l’environnement</strong></span></li>
-</ul></li>
-</ul>
-</section>
-<section id="faire-évoluer-les-versions" class="slide level2">
-<h2>Faire évoluer les versions</h2>
-<ul>
-<li class="fragment"><span class="orange"><strong>Arbitrage</strong></span> à trouver entre :
-<ul>
-<li class="fragment"><span class="blue2"><strong>Reproductibilité</strong></span> : <span class="blue2"><strong>spécifier</strong></span> finement les versions</li>
-<li class="fragment"><span class="blue2"><strong>Fonctionnalités et sécurité</strong></span> : faire <span class="blue2"><strong>évoluer</strong></span> les versions</li>
-</ul></li>
-</ul>
-</section>
-<section id="environnements-virtuels-limites" class="slide level2">
-<h2>Environnements virtuels : limites</h2>
-<ul>
-<li class="fragment"><span class="orange"><strong>Limités au langage</strong></span> de programmation et ses <em>packages</em> :
-<ul>
-<li class="fragment">Pas de gestion des <span class="blue2"><strong>librairies système</strong></span> qui dépendent du système d’exploitation</li>
-<li class="fragment">Non adaptés à des <span class="blue2"><strong>projets multi-langages</strong></span></li>
-</ul></li>
-<li class="fragment">Les environnements virtuels <span class="orange"><strong>facilitent la portabilité, mais ne suffisent pas à la garantir</strong></span></li>
-</ul>
-</section>
-<section id="le-gold-standard-de-la-portabilité" class="slide level2">
-<h2>Le <em>gold-standard</em> de la portabilité</h2>
-<ul>
-<li class="fragment">Au lieu de distribuer la <span class="orange"><strong>recette</strong></span> pour recréer la bonne machine, peut-on <span class="orange"><strong>distribuer directement la bonne machine</strong></span> ?
-<ul>
-<li class="fragment">Idée 1 : distribuer des <span class="blue2"><strong>machines physiques</strong></span> : complexe…</li>
-<li class="fragment">Idée 2 : distribuer des <span class="blue2"><strong>machines virtuelles</strong></span> : possible mais coûteux</li>
-</ul></li>
-<li class="fragment">Les <span class="orange"><strong>conteneurs</strong></span> offrent le compromis idéal
-<ul>
-<li class="fragment"><span class="blue2"><strong>Isolation complète</strong></span> de l’environnement</li>
-<li class="fragment">Relativement <span class="blue2"><strong>légers</strong></span> et donc facilement redistribuables</li>
-</ul></li>
-</ul>
-</section>
-<section id="conteneurs-vs.-machines-virtuelles" class="slide level2">
-<h2>Conteneurs vs.&nbsp;machines virtuelles</h2>
+- Favoriser l'[**auto-documentation**]{.orange} via des nommages pertinents
 
-<img data-src="img/docker-vm.png" class="r-stretch quarto-figure-center"><p class="caption">Source : <a href="https://www.docker.com/resources/what-container/">docker.com</a></p></section>
-<section id="conteneurs-implémentations" class="slide level2">
-<h2>Conteneurs : implémentations</h2>
-<ul>
-<li class="fragment">Plusieurs implémentations des conteneurs
-<ul>
-<li class="fragment"><span class="blue2"><strong><code>Docker</code></strong></span> est largement prédominant</li>
-</ul></li>
-</ul>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/docker.png" class="quarto-figure quarto-figure-center" height="200"></p>
-</figure>
-</div>
-</div>
-</section>
-<section id="docker-installation" class="slide level2">
-<h2><code>Docker</code> : installation</h2>
-<ul>
-<li class="fragment"><code>Docker</code> : outil en ligne de commande (CLI)
-<ul>
-<li class="fragment"><a href="https://docs.docker.com/get-docker/">Instructions</a> selon le système d’exploitation</li>
-<li class="fragment">Environnement “bac à sable” : <a href="https://labs.play-with-docker.com/">Play with Docker</a></li>
-</ul></li>
-</ul>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/playwithdocker.png" class="quarto-figure quarto-figure-center" height="350"></p>
-</figure>
-</div>
-</div>
-</section>
-<section id="le-dockerfile" class="slide level2">
-<h2>Le <code>Dockerfile</code></h2>
-<ul>
-<li class="fragment">Exemple : conteneurisation d’une application interactive <a href="https://flask.palletsprojects.com/en/stable/">Flask</a></li>
-</ul>
-<div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource dockerfile scrollable number-lines code-with-copy"><code class="sourceCode dockerfile"><span id="cb4-1"><a></a><span class="kw">FROM</span> ubuntu:20.04</span>
-<span id="cb4-2"><a></a></span>
-<span id="cb4-3"><a></a><span class="kw">RUN</span> <span class="ex">apt-get</span> update <span class="at">-y</span> <span class="kw">&amp;&amp;</span> <span class="dt">\</span></span>
-<span id="cb4-4"><a></a>    <span class="ex">apt-get</span> install <span class="at">-y</span> python3-pip python3-dev</span>
-<span id="cb4-5"><a></a></span>
-<span id="cb4-6"><a></a><span class="kw">WORKDIR</span> /app</span>
-<span id="cb4-7"><a></a></span>
-<span id="cb4-8"><a></a><span class="kw">COPY</span> requirements.txt /app/requirements.txt</span>
-<span id="cb4-9"><a></a><span class="kw">RUN</span> <span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
-<span id="cb4-10"><a></a></span>
-<span id="cb4-11"><a></a><span class="kw">COPY</span> . /app</span>
-<span id="cb4-12"><a></a></span>
-<span id="cb4-13"><a></a><span class="kw">ENV</span> FLASK_APP=<span class="st">"my-app.py"</span></span>
-<span id="cb4-14"><a></a><span class="kw">EXPOSE</span> 5000</span>
-<span id="cb4-15"><a></a></span>
-<span id="cb4-16"><a></a><span class="kw">CMD</span> [<span class="st">"flask"</span>, <span class="st">"run"</span>, <span class="st">"--host=0.0.0.0"</span>]</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="docker-fonctionnement" class="slide level2">
-<h2><code>Docker</code> : fonctionnement</h2>
+- Inclure un fichier `README.md` à la racine du projet
+    - [**Carte d'identité**]{.blue2} et [**vitrine**]{.blue2} du projet
+    - Présente le [**contexte**]{.blue2} et le [**fonctionnement**]{.blue2} du projet
 
-<img data-src="img/docker-workflow.png" class="r-stretch quarto-figure-center"><p class="caption">Source : <a href="https://k21academy.com/docker-kubernetes/docker-and-kubernetes/">k21academy.com</a></p></section>
-<section id="docker-en-pratique" class="slide level2">
-<h2><code>Docker</code> en pratique</h2>
-<ul>
-<li class="fragment">Présentation détaillée sur la <a href="https://ensae-reproductibilite.github.io/website/chapters/portability.html#les-conteneurs">page du cours</a>
-<ul>
-<li class="fragment"><span class="blue2"><strong>Concepts</strong></span> (<em>caching</em>, <em>buildtime/runtime</em>)</li>
-<li class="fragment"><span class="blue2"><strong>Commandes</strong></span> essentielles</li>
-<li class="fragment"><span class="blue2"><strong>Application</strong></span> à un exemple concret</li>
-</ul></li>
-</ul>
-</section></section>
-<section>
-<section id="application-1" class="title-slide slide level1 center">
-<h1>Application</h1>
+- Si [**open-source**]{.orange} : inclure une [licence](https://docs.github.com/fr/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)
 
-</section>
-<section id="portabilité-du-projet" class="slide level2">
-<h2>Portabilité du projet</h2>
-<ul>
-<li class="fragment">Consignes sur le <a href="https://ensae-reproductibilite.github.io/website/chapters/application.html">site du cours</a>
-<ul>
-<li class="fragment">Partie <span class="emoji" data-emoji="three">3️⃣</span> : construction d’un projet <span class="orange"><strong>portable</strong></span> et <span class="orange"><strong>reproductible</strong></span>
-<ul>
-<li class="fragment">Construire un <span class="blue2"><strong>environnement virtuel</strong></span> pour le projet</li>
-<li class="fragment"><span class="blue2"><strong>Conteneuriser</strong></span> l’application avec <code>Docker</code></li>
-</ul></li>
-</ul></li>
-</ul>
-</section></section>
-<section>
-<section id="partie-2-mise-en-production" class="title-slide slide level1 center">
-<h1>Partie <span class="emoji" data-emoji="two">2️⃣</span> : mise en production</h1>
 
-</section>
-<section id="le-mur-de-la-production" class="slide level2">
-<h2>Le “mur de la production”</h2>
-<ul>
-<li class="fragment"><p>La majorité des projets “<em>data-driven</em>” <span class="blue2"><strong>ne délivrent pas de valeur</strong></span> (<a href="https://sloanreview.mit.edu/projects/expanding-ais-impact-with-organizational-learning/">1</a>, <a href="https://hdsr.mitpress.mit.edu/pub/2fu65ujf/release/6">2</a>, <a href="https://www.researchgate.net/publication/346647451_Beyond_the_Hype_Why_Do_Data-Driven_Projects_Fail">3</a>)</p></li>
-<li class="fragment"><p>Comment <span class="orange"><strong>dépasser le stade de l’expérimentation</strong></span> ?</p></li>
-</ul>
-</section>
-<section id="mise-en-production" class="slide level2">
-<h2>Mise en production</h2>
-<ul>
-<li class="fragment"><span class="orange"><strong>Mettre en production</strong></span> : faire <span class="blue2"><strong>vivre</strong></span> une application dans l’espace de ses <span class="blue2"><strong>utilisateurs</strong></span>
-<ul>
-<li class="fragment"><span class="orange"><strong>Servir</strong></span> : <span class="blue2"><strong>déployer</strong></span> l’application dans un <span class="blue2"><strong>format pertinent</strong></span> auprès de ses utilisateurs potentiels</li>
-<li class="fragment"><span class="orange"><strong>Faire vivre</strong></span> : gérer le <span class="blue2"><strong>cycle de vie</strong></span> et favoriser l’<span class="blue2"><strong>amélioration continue</strong></span></li>
-</ul></li>
-<li class="fragment"><span class="orange"><strong>Multiples dimensions</strong></span> : connaissance métier, organisation, infrastructure, outils techniques..</li>
-</ul>
-</section>
-<section id="favoriser-la-continuité" class="slide level2">
-<h2>Favoriser la continuité</h2>
 
-<img data-src="img/exploration-production.png" class="r-stretch quarto-figure-center"><p class="caption">Source : <a href="https://public.dhe.ibm.com/software/data/sw-library/analytics/data-science-lifecycle/#model-implementation">ibm.com</a></p><ul>
-<li class="fragment"><span class="orange"><strong>Comment faire ?</strong></span>
-<ul>
-<li class="fragment">Application des <span class="blue2"><strong>bonnes pratiques</strong></span> de développement</li>
-<li class="fragment">Besoin de <span class="blue2"><strong>nouveaux concepts et outils</strong></span> : <a href="https://dataopsmanifesto.org/fr/">DataOps</a></li>
-</ul></li>
-</ul>
-</section>
-<section id="le-dataops" class="slide level2">
-<h2>Le DataOps</h2>
-<ul>
-<li class="fragment">Origine : mouvement <a href="https://fr.wikipedia.org/wiki/Devops">DevOps</a></li>
-</ul>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/devops.png" height="300"></p>
-<figcaption>Source : <a href="https://www.syloe.com/expert-devops-automatisation-deploiements/">syloe.com</a></figcaption>
-</figure>
-</div>
-<ul>
-<li class="fragment"><p><span class="orange"><strong>DataOps</strong></span> : construction de <span class="blue2"><strong>pipelines de données</strong></span></p></li>
-<li class="fragment"><p><span class="orange"><strong>MLOps</strong></span> : déploiement et maintenance de <span class="blue2"><strong>modèles de ML</strong></span></p></li>
-</ul>
-</div>
-</section>
-<section id="plan-de-la-partie-1" class="slide level2">
-<h2>Plan de la partie</h2>
-<p><span class="emoji" data-emoji="six">6️⃣</span> Introduction au format <span class="blue2"><strong>YAML</strong></span></p>
-<p><span class="emoji" data-emoji="seven">7️⃣</span> <span class="blue2"><strong>Déploiement</strong></span></p>
-<p><span class="emoji" data-emoji="eight">8️⃣</span> <span class="blue2"><strong>MLOps</strong></span></p>
-</section></section>
-<section>
-<section id="introduction-au-format-yaml" class="title-slide slide level1 center">
-<h1><span class="emoji" data-emoji="six">6️⃣</span> Introduction au format <code>YAML</code></h1>
+# Application
 
+## Bonnes pratiques de développement
+
+- Consignes sur le [site du cours](https://ensae-reproductibilite.github.io/website/chapters/application.html)
+    - Partie :zero: : initialisation de l'environnement et du projet
+    - Partie :one: : qualité du code
+    - Partie :two: : adoption d'une structure modulaire
+
+
+# :four: Traitement des données volumineuses
+
+## "The obligatory intro slide"
+
+![Source : [motherduck.com](https://motherduck.com/blog/big-data-is-dead/)](img/intro-big-data.png){fig-align="center" height=400}
+
+## Enjeux
+
+- Tendance à la [**massification**]{.orange} des données
+
+![Source : [AI with Python](https://www.packtpub.com/product/artificial-intelligence-with-python-second-edition/9781839219535)](img/vvv.png){fig-align="center" height=350 .fragment}
+
+## Enjeux
+
+- Nécessité de bien distinguer :
+    - [***Storage***]{.blue2} : qu'est-ce que l'on stocke et comment ?
+    - [***Compute***]{.blue2} : qu'est-ce que l'on calcule et où ?
+
+- Evolutions des [**infrastructures de données**]{.orange} :
+    - [**Bases de données**]{.blue2} : couplage fort, scalabilité verticale
+    - [**Infrastructures *big data***]{.blue2} : couplage fort, scalabilité horizontale
+    - [**Infrastructures *cloud***]{.blue2} : couplage faible, scalabilité hybride
+
+## :one: A l'origine : les bases de données
+
+- Historiquement : stockage dans des [**bases de données**]{.orange}
+
+- 80's : essor des [bases de données relationnelles](https://fr.wikipedia.org/wiki/Base_de_donn%C3%A9es_relationnelle)
+    - Modèle de la [***data warehouse***]{.orange}
+
+![Source : [corporatefinanceinstitute.com](https://corporatefinanceinstitute.com/resources/business-intelligence/data-warehousing/)](img/data-warehouse.png){height="300" fig-align="center" .fragment}
+
+## :one: Limites des *data warehouses*
+
+- Peu adaptées aux [**données *big data***]{.orange} 
+    - Limitées aux [**données structurées**]{.blue2}
+    - Nécessiter de fixer un [**schéma a priori**]{.blue2}
+    - Passage à l'échelle coûteux : [**scalabilité verticale**]{.blue2}
+
+![Source : [https://dev.to](https://dev.to/yugabyte/horizontal-scaling-vs-vertical-scaling-for-sql-what-s-the-difference-kn2)](img/vertical-scaling-pgsql.png){height="250" fig-align="center" .fragment}
+
+## :two: L'arrivée du *data lake* (fin 2000's) {.scrollable}
+
+- Un stockage [**peu coûteux**]{.orange} fait pour des [**données**]{.orange}
+  - [**Volumineuses**]{.blue2}
+  - [**Brutes**]{.blue2}
+  - Sans [**structure définie a priori**]{.blue2}
+
+![Source : [qlik.com](https://www.qlik.com/us/data-lake)](img/datalake.png){height="300" fig-align="center" .fragment}
+
+## :two: Infrastructures *big data* {.scrollable}
+
+- Fin 2000's : une architecture de référence ([Hadoop](https://fr.wikipedia.org/wiki/Hadoop))
+    - Une [***data lake***]{.blue2} avec du [**stockage distribué**]{.blue2} (HDFS)
+    - Des [**frameworks de calcul distribué**]{.blue2} ([MapReduce](https://fr.wikipedia.org/wiki/MapReduce), [Spark](https://fr.wikipedia.org/wiki/Apache_Spark))
+
+![Source : [glennklockwood.com](https://www.glennklockwood.com/data-intensive/hadoop/overview.html)](img/mapreduce-hdfs.png){fig-align="center" height="350" .fragment}
+
+## :three: "Big Data is dead" ?
+
+- 2010's : déclin de popularité des infrastructures Hadoop
+    - Limite : [**co-localisation**]{.blue2} du stockage et du calcul
+
+- Jordan Tigani : [Big Data is dead](https://motherduck.com/blog/big-data-is-dead/)
+    - Besoins de [***storage***]{.blue2} >> besoins de [***compute***]{.blue2}
+
+![](img/tigani-compute-storage.png){height="330" fig-align="center" .fragment}
+
+## :three: Infrastructures *cloud*
+
+- Fin 2010's : [**les technologies *cloud***]{.orange} permettent l'émergence d'architectures [**faiblement couplées**]{.orange}
+    - [***Storage***]{.blue2} : [***data lake***]{.blue2} basé sur du [**stockage objet**]{.blue2}
+    - [***Compute***]{.blue2} : des environnements de traitement élastiques aux besoins ([**conteneurs**]{.blue2})
+
+![](img/environment_cloud.png){height="300" fig-align="center" .fragment}
+
+## :three: La frontière du *big data* se décale
+
+- [**Innovations matérielles**]{.orange} (serveurs, CPUs, RAM)
+
+- [**Formats de données**]{.orange} plus efficients ([**Parquet**]{.orange})
+
+- Des outils de [**traitement *larger-than-memory***]{.orange}
+
+![](img/tigani-big-data-frontier.png){height="330" fig-align="center" .fragment}
+
+## :three: Le format `CSV`
+
+- Le format usuel pour les [**données tabulaires**]{.orange} est le `CSV`
+    - Facilement [**lisible**]{.blue2} 
+    - [**Non-compressé**]{.blue2} : espace disque élevé
+    - [**Orienté ligne**]{.blue2} : mal adapté aux traitements analytiques
+
+![](img/columnar-storage.png){height="300" fig-align="center" .fragment}
+
+## :three: Le format `Parquet` : propriétés
+
+- [**Orienté colonne**]{.orange}
+  - Adapté aux [**traitements analytiques**]{.blue2}
+  - Conçu pour être écrit une fois mais lu fréquemment
+
+- [**Optimisé**]{.orange}
+  - [**Compression**]{.blue2} (jusqu'à 87 % moins d'espace qu'un CSV)
+  - [**Lecture**]{.blue2} du fichier (jusqu'à 34x plus rapide qu'un CSV)
+
+- [**Interopérable**]{.orange}
+    - Gestion native des [**méta-données**]{.blue2}
+
+## :three: `Parquet` : partitionnement
+
+- [**Division en blocs**]{.orange} des données selon un [**critère**]{.orange}
+  - [**Optimise la lecture**]{.blue2} pour certaines requêtes
+
+![](img/parquet-partition.png){height="400" fig-align="center" .fragment}
+
+## :three: Traitement *in-memory*
+
+- `Parquet` ne résout pas tout
+  - L'espace disque est optimisé
+  - Les données décompressées doivent [**passer en RAM**]{.blue2}
+
+- Avec un *framework* traditionnel de [**calcul en mémoire**]{.orange} (`Pandas`, `dplyr` en `R`, etc.)
+    - [**Gain en lecture**]{.blue2} grâce à la compression `Parquet`
+    - Obligé de charger [**l'ensemble du fichier en mémoire**]{.blue2}
+    - [**Perte de l'avantage de la structure en colonne**]{.blue2}
+
+## :three: Traitement *larger-than-memory*
+
+- Calcul [***larger than memory* optimisé**]{.blue2}
+    - [Arrow](https://arrow.apache.org/overview/) : orientation fichier (`Parquet`)
+    - [DuckDB](https://duckdb.org/) : orientation base de données (`SQL`)
+
+- Principes communs : 
+    - [**Orientation colonne**]{.blue2} : synergie avec `Parquet`
+    - [**Lazy evaluation**]{.blue2} : très efficient en données
+
+![](img/parquet-read-columns.png){height="200" fig-align="center" .fragment}
+
+## :three: `DuckDB` : un connecteur interopérable entre sources de données
+
+![](img/duckdb-intero.png){height="500" fig-align="center" .fragment}
+
+## Résumé : pour traiter la volumétrie
+
+- Choisir une [**infrastructure**]{.orange} adaptée aux besoins
+    - Les [**technologies *cloud***]{.blue2} offrent un très bon compromis coût / flexibilité
+
+- Utiliser un [**format**]{.orange} de données adapté (`Parquet`)
+
+- Utiliser des [**outils**]{.orange} de traitement adaptés
+  - Suffisant la plupart du temps : [**calcul *larger than memory* optimisé**]{.blue2} (`DuckDB`)
+  - Si volumétrie massive : [**calcul distribué**]{.blue2} (`Spark`)
+
+
+# :five: Portabilité
+
+## "It works... on my machine" {.scrollable}
+
+- On a construit un projet [**lisible**]{.orange}, [**structuré**]{.orange} et [**versionné**]{.orange}
+
+- Peut-on [**partager**]{.orange} notre projet ?
+    - En théorie, oui !
+    - En pratique, c'est toujours plus compliqué...
+
+![Source : [simply-the-test.blogspot.com](https://simply-the-test.blogspot.com/2010/05/it-works-on-my-machine.html)](img/IWOMM.jpg){fig-align="center" height=350 .fragment}
+
+## Pourquoi se préoccuper de portabilité ?
+
+- Considérons un [***workflow* standard**]{.orange} de *data science*
+    - Installer une distribution de `Python` sur son poste
+    - Développer un projet en installant les packages nécessaires
+    - Passer au projet suivant et ainsi de suite
+
+- Quels [**problèmes**]{.orange} peuvent se poser ?
+
+## Pourquoi se préoccuper de portabilité ?
+
+- [**Conflits de version**]{.orange} : différents projets peuvent requérir des versions différentes d'un même *package*
+
+- [**Version de `Python` fixe**]{.orange}, celle de l'installation système
+
+- [**Reproductibilité limitée**]{.orange} : difficile de dire quel projet nécessite quel package
+
+- [**Portabilité limitée**]{.orange} : difficile de fixer dans un fichier les dépendances spécifiques à un projet
+
+## Le critère de la portabilité
+
+- Un code n'est pas auto-suffisant, il contient en général de nombreuses [**adhérences**]{.orange}
+    - Un [**langage de programmation**]{.blue2} et sa [**version**]{.blue2}
+    - Des [**dépendances**]{.blue2}
+    - Des [**librairies système**]{.blue2}
+
+- [**Portabilité**]{.orange} : capacité d'un code à s'exécuter dans un environnement différent que celui de développement
+    - Enjeu central de la [**mise en production**]{.blue2} !
+
+## Comment favoriser la portabilité ?
+
+- Constuire des [**"bulles" plus ou moins isolées**]{.orange} autour de son projet afin de [***packager* l'environnement**]{.orange} nécessaire
+
+- Des outils dédiés :
+    - Les [**environnements virtuels**]{.blue2} : très simples à prendre en main, [**portabilité moyenne**]{.blue2}
+    - Les [**conteneurs**]{.blue2} : plus complexes d'utilisation, [**portabilité maximale**]{.blue2}
+
+## Environnements virtuels : fonctionnement {.scrollable}
+
+- [**Dossier "auto-suffisant"**]{.orange} qui :
+    - contient un [**intepréteur**]{.blue2} `Python` et des [**packages**]{.blue2}
+    - est [**isolé**]{.orange} des autres environnements existants
+
+![Source : [dataquest.io](https://www.dataquest.io/blog/a-complete-guide-to-python-virtual-environments/)](img/venv.png){fig-align="center" height=350 .fragment}
+
+## Environnements virtuels : implémentations
+
+-  [**Implémentation standard**]{.orange} de `Python` : [venv](https://docs.python.org/fr/3/library/venv.html)
+    - Il en existe bien d'autres (`virtualenv`, `pipenv`, etc.)
+
+- Très lié au [**mode d'installation des *packages***]{.orange}
+    - Python "standard" : `venv` + `pip`
+    - Limites :
+        - Lenteur de la [**résolution des dépendances**]{.blue2}
+        - Dépendance à la version système de `Python`
+
+- [**Une implémentation qui monte**]{.orange} très (très) vite : [uv](https://docs.astral.sh/uv/)
+
+## `uv` : un outil pour les gouverner tous
+
+![Source : [alpopkes.com](https://alpopkes.com/posts/python/packaging_tools/?ref=blog.ippon.fr/)](img/uv-venn.png){fig-align="center" height=500 .fragment}
+
+## `uv` : utilisation
+
+- [**Initialiser**]{.orange} un projet : `uv init <nom_du_projet>`
+    - Génère une [**structure de projet**]{.blue2}
+
+- [**Installer**]{.orange} un package : `uv add scikit-learn`
+    - Génère automatiquement un [**environnement virtuel**]{.blue2} (`venv`)
+
+- [**Exécuter**]{.orange} un script : `uv run script.py`
+    - Le script est exécuté avec l'interpéteur `Python` [**de l'environnement virtuel**]{.blue2}
+
+## Spécifier l'environnement du projet
+
+- Développer dans un [**environnement virtuel**]{.orange} est une bonne pratique
+
+- Favorise la [**reproductibilité**]{.orange}
+    - A chaque installation d'un *package*, `uv` met à jour le fichier `uv.lock` qui [**spécifie toutes les dépendances**]{.blue2}
+    - `uv sync` ->  [**recrée l'environnement complet**]{.blue2}
+
+- Favorise la [**portabilité**]{.orange}
+    - A chaque installation d'un *package*, `uv` maj le fichier `pyproject.yaml` qui [**spécifie les *packages* nécessaires**]{.blue2}
+    - A *commit* sur `Git` pour [**distribuer la "recette" de l'environnement**]{.blue2}
+
+## Faire évoluer les versions
+
+- [**Arbitrage**]{.orange} à trouver entre :
+    - [**Reproductibilité**]{.blue2} : [**spécifier**]{.blue2} finement les versions
+    - [**Fonctionnalités et sécurité**]{.blue2} : faire [**évoluer**]{.blue2} les versions
+
+## Environnements virtuels : limites
+
+- [**Limités au langage**]{.orange}  de programmation et ses *packages* :
+    - Pas de gestion des [**librairies système**]{.blue2} qui dépendent du système d'exploitation
+    - Non adaptés à des [**projets multi-langages**]{.blue2}
+
+- Les environnements virtuels [**facilitent la portabilité, mais ne suffisent pas à la garantir**]{.orange} 
+
+## Le *gold-standard* de la portabilité
+
+- Au lieu de distribuer la [**recette**]{.orange} pour recréer la bonne machine, peut-on [**distribuer directement la bonne machine**]{.orange} ?
+    - Idée 1 : distribuer des [**machines physiques**]{.blue2} : complexe...
+    - Idée 2 : distribuer des [**machines virtuelles**]{.blue2} : possible mais coûteux
+
+- Les [**conteneurs**]{.orange} offrent le compromis idéal
+    - [**Isolation complète**]{.blue2} de l'environnement
+    - Relativement [**légers**]{.blue2} et donc facilement redistribuables
+
+## Conteneurs vs. machines virtuelles
+
+![Source : [docker.com](https://www.docker.com/resources/what-container/)](img/docker-vm.png)
+
+## Conteneurs : implémentations
+
+- Plusieurs implémentations des conteneurs
+    - [**`Docker`**]{.blue2} est largement prédominant
+
+![](img/docker.png){fig-align="center" height=200 .fragment}
+
+## `Docker` : installation
+
+- `Docker` : outil en ligne de commande (CLI)
+    - [Instructions](https://docs.docker.com/get-docker/) selon le système d'exploitation
+    - Environnement "bac à sable" : [Play with Docker](https://labs.play-with-docker.com/)
+
+![](img/playwithdocker.png){fig-align="center" height=350 .fragment}
+
+## Le `Dockerfile`
+
+- Exemple : conteneurisation d'une application interactive [Flask](https://flask.palletsprojects.com/en/stable/)
+
+. . .
+
+```Dockerfile  {.scrollable}
+FROM ubuntu:20.04
+
+RUN apt-get update -y && \
+    apt-get install -y python3-pip python3-dev
+
+WORKDIR /app
+
+COPY requirements.txt /app/requirements.txt
+RUN pip install -r requirements.txt
+
+COPY . /app
+
+ENV FLASK_APP="my-app.py"
+EXPOSE 5000
+
+CMD ["flask", "run", "--host=0.0.0.0"]
+```
+
+## `Docker` : fonctionnement
+
+![Source : [k21academy.com](https://k21academy.com/docker-kubernetes/docker-and-kubernetes/)](img/docker-workflow.png){fig-align="center"}
+
+## `Docker` en pratique
+
+- Présentation détaillée sur la [page du cours](https://ensae-reproductibilite.github.io/website/chapters/portability.html#les-conteneurs)
+    - [**Concepts**]{.blue2} (*caching*, *buildtime/runtime*)
+    - [**Commandes**]{.blue2} essentielles
+    - [**Application**]{.blue2} à un exemple concret
+
+
+# Application
+
+## Portabilité du projet
+
+- Consignes sur le [site du cours](https://ensae-reproductibilite.github.io/website/chapters/application.html)
+    - Partie :three: : construction d’un projet [**portable**]{.orange} et [**reproductible**]{.orange}
+        - Construire un [**environnement virtuel**]{.blue2} pour le projet
+        - [**Conteneuriser**]{.blue2} l'application avec `Docker`
+
+
+# Partie :two: : mise en production
+
+## Le "mur de la production"
+
+- La majorité des projets "*data-driven*" [**ne délivrent pas de valeur**]{.blue2} ([1](https://sloanreview.mit.edu/projects/expanding-ais-impact-with-organizational-learning/), [2](https://hdsr.mitpress.mit.edu/pub/2fu65ujf/release/6), [3](https://www.researchgate.net/publication/346647451_Beyond_the_Hype_Why_Do_Data-Driven_Projects_Fail))
+
+- Comment [**dépasser le stade de l'expérimentation**]{.orange} ?
+
+## Mise en production
+
+- [**Mettre en production**]{.orange} : faire [**vivre**]{.blue2} une application dans l'espace de ses [**utilisateurs**]{.blue2}
+    - [**Servir**]{.orange} : [**déployer**]{.blue2} l'application dans un [**format pertinent**]{.blue2} auprès de ses utilisateurs potentiels
+    - [**Faire vivre**]{.orange} : gérer le [**cycle de vie**]{.blue2} et favoriser l'[**amélioration continue**]{.blue2}
+
+- [**Multiples dimensions**]{.orange} : connaissance métier, organisation, infrastructure, outils techniques..
+
+## Favoriser la continuité
+
+![Source : [ibm.com](https://public.dhe.ibm.com/software/data/sw-library/analytics/data-science-lifecycle/#model-implementation)](img/exploration-production.png){fig-align="center"}
+
+- [**Comment faire ?**]{.orange}
+    - Application des [**bonnes pratiques**]{.blue2} de développement
+    - Besoin de [**nouveaux concepts et outils**]{.blue2} : [DataOps](https://dataopsmanifesto.org/fr/)
+
+## Le DataOps
+
+- Origine : mouvement [DevOps](https://fr.wikipedia.org/wiki/Devops)
+
+. . .
+
+![Source : [syloe.com](https://www.syloe.com/expert-devops-automatisation-deploiements/)](img/devops.png){fig-align="center" height=300}
+
+- [**DataOps**]{.orange} : construction de [**pipelines de données**]{.blue2}
+
+- [**MLOps**]{.orange} : déploiement et maintenance de [**modèles de ML**]{.blue2}
+
+## Plan de la partie
+
+:six: Introduction au format [**YAML**]{.blue2}
+
+:seven: [**Déploiement**]{.blue2}
+
+:eight: [**MLOps**]{.blue2}
+
+
+{{< include sections/yaml101.qmd >}} -->
 </section>
-<section id="quest-ce-que-le-format-yaml" class="slide level2">
-<h2>Qu’est-ce que le format <code>YAML</code> ?</h2>
-<ul>
-<li class="fragment"><a href="https://yaml.org/"><em>YAML Ain’t Markup Language</em></a>
-<ul>
-<li class="fragment">Langage de <span class="blue2"><strong>sérialisation</strong></span> de données</li>
-<li class="fragment">Structure <span class="blue2"><strong>expressive</strong></span> mais <span class="blue2"><strong>lisible</strong></span></li>
-</ul></li>
-</ul>
-<div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="pp">---</span></span>
-<span id="cb5-2"><a></a><span class="fu">source</span><span class="kw">:</span><span class="at"> ambient-it.net</span></span>
-<span id="cb5-3"><a></a><span class="fu">domain</span><span class="kw">:</span></span>
-<span id="cb5-4"><a></a><span class="at"> </span><span class="kw">-</span><span class="at"> devops</span></span>
-<span id="cb5-5"><a></a><span class="fu">tutorial</span><span class="kw">:</span></span>
-<span id="cb5-6"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">yaml</span><span class="kw">:</span></span>
-<span id="cb5-7"><a></a><span class="at">      </span><span class="fu">name</span><span class="kw">:</span><span class="at"> YAML Ain't Markup Language</span></span>
-<span id="cb5-8"><a></a><span class="at">      </span><span class="fu">born</span><span class="kw">:</span><span class="at"> </span><span class="dv">2001</span></span>
-<span id="cb5-9"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">json</span><span class="kw">:</span></span>
-<span id="cb5-10"><a></a><span class="at">      </span><span class="fu">name</span><span class="kw">:</span><span class="at"> JavaScript Object Notation</span></span>
-<span id="cb5-11"><a></a><span class="at">      </span><span class="fu">born</span><span class="kw">:</span><span class="at"> </span><span class="dv">2001</span></span>
-<span id="cb5-12"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">xml</span><span class="kw">:</span></span>
-<span id="cb5-13"><a></a><span class="at">      </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Extensible Markup Language</span></span>
-<span id="cb5-14"><a></a><span class="at">      </span><span class="fu">born</span><span class="kw">:</span><span class="at"> </span><span class="dv">1996</span></span>
-<span id="cb5-15"><a></a><span class="pp">---</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="pourquoi-sintéresser-au-yaml" class="slide level2">
-<h2>Pourquoi s’intéresser au <code>YAML</code> ?</h2>
-<ul>
-<li class="fragment">Outil standard pour les fichiers de <span class="orange"><strong>configuration</strong></span>
-<ul>
-<li class="fragment"><a href="https://ep2024.europython.eu/session/the-rise-of-the-yaml-engineer/"><em>The rise of the YAML engineer</em></a></li>
-</ul></li>
-<li class="fragment">Simplicité et puissance du <span class="orange"><strong>paradigme déclaratif</strong></span>
-<ul>
-<li class="fragment">On décrit l’<span class="blue2"><strong>état final souhaité</strong></span></li>
-<li class="fragment">L’implémentation est laissée au <span class="blue2"><strong>moteur sous-jacent</strong></span></li>
-</ul></li>
-</ul>
-<div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a></a><span class="fu">kind</span><span class="kw">:</span><span class="at"> Pod</span></span>
-<span id="cb6-2"><a></a><span class="fu">metadata</span><span class="kw">:</span></span>
-<span id="cb6-3"><a></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> my-api-pod</span></span>
-<span id="cb6-4"><a></a><span class="fu">spec</span><span class="kw">:</span></span>
-<span id="cb6-5"><a></a><span class="at">  </span><span class="fu">containers</span><span class="kw">:</span></span>
-<span id="cb6-6"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> api</span></span>
-<span id="cb6-7"><a></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> my_dh_account/my_fast_api:0.0.1</span></span>
-<span id="cb6-8"><a></a><span class="at">    </span><span class="fu">env</span><span class="kw">:</span></span>
-<span id="cb6-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> MODEL</span></span>
-<span id="cb6-10"><a></a><span class="at">      </span><span class="fu">value</span><span class="kw">:</span><span class="at"> deepseek-ai/DeepSeek-R1</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="yaml-vs.-json" class="slide level2">
-<h2><code>YAML</code> vs.&nbsp;<code>JSON</code></h2>
-<ul>
-<li class="fragment"><code>YAML</code> est un <span class="orange"><strong>superset</strong></span> de <code>JSON</code>
-<ul>
-<li class="fragment">Tout fichier <code>JSON</code> valide est un fichier <code>YAML</code> valide</li>
-</ul></li>
-<li class="fragment">Structure basée sur l’<span class="orange"><strong>indentation</strong></span>
-<ul>
-<li class="fragment">Favorise la <span class="blue2"><strong>lisibilité</strong></span></li>
-<li class="fragment">Plus prône aux <span class="blue2"><strong>erreurs</strong></span></li>
-</ul></li>
-</ul>
-<div class="fragment">
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a></a><span class="fu">user</span><span class="kw">:</span></span>
-<span id="cb7-2"><a></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Alice</span></span>
-<span id="cb7-3"><a></a><span class="at">  </span><span class="fu">age</span><span class="kw">:</span><span class="at"> </span><span class="dv">30</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb8-1"><a></a><span class="fu">{</span></span>
-<span id="cb8-2"><a></a>  <span class="dt">"user"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb8-3"><a></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Alice"</span><span class="fu">,</span></span>
-<span id="cb8-4"><a></a>    <span class="dt">"age"</span><span class="fu">:</span> <span class="dv">30</span></span>
-<span id="cb8-5"><a></a>  <span class="fu">}</span></span>
-<span id="cb8-6"><a></a><span class="fu">}</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<ul>
-<li class="fragment">Convertisseurs : <a href="https://jsonformatter.org/yaml-to-json">yaml-to-json</a>, <a href="https://jsonformatter.org/json-to-yaml">json-to-yaml</a></li>
-</ul>
-</div>
-</section>
-<section id="caractéristiques-dun-fichier-yaml" class="slide level2">
-<h2>Caractéristiques d’un fichier <code>YAML</code></h2>
-<ul>
-<li class="fragment"><p>Extension : <code>.yaml</code> ou <code>.yml</code></p></li>
-<li class="fragment"><p>Structure <span class="orange"><strong>hiérarchique</strong></span> basée sur des <span class="orange"><strong>paires clé-valeur</strong></span></p></li>
-<li class="fragment"><p>Différents <span class="blue2"><strong>types</strong></span> à disposition (numériques, <em>strings</em>, booléens, listes)</p></li>
-</ul>
-<div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a></a><span class="fu">kind</span><span class="kw">:</span><span class="at"> Pod</span></span>
-<span id="cb9-2"><a></a><span class="fu">metadata</span><span class="kw">:</span></span>
-<span id="cb9-3"><a></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> my-api-pod</span></span>
-<span id="cb9-4"><a></a><span class="fu">spec</span><span class="kw">:</span></span>
-<span id="cb9-5"><a></a><span class="at">  </span><span class="fu">containers</span><span class="kw">:</span></span>
-<span id="cb9-6"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> api</span></span>
-<span id="cb9-7"><a></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> my_dh_account/my_fast_api:0.0.1</span></span>
-<span id="cb9-8"><a></a><span class="at">    </span><span class="fu">env</span><span class="kw">:</span></span>
-<span id="cb9-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> MODEL</span></span>
-<span id="cb9-10"><a></a><span class="at">      </span><span class="fu">value</span><span class="kw">:</span><span class="at"> deepseek-ai/DeepSeek-R1</span></span>
-<span id="cb9-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> DEBUG</span></span>
-<span id="cb9-12"><a></a><span class="at">      </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb9-13"><a></a><span class="at">    </span><span class="fu">ports</span><span class="kw">:</span></span>
-<span id="cb9-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">containerPort</span><span class="kw">:</span><span class="at"> </span><span class="dv">8000</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="validation-et-erreurs-fréquentes" class="slide level2">
-<h2>Validation et erreurs fréquentes</h2>
-<ul>
-<li class="fragment">Principale erreur : mauvaise <span class="orange"><strong>indentation</strong></span>
-<ul>
-<li class="fragment">Utiliser <span class="blue2"><strong>2 espaces</strong></span> (pas de tabulation!)</li>
-</ul></li>
-<li class="fragment">Outils de <span class="orange"><strong>validation</strong></span> :
-<ul>
-<li class="fragment"><span class="blue2"><strong>Support natif</strong></span> dans la plupart des IDE</li>
-<li class="fragment"><span class="blue2"><strong><em>Linters</em></strong></span> : <a href="https://yamllint.com">YAMLlint</a></li>
-</ul></li>
-</ul>
-</section>
-<section id="yaml-et-lapproche-gitops" class="slide level2">
-<h2><code>YAML</code> et l’approche <code>GitOps</code></h2>
-<ul>
-<li class="fragment">Le <span class="orange"><strong>YAML</strong></span> est le langage privilégié de l’<span class="orange"><strong>approche GitOps</strong></span>
-<ul>
-<li class="fragment">Les manifestes sont <span class="blue2"><strong>déclarés</strong></span> en <code>YAML</code> (paradigme <span class="blue2"><strong>infrastructure as code</strong></span>)</li>
-<li class="fragment">Les manifestes sont <span class="blue2"><strong>stockés</strong></span> sur un dépôt <code>Git</code> (approche <span class="blue2"><strong>GitOps</strong></span>)</li>
-</ul></li>
-<li class="fragment">Cette approche a de nombreux avantages :
-<ul>
-<li class="fragment"><span class="blue2"><strong>Reproductibilité</strong></span></li>
-<li class="fragment"><span class="blue2"><strong>Traçabilité</strong></span></li>
-<li class="fragment"><span class="blue2"><strong>Automatisation</strong></span></li>
-</ul></li>
-</ul>
-</section></section>
 <section>
 <section id="déploiement" class="title-slide slide level1 center">
 <h1><span class="emoji" data-emoji="seven">7️⃣</span> Déploiement</h1>
 
+</section>
+<section id="la-mise-en-production" class="slide level2">
+<h2>La mise en production</h2>
+<ul>
+<li class="fragment"><span class="orange"><strong>Mettre en production</strong></span> : faire <span class="blue2"><strong>vivre</strong></span> une application dans l’espace de ses <span class="blue2"><strong>utilisateurs</strong></span>
+<ul>
+<li class="fragment"><span class="orange"><strong>Service</strong></span> : <span class="blue2"><strong>déployer</strong></span> l’application dans un <span class="blue2"><strong>format</strong></span> qui répond aux <span class="blue2"><strong>besoins</strong></span> des utilisateurs potentiels</li>
+<li class="fragment"><span class="orange"><strong>Faire vivre</strong></span> :
+<ul>
+<li class="fragment"><span class="blue2"><strong>Superviser</strong></span> l’application pour la rendre performante</li>
+<li class="fragment">Favoriser l’<span class="blue2"><strong>amélioration continue</strong></span></li>
+</ul></li>
+</ul></li>
+<li class="fragment">L’objectif de ce chapitre est de convertir un <span class="orange"><strong>projet maintenable et portable</strong></span> en un <span class="orange"><strong>service exploitable</strong></span></li>
+</ul>
 </section>
 <section id="un-sujet-large" class="slide level2">
 <h2>Un sujet large</h2>
 <ul>
 <li class="fragment">Les <span class="orange"><strong>questions essentielles</strong></span> à se poser :
 <ul>
-<li class="fragment">Quel est le <span class="blue2"><strong>format</strong></span> adapté pour <span class="blue2"><strong>valoriser</strong></span> le projet ?</li>
-<li class="fragment">Quelle <span class="blue2"><strong>infrastructure de production</strong></span> ?</li>
-<li class="fragment">Comment <span class="blue2"><strong>automatiser</strong></span> le processus de déploiement ?</li>
-<li class="fragment">Comment <span class="blue2"><strong>suivre</strong></span> l’application en production ?</li>
+<li class="fragment">Quel <span class="blue2"><strong>format adapté</strong></span> pour répondre aux <span class="blue2"><strong>besoins</strong></span> ?</li>
+<li class="fragment">Quelle <span class="blue2"><strong>infrastructure de production</strong></span> pour assurer la <span class="blue2"><strong>performance</strong></span> et le <span class="blue2"><strong>passage à l’échelle</strong></span> ?</li>
+<li class="fragment">Comment <span class="blue2"><strong>superviser</strong></span> l’application pour assurer sa <span class="blue2"><strong>résilience</strong></span> en production ?</li>
+<li class="fragment">Comment <span class="blue2"><strong>automatiser</strong></span> le processus de déploiement pour permettre l’<span class="blue2"><strong>amélioration continue</strong></span> ?</li>
 </ul></li>
-<li class="fragment">De <span class="orange"><strong>nombreuses choix possibles</strong></span>
+<li class="fragment">De nombreuses <span class="orange"><strong>solutions techniques</strong></span> possibles
 <ul>
-<li class="fragment">Présentation des <span class="blue2"><strong>concepts et outils standards</strong></span></li>
+<li class="fragment">Présentation des <span class="blue2"><strong>concepts standards</strong></span></li>
 </ul></li>
 </ul>
 </section>
@@ -1647,8 +988,32 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment">Quels sont les <span class="blue2"><strong>utilisateurs</strong></span> potentiels ?</li>
 <li class="fragment">Quels sont leurs <span class="blue2"><strong>besoins</strong></span> ?</li>
 </ul></li>
-<li class="fragment"><span class="orange"><strong>Exemple</strong></span> : mise à disposition d’un <span class="orange"><strong>LLM</strong></span></li>
+<li class="fragment">Exemple “fil rouge” : comment <span class="orange"><strong>servir un projet de ML</strong></span> à ses utilisateurs potentiels ?</li>
 </ul>
+</section>
+<section id="servir-un-projet-de-ml" class="slide level2">
+<h2>Servir un projet de ML</h2>
+<ul>
+<li class="fragment">Mettre à disposition le <span class="orange"><strong>code</strong></span> pour entraîner le modèle
+<ul>
+<li class="fragment"><span class="blue2"><strong>Reproductible</strong></span>… si on a les <span class="blue2"><strong>données</strong></span> et les <span class="blue2"><strong>ressources</strong></span></li>
+</ul></li>
+<li class="fragment">Mettre à disposition le <span class="orange"><strong>modèle entraîné</strong></span>
+<ul>
+<li class="fragment"><span class="blue2"><strong>Audience technique</strong></span> et <span class="blue2"><strong>adhérence</strong></span> au <em>framework</em> d’entraînement du modèle</li>
+</ul></li>
+<li class="fragment">Exposer le modèle via une <span class="orange"><strong>API</strong></span>
+<ul>
+<li class="fragment"><span class="blue2"><strong>Audience technique</strong></span> mais plus large car <span class="blue2"><strong>interopérable</strong></span></li>
+</ul></li>
+<li class="fragment">Exposer le modèle via une <span class="orange"><strong>interface interactive</strong></span>
+<ul>
+<li class="fragment"><span class="blue2"><strong>Audience large</strong></span> mais plus <span class="blue2"><strong>coûteux</strong></span></li>
+</ul></li>
+</ul>
+</section>
+<section id="servir-un-projet-de-ml-via-une-api" class="slide level2">
+<h2>Servir un projet de ML via une API</h2>
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1658,24 +1023,26 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </div>
 </div>
 </section>
-<section id="cas-dusage" class="slide level2">
-<h2>Cas d’usage</h2>
-<ul>
-<li class="fragment">Servir un modèle de ML via une API</li>
-</ul>
-</section>
-<section id="les-apis" class="slide level2">
-<h2>Les APIs</h2>
+<section id="les-apis-définition-formelle" class="slide level2">
+<h2>Les APIs : définition formelle</h2>
 <blockquote>
-<p>Une API (application programming interface ou « interface de programmation d’application ») est une interface logicielle qui permet de « connecter » un logiciel ou un service à un autre logiciel ou service afin d’échanger des données et des fonctionnalités.</p>
+<p>Une API (<em>application programming interface</em>) est une <strong>interface logicielle</strong> qui permet de « connecter » un logiciel ou un service à un autre logiciel ou service afin d’échanger des données et des fonctionnalités.</p>
 <p><a href="https://www.cnil.fr/fr/definition/interface-de-programmation-dapplication-api">CNIL</a></p>
 </blockquote>
 <ul>
-<li class="fragment">Définition peu informative
+<li class="fragment">Définition peu informative : avec cette définition tout est plus ou moins une API…</li>
+</ul>
+</section>
+<section id="les-apis-définition-opérationnelle" class="slide level2">
+<h2>Les APIs : définition opérationnelle</h2>
 <ul>
-<li class="fragment"><code>Python</code>, <code>scikit-learn</code>, <code>Docker</code>, etc. sont des APIs</li>
-<li class="fragment">En pratique, on signifie généralement une <span class="blue2"><strong>API REST</strong></span></li>
+<li class="fragment">Une <span class="orange"><strong>API</strong></span> est un <span class="orange"><strong>contrat logiciel</strong></span> qui définit :
+<ul>
+<li class="fragment">Ce que l’on peut <span class="blue2"><strong>demander</strong></span></li>
+<li class="fragment">Sous quel <span class="blue2"><strong>format</strong></span></li>
+<li class="fragment">Ce que l’on <span class="blue2"><strong>reçoit en retour</strong></span></li>
 </ul></li>
+<li class="fragment">Une <span class="orange"><strong>API</strong></span> permet à deux systèmes de communiquer <span class="orange"><strong>sans exposer leur implémentation interne</strong></span></li>
 </ul>
 </section>
 <section id="les-apis-rest" class="slide level2">
@@ -1683,14 +1050,36 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <ul>
 <li class="fragment"><span class="orange"><strong>API RESTful</strong></span> : API conforme au style d’architecture <a href="https://fr.wikipedia.org/wiki/Representational_state_transfer">REST</a>
 <ul>
-<li class="fragment">Communication via le <span class="blue2"><strong>protocole HTTP</strong></span></li>
-</ul></li>
-<li class="fragment">En pratique :
-<ul>
-<li class="fragment">On requête un <span class="blue2"><strong>endpoint</strong></span> (ex : <a href="https://api-adresse.data.gouv.fr/search/">l’API de la BAN</a>)</li>
-<li class="fragment">Avec des <span class="blue2"><strong>requêtes HTTP</strong></span> (<code>GET</code>, <code>POST</code>, etc.) (ex : <a href="https://api-adresse.data.gouv.fr/search/?q=comédie&amp;type=street">rues contenant “comédie”</a>)</li>
+<li class="fragment">Repose sur le <span class="blue2"><strong>protocole HTTP</strong></span></li>
 </ul></li>
 </ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/api-rest.png" height="400"></p>
+<figcaption>Source : <a href="https://www.apisec.ai/blog/rest-api-and-its-significance-to-web-service-providers">apisec.ai</a></figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="exemples-dapi-rest" class="slide level2">
+<h2>Exemples d’API REST</h2>
+<ul>
+<li class="fragment"><span class="blue2"><strong>Le client</strong></span> :
+<ul>
+<li class="fragment">envoie des <span class="blue2"><strong>requêtes HTTP</strong></span> (<code>GET</code>, <code>POST</code>, etc.)</li>
+<li class="fragment">à un <span class="blue2"><strong>serveur</strong></span> accessible depuis une <span class="blue2"><strong>URL</strong></span></li>
+<li class="fragment">sur un certain <span class="blue2"><strong>endpoint</strong></span> qui expose le <span class="blue2"><strong>service</strong></span></li>
+</ul></li>
+</ul>
+<div class="fragment">
+<p>Exemple : <a href="https://api-adresse.data.gouv.fr/search/?q=comédie&amp;type=street">https://api-adresse.data.gouv.fr/search/?q=comédie&amp;type=street</a></p>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">Le <span class="blue2"><strong>serveur</strong></span> renvoie une <span class="blue2"><strong>réponse</strong></span> : un <a href="https://restfulapi.net/http-status-codes/">code retour</a> et de la donnée (en l’absence d’erreur), souvent au format <code>JSON</code></li>
+</ul>
+</div>
 </section>
 <section id="architecture-cible" class="slide level2">
 <h2>Architecture cible</h2>
@@ -1700,12 +1089,10 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment"><span class="blue2"><strong>Interface</strong></span> entre <span class="blue2"><strong>l’utilisateur</strong></span> et le <span class="blue2"><strong>modèle</strong></span> entraîné</li>
 </ul></li>
 </ul>
-<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/api-no-mlflow.png" class="quarto-figure quarto-figure-center" height="400"></p>
+<p><img data-src="img/api-no-mlflow.png" class="fragment quarto-figure quarto-figure-center" height="400"></p>
 </figure>
-</div>
 </div>
 </section>
 <section id="environnement-de-production" class="slide level2">
@@ -1723,12 +1110,10 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment">Base du <code>SSP Cloud</code> : <a href="https://kubernetes.io/fr/">Kubernetes</a></li>
 </ul></li>
 </ul>
-<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/kubernetes-logo.png" class="quarto-figure quarto-figure-center" height="100"></p>
+<p><img data-src="img/kubernetes-logo.png" class="fragment quarto-figure quarto-figure-center" height="100"></p>
 </figure>
-</div>
 </div>
 </section>
 <section id="fonctionnement-de-kubernetes" class="slide level2">
@@ -1783,38 +1168,38 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <div class="code-with-filename-file">
 <pre><strong>.github/workflows/ci.yaml</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-filename=".github/workflows/ci.yaml"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Build Docker image</span></span>
-<span id="cb10-2"><a></a></span>
-<span id="cb10-3"><a></a><span class="fu">on</span><span class="kw">:</span></span>
-<span id="cb10-4"><a></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
-<span id="cb10-5"><a></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span></span>
-<span id="cb10-6"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> main</span></span>
-<span id="cb10-7"><a></a><span class="at">    </span><span class="fu">tags</span><span class="kw">:</span></span>
-<span id="cb10-8"><a></a></span>
-<span id="cb10-9"><a></a><span class="fu">jobs</span><span class="kw">:</span></span>
-<span id="cb10-10"><a></a><span class="at">  </span><span class="fu">docker</span><span class="kw">:</span></span>
-<span id="cb10-11"><a></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="cb10-12"><a></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb10-13"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up QEMU</span></span>
-<span id="cb10-14"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/setup-qemu-action@v3</span></span>
-<span id="cb10-15"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Docker Buildx</span></span>
-<span id="cb10-16"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/setup-buildx-action@v3</span></span>
-<span id="cb10-17"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Docker meta</span></span>
-<span id="cb10-18"><a></a><span class="at">        </span><span class="fu">id</span><span class="kw">:</span><span class="at"> meta</span></span>
-<span id="cb10-19"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/metadata-action@v5</span></span>
-<span id="cb10-20"><a></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb10-21"><a></a><span class="at">          </span><span class="fu">images</span><span class="kw">:</span><span class="at"> ensae-reproductibilite/api-titanic</span></span>
-<span id="cb10-22"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Login to Docker Hub</span></span>
-<span id="cb10-23"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/login-action@v3</span></span>
-<span id="cb10-24"><a></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb10-25"><a></a><span class="at">          </span><span class="fu">username</span><span class="kw">:</span><span class="at"> ${{ secrets.DOCKERHUB_USERNAME }}</span></span>
-<span id="cb10-26"><a></a><span class="at">          </span><span class="fu">password</span><span class="kw">:</span><span class="at"> ${{ secrets.DOCKERHUB_TOKEN }}</span></span>
-<span id="cb10-27"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Build and push</span></span>
-<span id="cb10-28"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/build-push-action@v5</span></span>
-<span id="cb10-29"><a></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb10-30"><a></a><span class="at">          </span><span class="fu">push</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb10-31"><a></a><span class="at">          </span><span class="fu">tags</span><span class="kw">:</span><span class="at"> ${{ steps.meta.outputs.tags }}</span></span>
-<span id="cb10-32"><a></a><span class="at">          </span><span class="fu">labels</span><span class="kw">:</span><span class="at"> ${{ steps.meta.outputs.labels }}</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename=".github/workflows/ci.yaml"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Build Docker image</span></span>
+<span id="cb1-2"><a></a></span>
+<span id="cb1-3"><a></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb1-5"><a></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span></span>
+<span id="cb1-6"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> main</span></span>
+<span id="cb1-7"><a></a><span class="at">    </span><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb1-8"><a></a></span>
+<span id="cb1-9"><a></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb1-10"><a></a><span class="at">  </span><span class="fu">docker</span><span class="kw">:</span></span>
+<span id="cb1-11"><a></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb1-12"><a></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb1-13"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up QEMU</span></span>
+<span id="cb1-14"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/setup-qemu-action@v3</span></span>
+<span id="cb1-15"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Docker Buildx</span></span>
+<span id="cb1-16"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/setup-buildx-action@v3</span></span>
+<span id="cb1-17"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Docker meta</span></span>
+<span id="cb1-18"><a></a><span class="at">        </span><span class="fu">id</span><span class="kw">:</span><span class="at"> meta</span></span>
+<span id="cb1-19"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/metadata-action@v5</span></span>
+<span id="cb1-20"><a></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb1-21"><a></a><span class="at">          </span><span class="fu">images</span><span class="kw">:</span><span class="at"> ensae-reproductibilite/api-titanic</span></span>
+<span id="cb1-22"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Login to Docker Hub</span></span>
+<span id="cb1-23"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/login-action@v3</span></span>
+<span id="cb1-24"><a></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb1-25"><a></a><span class="at">          </span><span class="fu">username</span><span class="kw">:</span><span class="at"> ${{ secrets.DOCKERHUB_USERNAME }}</span></span>
+<span id="cb1-26"><a></a><span class="at">          </span><span class="fu">password</span><span class="kw">:</span><span class="at"> ${{ secrets.DOCKERHUB_TOKEN }}</span></span>
+<span id="cb1-27"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Build and push</span></span>
+<span id="cb1-28"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/build-push-action@v5</span></span>
+<span id="cb1-29"><a></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb1-30"><a></a><span class="at">          </span><span class="fu">push</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb1-31"><a></a><span class="at">          </span><span class="fu">tags</span><span class="kw">:</span><span class="at"> ${{ steps.meta.outputs.tags }}</span></span>
+<span id="cb1-32"><a></a><span class="at">          </span><span class="fu">labels</span><span class="kw">:</span><span class="at"> ${{ steps.meta.outputs.labels }}</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -1838,13 +1223,13 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <figcaption>Source : <a href="https://ubuntu.com/blog/data-pipelines-overview">ubuntu.com</a></figcaption>
 </figure>
 </div>
+</div>
 <ul>
 <li class="fragment">En pratique : utilisation d’un <span class="orange"><strong>orchestrateur</strong></span>
 <ul>
 <li class="fragment">Sur le <code>SSP Cloud</code> : <a href="https://argoproj.github.io/workflows/">Argo Workflows</a></li>
 </ul></li>
 </ul>
-</div>
 </section>
 <section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>
@@ -1858,20 +1243,20 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <figcaption>Source : <a href="https://public.dhe.ibm.com/software/data/sw-library/analytics/data-science-lifecycle/#model-implementation">ibm.com</a></figcaption>
 </figure>
 </div>
+</div>
 <ul>
 <li class="fragment">Comment tenir compte des <span class="orange"><strong>spécificités du ML</strong></span> ?
 <ul>
 <li class="fragment"><span class="blue2"><strong>Approche MLOps</strong></span></li>
 </ul></li>
 </ul>
-</div>
 </section></section>
 <section>
-<section id="application-2" class="title-slide slide level1 center">
+<section id="application" class="title-slide slide level1 center">
 <h1>Application</h1>
 
 </section>
-<section id="mise-en-production-1" class="slide level2">
+<section id="mise-en-production" class="slide level2">
 <h2>Mise en production</h2>
 <ul>
 <li class="fragment">Consignes sur le <a href="https://ensae-reproductibilite.github.io/website/chapters/application.html">site du cours</a>
@@ -1880,178 +1265,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment">Partie <span class="emoji" data-emoji="five">5️⃣</span> : <span class="blue2"><strong>déploiement</strong></span> d’une application et <span class="blue2"><strong>industrialisation</strong></span></li>
 </ul></li>
 </ul>
-</section></section>
-<section>
-<section id="mlops" class="title-slide slide level1 center">
-<h1><span class="emoji" data-emoji="eight">8️⃣</span> MLOps</h1>
-
-</section>
-<section id="motivation" class="slide level2">
-<h2>Motivation</h2>
-<ul>
-<li class="fragment">Intégrer :
-<ul>
-<li class="fragment">les <span class="orange"><strong>principes DataOps</strong></span></li>
-<li class="fragment">les <span class="orange"><strong>spécificités</strong></span> des projets de ML</li>
-</ul></li>
-</ul>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/mlops.png" height="400"></p>
-<figcaption>Source : <a href="https://www.ml4devs.com/articles/mlops-machine-learning-life-cycle/">ml4devs.com</a></figcaption>
-</figure>
-</div>
-</div>
-</section>
-<section id="mlops-principes" class="slide level2">
-<h2>MLOps : principes</h2>
-<ul>
-<li class="fragment"><p><span class="orange"><strong>Reproductibilité</strong></span></p></li>
-<li class="fragment"><p><span class="orange"><strong>Contrôle de version</strong></span></p></li>
-<li class="fragment"><p><span class="orange"><strong>Automatisation</strong></span></p></li>
-<li class="fragment"><p><span class="orange"><strong>Collaboration</strong></span></p></li>
-<li class="fragment"><p><span class="orange"><strong>Monitoring</strong></span></p></li>
-</ul>
-</section>
-<section id="mlops-implémentation" class="slide level2">
-<h2>MLOps : implémentation</h2>
-<ul>
-<li class="fragment">De nombreux <span class="orange"><strong>frameworks</strong></span> implémentent les principes du MLOps
-<ul>
-<li class="fragment">Catalogue du <code>SSP Cloud</code> : <a href="https://mlflow.org/">MLFlow</a></li>
-</ul></li>
-<li class="fragment">Avantages de <code>MLflow</code> :
-<ul>
-<li class="fragment"><span class="blue2"><strong>Open-source</strong></span></li>
-<li class="fragment">Couvre l’entièreté du <span class="blue2"><strong>cycle de vie</strong></span> d’un modèle ML</li>
-<li class="fragment"><span class="blue2"><strong>Agnostique</strong></span> au package ML utilisé</li>
-<li class="fragment">Intégration avec <code>Kubernetes</code></li>
-</ul></li>
-</ul>
-</section>
-<section id="mlflow-vue-densemble" class="slide level2">
-<h2><code>MLFlow</code> : vue d’ensemble</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/mlflow-overview.png" height="350"></p>
-<figcaption>Source : <a href="https://dzlab.github.io/ml/2020/07/12/ml-ci-mlflow/">dzlab.github.io</a></figcaption>
-</figure>
-</div>
-</section>
-<section id="mlflow-tracking-server" class="slide level2">
-<h2><code>MLFlow</code> : Tracking server</h2>
-<ul>
-<li class="fragment">“Une <span class="orange"><strong>API</strong></span> et une <span class="orange"><strong>interface utilisateur</strong></span> pour <span class="orange"><strong>enregistrer</strong></span> les paramètres, les versions du code, les métriques et les artefacts”</li>
-</ul>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/mlflow-tracking.png" height="400"></p>
-<figcaption>Source : <a href="https://docs.databricks.com/en/mlflow/index.html">Databricks</a></figcaption>
-</figure>
-</div>
-</div>
-</section>
-<section id="mlflow-models" class="slide level2">
-<h2><code>MLFlow</code> : Models</h2>
-<ul>
-<li class="fragment">“Une convention pour <span class="orange"><strong>‘packager’</strong></span> des <span class="orange"><strong>modèles</strong></span> de <em>machine learning</em> sous plusieurs <span class="orange"><strong>formes</strong></span>”</li>
-</ul>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/mlflow-models.png" height="400"></p>
-<figcaption>Source : <a href="https://blog.dataiku.com/introducing-mlflow-saved-models">Dataiku</a></figcaption>
-</figure>
-</div>
-</div>
-</section>
-<section id="mlflow-model-registry" class="slide level2">
-<h2><code>MLFlow</code> : Model registry</h2>
-<ul>
-<li class="fragment">“Un <span class="orange"><strong>entrepôt centralisé de modèles</strong></span>, un ensemble d’API et une interface utilisateur pour gérer <span class="orange"><strong>collaborativement</strong></span> le cycle de vie complet d’un modèle MLflow”</li>
-</ul>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/mlflow-model-registry.png" height="400"></p>
-<figcaption>Source : <a href="https://www.databricks.com/blog/2019/10/17/introducing-the-mlflow-model-registry.html">Databricks</a></figcaption>
-</figure>
-</div>
-</div>
-</section>
-<section id="servir-le-modèle-sans-mlflow" class="slide level2">
-<h2>Servir le modèle (sans <code>MLFlow</code>)</h2>
-
-<img data-src="img/api-no-mlflow.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="servir-le-modèle-avec-mlflow" class="slide level2">
-<h2>Servir le modèle (avec <code>MLFlow</code>)</h2>
-
-<img data-src="img/api-with-mlflow.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="suivi-du-modèle" class="slide level2">
-<h2>Suivi du modèle</h2>
-<ul>
-<li class="fragment">Pourquoi <span class="orange"><strong>surveiller</strong></span> un modèle en production ?
-<ul>
-<li class="fragment">Détecter d’éventuels <span class="blue2"><strong>biais</strong></span> des données d’entraînement</li>
-<li class="fragment">Détecter une <span class="blue2"><strong>instabilité</strong></span> du modèle</li>
-<li class="fragment"><span class="blue2"><strong>Amélioration continue</strong></span> du modèle</li>
-</ul></li>
-<li class="fragment">⚠️ Le mot <span class="orange"><strong>surveillance</strong></span> d’une application/modèle recouvre des <span class="blue2"><strong>réalités différentes</strong></span></li>
-</ul>
-</section>
-<section id="surveillance-selon-linformaticien" class="slide level2">
-<h2>Surveillance selon l’informaticien</h2>
-<ul>
-<li class="fragment"><p>Surveiller une application est partie intégrante de l’approche <span class="orange"><strong>DevOps</strong></span></p></li>
-<li class="fragment"><p>Contrôle <span class="orange"><strong>technique</strong></span> de l’API :</p>
-<ul>
-<li class="fragment">Latence</li>
-<li class="fragment">Mémoire</li>
-<li class="fragment">Utilisation disque</li>
-<li class="fragment">…</li>
-</ul></li>
-</ul>
-</section>
-<section id="surveillance-selon-le-data-scientist" class="slide level2">
-<h2>Surveillance selon le data scientist</h2>
-<ul>
-<li class="fragment"><p>Surveiller un modèle ML est partie intégrante de l’approche <span class="orange"><strong>MLOps</strong></span></p></li>
-<li class="fragment"><p>Contrôle <span class="orange"><strong>méthodologique</strong></span> du modèle</p></li>
-<li class="fragment"><p>Performance en <span class="orange"><strong>temps réel</strong></span> du modèle souvent impossible, utilisation de proxys :</p>
-<ul>
-<li class="fragment"><span class="blue2"><strong>Data drift</strong></span> : la distribution des données d’entrée change dans le temps</li>
-<li class="fragment"><span class="blue2"><strong>Concept drift</strong></span> : la relation modélisée change dans le temps</li>
-</ul></li>
-</ul>
-</section>
-<section id="comment-surveiller-un-modèle-en-production" class="slide level2">
-<h2>Comment surveiller un modèle en production ?</h2>
-<ul>
-<li class="fragment"><p>Intégration de <span class="orange"><strong>logs</strong></span> dans l’API</p></li>
-<li class="fragment"><p>Récupération et mise en forme des logs</p></li>
-<li class="fragment"><p>Suivi de <span class="orange"><strong>métriques</strong></span> de ML</p></li>
-<li class="fragment"><p>Mise en place d’un système d’<span class="orange"><strong>alertes</strong></span></p></li>
-</ul>
-</section>
-<section id="résultat-un-pipeline-reproductible" class="slide level2">
-<h2>Résultat : un pipeline reproductible</h2>
-
-<img data-src="img/ML-model-lifecycle.png" class="r-stretch quarto-figure-center"><p class="caption">Source: <a href="martinfowler.com">martinfowler.com</a></p></section></section>
-<section>
-<section id="application-3" class="title-slide slide level1 center">
-<h1>Application</h1>
-
-</section>
-<section id="mlops-1" class="slide level2">
-<h2>MLOps</h2>
-<ul>
-<li class="fragment">Consignes sur le <a href="https://ensae-reproductibilite.github.io/website/chapters/application.html">site du cours</a>
-<ul>
-<li class="fragment">Partie <span class="emoji" data-emoji="six">6️⃣</span> : application des <span class="blue2"><strong>principes MLOps</strong></span> avec <code>MLFlow</code></li>
-</ul></li>
-</ul>
+<!-- {{< include sections/mlops.qmd >}} -->
 
 
 </section></section>
