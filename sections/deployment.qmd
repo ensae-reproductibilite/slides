@@ -43,11 +43,12 @@
 - Exposer le modèle via une [**interface interactive**]{.orange}
     - [**Audience large**]{.blue2} mais plus [**coûteux**]{.blue2}
 
-## Servir un projet de ML via une API
+## Servir un modèle de ML via une API
 
+- Construire une [**API**]{.orange} pour [**servir**]{.orange} le modèle
+    - [**Interface**]{.blue2} entre [**l'utilisateur**]{.blue2} et le [**modèle**]{.blue2} entraîné
 
-
-![Source : [ubuntu.com](https://ubuntu.com/blog/guide-to-ml-model-serving)](img/model-serving.png){fig-align="center" height=250 .fragment}
+![Source : [https://machinelearningmastery.com](https://machinelearningmastery.com/a-practical-guide-to-deploying-machine-learning-models/)](img/api-serve-ml-model.png){fig-align="center" height=350 .fragment}
 
 ## Les APIs : définition formelle
 
@@ -84,8 +85,6 @@
 
 Exemple : [https://api-adresse.data.gouv.fr/search/?q=comédie&type=street](https://api-adresse.data.gouv.fr/search/?q=comédie&type=street)
 
-. . .
-
 - Le [**serveur**]{.blue2} renvoie une [**réponse**]{.blue2} : un [code retour](https://restfulapi.net/http-status-codes/) et de la donnée (en l'absence d'erreur), souvent au format `JSON`
 
 ## Architecture cible
@@ -93,7 +92,21 @@ Exemple : [https://api-adresse.data.gouv.fr/search/?q=comédie&type=street](http
 - Construire une [**API**]{.orange} pour [**servir**]{.orange} le modèle
     - [**Interface**]{.blue2} entre [**l'utilisateur**]{.blue2} et le [**modèle**]{.blue2} entraîné
 
-![](img/api-no-mlflow.png){fig-align="center" height=400 .fragment}
+. . .
+
+![](img/api-no-mlflow.png){fig-align="center" height=400}
+
+## De l’API locale au service déployé
+
+- On a les outils pour [**construire une API locale**]{.orange}
+    - Du [**code applicatif**]{.blue2} auquel il faut rajouter une [**API**]{.blue2}
+    - Une [**couche de stockage**]{.blue2} pour le modèle entraîné
+    - La [**conteneurisation**]{.blue2} pour encapsuler l'application
+
+- Il nous manque des outils pour en faire un [**service déployé et résilient**]{.orange}
+    - Un [**environnement de production**]{.blue2} pour le déploiement
+    - Des [**outils de supervision**]{.blue2} pour gérer la charge
+    - Des [**outils d'automatisation**]{.blue2} pour l'amélioration en continu de l'application
 
 ## Environnement de production
 
@@ -111,7 +124,9 @@ Exemple : [https://api-adresse.data.gouv.fr/search/?q=comédie&type=street](http
 
 ## Fonctionnement de Kubernetes
 
-![Source : [DBA Consulting Blog](https://drsalbertspijkers.blogspot.com/2017/06/red-hat-openshift-and-orchestrating.html)](img/kubernetes-archi.png){fig-align="center"  height=400}
+- [**Approche *Infrastructure As Code***]{.orange} : on déclare l'[**état désiré du déploiement**]{.blue2}, `Kubernetes` s’assure en continu qu’il correspond à l'[**état réel**]{.blue2}
+
+![Source : [DBA Consulting Blog](https://drsalbertspijkers.blogspot.com/2017/06/red-hat-openshift-and-orchestrating.html)](img/kubernetes-archi.png){fig-align="center" height=400 .fragment}
 
 ## L'approche CI/CD
 
@@ -122,7 +137,7 @@ Exemple : [https://api-adresse.data.gouv.fr/search/?q=comédie&type=street](http
 - [**Déploiement continu**]{.orange} (CD) : les nouvelles [**releases**]{.blue2} sont automatiquement déployées
     - Sur le `SSP Cloud` : [ArgoCD](https://argo-cd.readthedocs.io/en/stable/)
 
-## CI : implémentation avec `GitHub Actions`
+## CI : implémentation
 
 - [**Principe**]{.orange} : commit -> exécution d'une série d'étapes
     - Script exécuté sur une VM : [***runner***]{.blue2}
@@ -133,7 +148,7 @@ Exemple : [https://api-adresse.data.gouv.fr/search/?q=comédie&type=street](http
     - [Slides](https://github.com/ensae-reproductibilite/slides/blob/main/.github/workflows/publish.yaml)
     - [Site internet](https://github.com/ensae-reproductibilite/website/blob/main/.github/workflows/publish.yaml)
 
-## CI : anatomie d'un fichier de CI
+## CI : anatomie d'un fichier de CI {.scrollable}
 
 - Spécification : fichier `.yaml` qui paramétrise le *runner*
     - ⚠️ Situé dans le dossier `.github/workflows/`
@@ -178,15 +193,6 @@ jobs:
 ## CI/CD : implémentation sur `Kubernetes`
 
 ![](img/ci-cd.png){fig-align="center" height=300}
-
-## Pipeline [***DataOps***]{.orange} complet
-
-- Intégration des étapes dans un [**pipeline**]{.orange} ([**DAG**]{.blue2})
-
-![Source : [ubuntu.com](https://ubuntu.com/blog/data-pipelines-overview)](img/data-pipeline.png){fig-align="center" height=300 .fragment}
-
-- En pratique : utilisation d'un [**orchestrateur**]{.orange}
-    - Sur le `SSP Cloud` : [Argo Workflows](https://argoproj.github.io/workflows/)
 
 ## Conclusion
 
