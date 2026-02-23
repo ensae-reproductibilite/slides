@@ -128,9 +128,7 @@
 - Plusieurs implémentations des conteneurs
     - [**`Docker`**]{.blue2} est largement prédominant
 
-. . .
-
-![](img/docker.png){fig-align="center" height=200}
+![](img/docker.png){fig-align="center" height=200 .fragment}
 
 ## `Docker` : installation
 
@@ -138,9 +136,7 @@
     - [Instructions](https://docs.docker.com/get-docker/) selon le système d'exploitation
     - Environnement "bac à sable" : [Play with Docker](https://labs.play-with-docker.com/)
 
-. . .
-
-![](img/playwithdocker.png){fig-align="center" height=350}
+![](img/playwithdocker.png){fig-align="center" height=350 .fragment}
 
 ## Le `Dockerfile`
 

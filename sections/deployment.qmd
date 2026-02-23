@@ -1,15 +1,25 @@
 # :seven: Déploiement
 
+## La mise en production
+
+- [**Mettre en production**]{.orange} : faire [**vivre**]{.blue2} une application dans l'espace de ses [**utilisateurs**]{.blue2}
+    - [**Service**]{.orange} : [**déployer**]{.blue2} l'application dans un [**format**]{.blue2} qui répond aux [**besoins**]{.blue2} des utilisateurs potentiels
+    - [**Faire vivre**]{.orange} : 
+        - [**Superviser**]{.blue2} l'application pour la rendre performante
+        - Favoriser l'[**amélioration continue**]{.blue2}
+
+- L'objectif de ce chapitre est de convertir un [**projet maintenable et portable**]{.orange} en un [**service exploitable**]{.orange}
+
 ## Un sujet large
 
 - Les [**questions essentielles**]{.orange} à se poser :
-    - Quel est le [**format**]{.blue2} adapté pour [**valoriser**]{.blue2} le projet ?
-    - Quelle [**infrastructure de production**]{.blue2} ?
-    - Comment [**automatiser**]{.blue2} le processus de déploiement ?
-    - Comment [**suivre**]{.blue2} l'application en production ?
+    - Quel [**format adapté**]{.blue2} pour répondre aux [**besoins**]{.blue2} ?
+    - Quelle [**infrastructure de production**]{.blue2} pour assurer la [**performance**]{.blue2} et le [**passage à l'échelle**]{.blue2} ?
+    - Comment [**superviser**]{.blue2} l'application pour assurer sa [**résilience**]{.blue2} en production ?
+    - Comment [**automatiser**]{.blue2} le processus de déploiement pour permettre l'[**amélioration continue**]{.blue2} ?
 
-- De [**nombreuses choix possibles**]{.orange}
-    - Présentation des [**concepts et outils standards**]{.blue2}
+- De nombreuses [**solutions techniques**]{.orange} possibles
+    - Présentation des [**concepts standards**]{.blue2}
 
 ## Formats de valorisation
 
@@ -17,43 +27,73 @@
     - Quels sont les [**utilisateurs**]{.blue2} potentiels ?
     - Quels sont leurs [**besoins**]{.blue2} ?
 
-- [**Exemple**]{.orange} : mise à disposition d'un [**LLM**]{.orange}
+- Exemple "fil rouge" : comment [**servir un projet de ML**]{.orange} à ses utilisateurs potentiels ?
 
-. . .
+## Servir un projet de ML
 
-![Source : [ubuntu.com](https://ubuntu.com/blog/guide-to-ml-model-serving)](img/model-serving.png){fig-align="center" height=250}
+- Mettre à disposition le [**code**]{.orange} pour entraîner le modèle
+    - [**Reproductible**]{.blue2}... si on a les [**données**]{.blue2} et les [**ressources**]{.blue2}
 
-## Cas d'usage
+- Mettre à disposition le [**modèle entraîné**]{.orange}
+    - [**Audience technique**]{.blue2} et [**adhérence**]{.blue2} au *framework* d'entraînement du modèle
 
-- Servir un modèle de ML via une API
+- Exposer le modèle via une [**API**]{.orange}
+    - [**Audience technique**]{.blue2} mais plus large car [**interopérable**]{.blue2}
 
-## Les APIs
+- Exposer le modèle via une [**interface interactive**]{.orange}
+    - [**Audience large**]{.blue2} mais plus [**coûteux**]{.blue2}
 
-> Une API (application programming interface ou « interface de programmation d’application ») est une interface logicielle qui permet de « connecter » un logiciel ou un service à un autre logiciel ou service afin d’échanger des données et des fonctionnalités.
+## Servir un projet de ML via une API
+
+
+
+![Source : [ubuntu.com](https://ubuntu.com/blog/guide-to-ml-model-serving)](img/model-serving.png){fig-align="center" height=250 .fragment}
+
+## Les APIs : définition formelle
+
+> Une API (*application programming interface*) est une **interface logicielle** qui permet de « connecter » un logiciel ou un service à un autre logiciel ou service afin d’échanger des données et des fonctionnalités.
 >
 > [CNIL](https://www.cnil.fr/fr/definition/interface-de-programmation-dapplication-api)
 
-- Définition peu informative
-    - `Python`, `scikit-learn`, `Docker`, etc. sont des APIs
-    - En pratique, on signifie généralement une [**API REST**]{.blue2}
+- Définition peu informative : avec cette définition tout est plus ou moins une API...
+
+## Les APIs : définition opérationnelle
+
+- Une [**API**]{.orange} est un [**contrat logiciel**]{.orange} qui définit :
+    - Ce que l'on peut [**demander**]{.blue2}
+    - Sous quel [**format**]{.blue2}
+    - Ce que l'on [**reçoit en retour**]{.blue2}
+
+- Une [**API**]{.orange} permet à deux systèmes de communiquer [**sans exposer leur implémentation interne**]{.orange}
 
 ## Les APIs REST
 
 - [**API RESTful**]{.orange} : API conforme au style d'architecture [REST](https://fr.wikipedia.org/wiki/Representational_state_transfer)
-    - Communication via le [**protocole HTTP**]{.blue2}
+    - Repose sur le [**protocole HTTP**]{.blue2}
 
-- En pratique :
-    - On requête un [**endpoint**]{.blue2} (ex : [l'API de la BAN](https://api-adresse.data.gouv.fr/search/))
-    - Avec des [**requêtes HTTP**]{.blue2} (`GET`, `POST`, etc.) (ex : [rues contenant "comédie"](https://api-adresse.data.gouv.fr/search/?q=comédie&type=street))
+![Source : [apisec.ai](https://www.apisec.ai/blog/rest-api-and-its-significance-to-web-service-providers)](img/api-rest.png){fig-align="center" height=400 .fragment}
+
+## Exemples d'API REST
+
+- [**Le client**]{.blue2} : 
+    - envoie des [**requêtes HTTP**]{.blue2} (`GET`, `POST`, etc.)
+    - à un [**serveur**]{.blue2} accessible depuis une [**URL**]{.blue2}
+    - sur un certain [**endpoint**]{.blue2} qui expose le [**service**]{.blue2}
+
+. . .
+
+Exemple : [https://api-adresse.data.gouv.fr/search/?q=comédie&type=street](https://api-adresse.data.gouv.fr/search/?q=comédie&type=street)
+
+. . .
+
+- Le [**serveur**]{.blue2} renvoie une [**réponse**]{.blue2} : un [code retour](https://restfulapi.net/http-status-codes/) et de la donnée (en l'absence d'erreur), souvent au format `JSON`
 
 ## Architecture cible
 
 - Construire une [**API**]{.orange} pour [**servir**]{.orange} le modèle
     - [**Interface**]{.blue2} entre [**l'utilisateur**]{.blue2} et le [**modèle**]{.blue2} entraîné
 
-. . .
-
-![](img/api-no-mlflow.png){fig-align="center" height=400}
+![](img/api-no-mlflow.png){fig-align="center" height=400 .fragment}
 
 ## Environnement de production
 
@@ -67,9 +107,7 @@
 - Solution : utiliser un [**orchestrateur de conteneurs**]{.orange}
     - Base du `SSP Cloud` : [Kubernetes](https://kubernetes.io/fr/)
 
-. . .
-
-![](img/kubernetes-logo.png){fig-align="center" height=100}
+![](img/kubernetes-logo.png){fig-align="center" height=100 .fragment}
 
 ## Fonctionnement de Kubernetes
 
@@ -145,9 +183,7 @@ jobs:
 
 - Intégration des étapes dans un [**pipeline**]{.orange} ([**DAG**]{.blue2})
 
-. . .
-
-![Source : [ubuntu.com](https://ubuntu.com/blog/data-pipelines-overview)](img/data-pipeline.png){fig-align="center" height=300}
+![Source : [ubuntu.com](https://ubuntu.com/blog/data-pipelines-overview)](img/data-pipeline.png){fig-align="center" height=300 .fragment}
 
 - En pratique : utilisation d'un [**orchestrateur**]{.orange}
     - Sur le `SSP Cloud` : [Argo Workflows](https://argoproj.github.io/workflows/)
@@ -156,9 +192,7 @@ jobs:
 
 - On a construit un pipeline [**reproductible**]{.orange} et [**automatisé**]{.orange}
 
-. . .
-
-![Source : [ibm.com](https://public.dhe.ibm.com/software/data/sw-library/analytics/data-science-lifecycle/#model-implementation)](img/exploration-production.png){fig-align="center" height=250}
+![Source : [ibm.com](https://public.dhe.ibm.com/software/data/sw-library/analytics/data-science-lifecycle/#model-implementation)](img/exploration-production.png){fig-align="center" height=250 .fragment}
 
 - Comment tenir compte des [**spécificités du ML**]{.orange} ?
     - [**Approche MLOps**]{.blue2}
