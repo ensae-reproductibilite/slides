@@ -29,7 +29,7 @@ css: custom.css
 from: markdown+emoji
 ---
 
-<!-- {{< include sections/introduction.qmd >}}
+{{< include sections/introduction.qmd >}}
 
 {{< include sections/intro-part1.qmd >}}
 
@@ -45,8 +45,8 @@ from: markdown+emoji
 
 {{< include sections/intro-part2.qmd >}}
 
-{{< include sections/yaml101.qmd >}} -->
+{{< include sections/yaml101.qmd >}}
 
 {{< include sections/deployment.qmd >}}
 
-<!-- {{< include sections/mlops.qmd >}} -->
+{{< include sections/mlops.qmd >}}
