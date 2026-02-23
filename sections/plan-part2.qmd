@@ -1,0 +1,43 @@
+# Partie :two: : mise en production
+
+## Le "mur de la production"
+
+- La majorité des projets "*data-driven*" [**ne délivrent pas de valeur**]{.blue2} ([1](https://sloanreview.mit.edu/projects/expanding-ais-impact-with-organizational-learning/), [2](https://hdsr.mitpress.mit.edu/pub/2fu65ujf/release/6), [3](https://www.researchgate.net/publication/346647451_Beyond_the_Hype_Why_Do_Data-Driven_Projects_Fail))
+
+- Comment [**dépasser le stade de l'expérimentation**]{.orange} ?
+
+## Mise en production
+
+- [**Mettre en production**]{.orange} : faire [**vivre**]{.blue2} une application dans l'espace de ses [**utilisateurs**]{.blue2}
+    - [**Servir**]{.orange} : [**déployer**]{.blue2} l'application dans un [**format pertinent**]{.blue2} auprès de ses utilisateurs potentiels
+    - [**Faire vivre**]{.orange} : gérer le [**cycle de vie**]{.blue2} et favoriser l'[**amélioration continue**]{.blue2}
+
+- [**Multiples dimensions**]{.orange} : connaissance métier, organisation, infrastructure, outils techniques..
+
+## Favoriser la continuité
+
+![Source : [ibm.com](https://public.dhe.ibm.com/software/data/sw-library/analytics/data-science-lifecycle/#model-implementation)](img/exploration-production.png){fig-align="center"}
+
+- [**Comment faire ?**]{.orange}
+    - Application des [**bonnes pratiques**]{.blue2} de développement
+    - Besoin de [**nouveaux concepts et outils**]{.blue2} : [DataOps](https://dataopsmanifesto.org/fr/)
+
+## Le DataOps
+
+- Origine : mouvement [DevOps](https://fr.wikipedia.org/wiki/Devops)
+
+. . .
+
+![Source : [syloe.com](https://www.syloe.com/expert-devops-automatisation-deploiements/)](img/devops.png){fig-align="center" height=300}
+
+- [**DataOps**]{.orange} : construction de [**pipelines de données**]{.blue2}
+
+- [**MLOps**]{.orange} : déploiement et maintenance de [**modèles de ML**]{.blue2}
+
+## Plan de la partie
+
+:six: Introduction au format [**YAML**]{.blue2}
+
+:seven: [**Déploiement**]{.blue2}
+
+:eight: [**MLOps**]{.blue2}

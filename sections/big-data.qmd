@@ -1,0 +1,152 @@
+# :four: Traitement des données volumineuses
+
+## "The obligatory intro slide"
+
+![Source : [motherduck.com](https://motherduck.com/blog/big-data-is-dead/)](img/intro-big-data.png){fig-align="center" height=400}
+
+## Enjeux
+
+- Tendance à la [**massification**]{.orange} des données
+
+![Source : [AI with Python](https://www.packtpub.com/product/artificial-intelligence-with-python-second-edition/9781839219535)](img/vvv.png){fig-align="center" height=350 .fragment}
+
+## Enjeux
+
+- Nécessité de bien distinguer :
+    - [***Storage***]{.blue2} : qu'est-ce que l'on stocke et comment ?
+    - [***Compute***]{.blue2} : qu'est-ce que l'on calcule et où ?
+
+- Evolutions des [**infrastructures de données**]{.orange} :
+    - [**Bases de données**]{.blue2} : couplage fort, scalabilité verticale
+    - [**Infrastructures *big data***]{.blue2} : couplage fort, scalabilité horizontale
+    - [**Infrastructures *cloud***]{.blue2} : couplage faible, scalabilité hybride
+
+## :one: A l'origine : les bases de données
+
+- Historiquement : stockage dans des [**bases de données**]{.orange}
+
+- 80's : essor des [bases de données relationnelles](https://fr.wikipedia.org/wiki/Base_de_donn%C3%A9es_relationnelle)
+    - Modèle de la [***data warehouse***]{.orange}
+
+![Source : [corporatefinanceinstitute.com](https://corporatefinanceinstitute.com/resources/business-intelligence/data-warehousing/)](img/data-warehouse.png){height="300" fig-align="center" .fragment}
+
+## :one: Limites des *data warehouses*
+
+- Peu adaptées aux [**données *big data***]{.orange} 
+    - Limitées aux [**données structurées**]{.blue2}
+    - Nécessiter de fixer un [**schéma a priori**]{.blue2}
+    - Passage à l'échelle coûteux : [**scalabilité verticale**]{.blue2}
+
+![Source : [https://dev.to](https://dev.to/yugabyte/horizontal-scaling-vs-vertical-scaling-for-sql-what-s-the-difference-kn2)](img/vertical-scaling-pgsql.png){height="250" fig-align="center" .fragment}
+
+## :two: L'arrivée du *data lake* (fin 2000's) {.scrollable}
+
+- Un stockage [**peu coûteux**]{.orange} fait pour des [**données**]{.orange}
+  - [**Volumineuses**]{.blue2}
+  - [**Brutes**]{.blue2}
+  - Sans [**structure définie a priori**]{.blue2}
+
+![Source : [qlik.com](https://www.qlik.com/us/data-lake)](img/datalake.png){height="300" fig-align="center" .fragment}
+
+## :two: Infrastructures *big data* {.scrollable}
+
+- Fin 2000's : une architecture de référence ([Hadoop](https://fr.wikipedia.org/wiki/Hadoop))
+    - Une [***data lake***]{.blue2} avec du [**stockage distribué**]{.blue2} (HDFS)
+    - Des [**frameworks de calcul distribué**]{.blue2} ([MapReduce](https://fr.wikipedia.org/wiki/MapReduce), [Spark](https://fr.wikipedia.org/wiki/Apache_Spark))
+
+![Source : [glennklockwood.com](https://www.glennklockwood.com/data-intensive/hadoop/overview.html)](img/mapreduce-hdfs.png){fig-align="center" height="350" .fragment}
+
+## :three: "Big Data is dead" ?
+
+- 2010's : déclin de popularité des infrastructures Hadoop
+    - Limite : [**co-localisation**]{.blue2} du stockage et du calcul
+
+- Jordan Tigani : [Big Data is dead](https://motherduck.com/blog/big-data-is-dead/)
+    - Besoins de [***storage***]{.blue2} >> besoins de [***compute***]{.blue2}
+
+![](img/tigani-compute-storage.png){height="330" fig-align="center" .fragment}
+
+## :three: Infrastructures *cloud*
+
+- Fin 2010's : [**les technologies *cloud***]{.orange} permettent l'émergence d'architectures [**faiblement couplées**]{.orange}
+    - [***Storage***]{.blue2} : [***data lake***]{.blue2} basé sur du [**stockage objet**]{.blue2}
+    - [***Compute***]{.blue2} : des environnements de traitement élastiques aux besoins ([**conteneurs**]{.blue2})
+
+![](img/environment_cloud.png){height="300" fig-align="center" .fragment}
+
+## :three: La frontière du *big data* se décale
+
+- [**Innovations matérielles**]{.orange} (serveurs, CPUs, RAM)
+
+- [**Formats de données**]{.orange} plus efficients ([**Parquet**]{.orange})
+
+- Des outils de [**traitement *larger-than-memory***]{.orange}
+
+![](img/tigani-big-data-frontier.png){height="330" fig-align="center" .fragment}
+
+## :three: Le format `CSV`
+
+- Le format usuel pour les [**données tabulaires**]{.orange} est le `CSV`
+    - Facilement [**lisible**]{.blue2} 
+    - [**Non-compressé**]{.blue2} : espace disque élevé
+    - [**Orienté ligne**]{.blue2} : mal adapté aux traitements analytiques
+
+![](img/columnar-storage.png){height="300" fig-align="center" .fragment}
+
+## :three: Le format `Parquet` : propriétés
+
+- [**Orienté colonne**]{.orange}
+  - Adapté aux [**traitements analytiques**]{.blue2}
+  - Conçu pour être écrit une fois mais lu fréquemment
+
+- [**Optimisé**]{.orange}
+  - [**Compression**]{.blue2} (jusqu'à 87 % moins d'espace qu'un CSV)
+  - [**Lecture**]{.blue2} du fichier (jusqu'à 34x plus rapide qu'un CSV)
+
+- [**Interopérable**]{.orange}
+    - Gestion native des [**méta-données**]{.blue2}
+
+## :three: `Parquet` : partitionnement
+
+- [**Division en blocs**]{.orange} des données selon un [**critère**]{.orange}
+  - [**Optimise la lecture**]{.blue2} pour certaines requêtes
+
+![](img/parquet-partition.png){height="400" fig-align="center" .fragment}
+
+## :three: Traitement *in-memory*
+
+- `Parquet` ne résout pas tout
+  - L'espace disque est optimisé
+  - Les données décompressées doivent [**passer en RAM**]{.blue2}
+
+- Avec un *framework* traditionnel de [**calcul en mémoire**]{.orange} (`Pandas`, `dplyr` en `R`, etc.)
+    - [**Gain en lecture**]{.blue2} grâce à la compression `Parquet`
+    - Obligé de charger [**l'ensemble du fichier en mémoire**]{.blue2}
+    - [**Perte de l'avantage de la structure en colonne**]{.blue2}
+
+## :three: Traitement *larger-than-memory*
+
+- Calcul [***larger than memory* optimisé**]{.blue2}
+    - [Arrow](https://arrow.apache.org/overview/) : orientation fichier (`Parquet`)
+    - [DuckDB](https://duckdb.org/) : orientation base de données (`SQL`)
+
+- Principes communs : 
+    - [**Orientation colonne**]{.blue2} : synergie avec `Parquet`
+    - [**Lazy evaluation**]{.blue2} : très efficient en données
+
+![](img/parquet-read-columns.png){height="200" fig-align="center" .fragment}
+
+## :three: `DuckDB` : un connecteur interopérable entre sources de données
+
+![](img/duckdb-intero.png){height="500" fig-align="center" .fragment}
+
+## Résumé : pour traiter la volumétrie
+
+- Choisir une [**infrastructure**]{.orange} adaptée aux besoins
+    - Les [**technologies *cloud***]{.blue2} offrent un très bon compromis coût / flexibilité
+
+- Utiliser un [**format**]{.orange} de données adapté (`Parquet`)
+
+- Utiliser des [**outils**]{.orange} de traitement adaptés
+  - Suffisant la plupart du temps : [**calcul *larger than memory* optimisé**]{.blue2} (`DuckDB`)
+  - Si volumétrie massive : [**calcul distribué**]{.blue2} (`Spark`)

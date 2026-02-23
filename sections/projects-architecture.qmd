@@ -1,0 +1,153 @@
+# :three: Structure des projets
+
+## Enjeux
+
+- Favoriser la [**lisibilité**]{.orange} et la [**maintenabilité**]{.orange}
+
+- Enjeux spécifiques à la data science
+    - [**Expérimentation**]{.blue2}
+    - [**Non-linéarité**]{.blue2}
+    - [**Reproductibilité**]{.blue2}
+
+## Principes généraux
+
+- Favoriser une [**structure modulaire**]{.blue2} selon l'état du projet
+    - [**Exploration**]{.orange} : travail à partir de [**notebooks**]{.blue2}
+    - [**Industrialisation**]{.orange} : adopter une structure type [**package**]{.blue2}
+
+- Adopter les [**standards communautaires**]{.orange}
+
+- [**(Auto-)documenter**]{.orange} son projet
+
+## :one: Phase d'exploration : *notebooks*
+
+- [**Avantages**]{.orange}
+  - [**Interactivité**]{.blue2} : idéal pour l'expérimentation
+  - [**Communication**]{.blue2} : diffusion de résultats sous forme exécutable
+
+- [**Inconvénients**]{.orange}
+  - [**Reproductibilité**]{.blue2} généralement limitée
+  - Pas adaptés pour l'[**automatisation**]{.blue2}
+  - Mal gérés par le [**contrôle de version**]{.blue2}
+
+## :two: Industrialisation : structure modulaire
+
+- [**Premier niveau**]{.orange} : structuration du [**code**]{.orange}
+
+- Adopter une structure type [**package**]{.orange}
+  - Des [**fonctions**]{.blue2} rangées dans des [**modules**]{.blue2}
+  - Un script principal (`main`) [**orchestre**]{.blue2} les traitements
+  - Utilisation de [**chemins relatifs**]{.blue2} uniquement
+
+## :two: Industrialisation : structure modulaire
+
+- [**Deuxième niveau**]{.orange} : structuration du [**projet**]{.orange}
+
+. . .
+
+![](img/project-modularity.png){fig-align="center" height=350}
+
+## :three: Adopter les standards communautaires
+
+- [**Templates**]{.orange} de projets : [**Cookiecutters**]{.blue2}
+    - [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/)
+    - [Cookiecutter Python Package](https://py-pkgs.org/03-how-to-package-a-python#creating-a-package-structure)
+
+- La [**cohérence intra-projet**]{.orange} doit toujours primer
+
+## :four: Documenter son projet
+
+- Favoriser l'[**auto-documentation**]{.orange} via des nommages pertinents
+
+## L'auto-documentation : illustration
+
+```
+├── report.ipynb
+├── correlation.png
+├── data.csv
+├── data2.csv
+├── fig1.png
+├── figure 2 (copy).png
+├── report.pdf
+├── partial data.csv
+├── script.py
+└── script_final.py
+```
+
+- Difficile de rentrer dans le projet...
+    - Tout au [**même niveau**]{.blue2}
+    - Titres [**non informatifs**]{.blue2}
+
+## L'auto-documentation : illustration
+
+```
+├── data
+│   ├── raw
+│   │   ├── data.csv
+│   │   └── data2.csv
+│   └── interim
+│       └── partial data.csv
+├── notebooks
+│   └── report.ipynb
+├── src
+|   ├── script.py
+│   └── script_final.py
+└── reports
+    ├── report.pdf
+    └── figures
+        ├── fig1.png
+        ├── figure 2 (copy).png
+        ├── figure10.png
+        └── correlation.png
+```
+
+- Une structure déjà plus lisible !
+    - Les titres restent [**non informatifs**]{.blue2}
+
+## L'auto-documentation : illustration
+
+```
+├── data
+│   ├── raw
+│   │   ├── dpe_logement_202103.csv
+│   │   └── dpe_logement_202003.csv
+│   └── interim
+│       └── dpe_logement_merged_preprocessed.csv
+├── notebooks
+│   └── report.ipynb
+├── src
+|   ├── main.R
+|   ├── preprocessing.R
+│   └── generate_plots.R
+└── reports
+    ├── report.pdf
+    └── figures
+        ├── histogram_energy_diagnostic.png
+        ├── barplot_consumption_pcs.png
+        ├── correlation_matrix.png
+        └── correlation.png
+```
+
+- Une structure [**auto-documentée**]{.blue2}
+    - On comprend le projet sans même lire le code
+
+## :four: Documenter son projet
+
+- Favoriser l'[**auto-documentation**]{.orange} via des nommages pertinents
+
+- Inclure un fichier `README.md` à la racine du projet
+    - [**Carte d'identité**]{.blue2} et [**vitrine**]{.blue2} du projet
+    - Présente le [**contexte**]{.blue2} et le [**fonctionnement**]{.blue2} du projet
+
+- Si [**open-source**]{.orange} : inclure une [licence](https://docs.github.com/fr/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)
+
+
+
+# Application
+
+## Bonnes pratiques de développement
+
+- Consignes sur le [site du cours](https://ensae-reproductibilite.github.io/website/chapters/application.html)
+    - Partie :zero: : initialisation de l'environnement et du projet
+    - Partie :one: : qualité du code
+    - Partie :two: : adoption d'une structure modulaire

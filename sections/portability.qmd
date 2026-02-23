@@ -1,0 +1,189 @@
+# :five: Portabilité
+
+## "It works... on my machine" {.scrollable}
+
+- On a construit un projet [**lisible**]{.orange}, [**structuré**]{.orange} et [**versionné**]{.orange}
+
+- Peut-on [**partager**]{.orange} notre projet ?
+    - En théorie, oui !
+    - En pratique, c'est toujours plus compliqué...
+
+![Source : [simply-the-test.blogspot.com](https://simply-the-test.blogspot.com/2010/05/it-works-on-my-machine.html)](img/IWOMM.jpg){fig-align="center" height=350 .fragment}
+
+## Pourquoi se préoccuper de portabilité ?
+
+- Considérons un [***workflow* standard**]{.orange} de *data science*
+    - Installer une distribution de `Python` sur son poste
+    - Développer un projet en installant les packages nécessaires
+    - Passer au projet suivant et ainsi de suite
+
+- Quels [**problèmes**]{.orange} peuvent se poser ?
+
+## Pourquoi se préoccuper de portabilité ?
+
+- [**Conflits de version**]{.orange} : différents projets peuvent requérir des versions différentes d'un même *package*
+
+- [**Version de `Python` fixe**]{.orange}, celle de l'installation système
+
+- [**Reproductibilité limitée**]{.orange} : difficile de dire quel projet nécessite quel package
+
+- [**Portabilité limitée**]{.orange} : difficile de fixer dans un fichier les dépendances spécifiques à un projet
+
+## Le critère de la portabilité
+
+- Un code n'est pas auto-suffisant, il contient en général de nombreuses [**adhérences**]{.orange}
+    - Un [**langage de programmation**]{.blue2} et sa [**version**]{.blue2}
+    - Des [**dépendances**]{.blue2}
+    - Des [**librairies système**]{.blue2}
+
+- [**Portabilité**]{.orange} : capacité d'un code à s'exécuter dans un environnement différent que celui de développement
+    - Enjeu central de la [**mise en production**]{.blue2} !
+
+## Comment favoriser la portabilité ?
+
+- Constuire des [**"bulles" plus ou moins isolées**]{.orange} autour de son projet afin de [***packager* l'environnement**]{.orange} nécessaire
+
+- Des outils dédiés :
+    - Les [**environnements virtuels**]{.blue2} : très simples à prendre en main, [**portabilité moyenne**]{.blue2}
+    - Les [**conteneurs**]{.blue2} : plus complexes d'utilisation, [**portabilité maximale**]{.blue2}
+
+## Environnements virtuels : fonctionnement {.scrollable}
+
+- [**Dossier "auto-suffisant"**]{.orange} qui :
+    - contient un [**intepréteur**]{.blue2} `Python` et des [**packages**]{.blue2}
+    - est [**isolé**]{.orange} des autres environnements existants
+
+![Source : [dataquest.io](https://www.dataquest.io/blog/a-complete-guide-to-python-virtual-environments/)](img/venv.png){fig-align="center" height=350 .fragment}
+
+## Environnements virtuels : implémentations
+
+-  [**Implémentation standard**]{.orange} de `Python` : [venv](https://docs.python.org/fr/3/library/venv.html)
+    - Il en existe bien d'autres (`virtualenv`, `pipenv`, etc.)
+
+- Très lié au [**mode d'installation des *packages***]{.orange}
+    - Python "standard" : `venv` + `pip`
+    - Limites :
+        - Lenteur de la [**résolution des dépendances**]{.blue2}
+        - Dépendance à la version système de `Python`
+
+- [**Une implémentation qui monte**]{.orange} très (très) vite : [uv](https://docs.astral.sh/uv/)
+
+## `uv` : un outil pour les gouverner tous
+
+![Source : [alpopkes.com](https://alpopkes.com/posts/python/packaging_tools/?ref=blog.ippon.fr/)](img/uv-venn.png){fig-align="center" height=500 .fragment}
+
+## `uv` : utilisation
+
+- [**Initialiser**]{.orange} un projet : `uv init <nom_du_projet>`
+    - Génère une [**structure de projet**]{.blue2}
+
+- [**Installer**]{.orange} un package : `uv add scikit-learn`
+    - Génère automatiquement un [**environnement virtuel**]{.blue2} (`venv`)
+
+- [**Exécuter**]{.orange} un script : `uv run script.py`
+    - Le script est exécuté avec l'interpéteur `Python` [**de l'environnement virtuel**]{.blue2}
+
+## Spécifier l'environnement du projet
+
+- Développer dans un [**environnement virtuel**]{.orange} est une bonne pratique
+
+- Favorise la [**reproductibilité**]{.orange}
+    - A chaque installation d'un *package*, `uv` met à jour le fichier `uv.lock` qui [**spécifie toutes les dépendances**]{.blue2}
+    - `uv sync` ->  [**recrée l'environnement complet**]{.blue2}
+
+- Favorise la [**portabilité**]{.orange}
+    - A chaque installation d'un *package*, `uv` maj le fichier `pyproject.yaml` qui [**spécifie les *packages* nécessaires**]{.blue2}
+    - A *commit* sur `Git` pour [**distribuer la "recette" de l'environnement**]{.blue2}
+
+## Faire évoluer les versions
+
+- [**Arbitrage**]{.orange} à trouver entre :
+    - [**Reproductibilité**]{.blue2} : [**spécifier**]{.blue2} finement les versions
+    - [**Fonctionnalités et sécurité**]{.blue2} : faire [**évoluer**]{.blue2} les versions
+
+## Environnements virtuels : limites
+
+- [**Limités au langage**]{.orange}  de programmation et ses *packages* :
+    - Pas de gestion des [**librairies système**]{.blue2} qui dépendent du système d'exploitation
+    - Non adaptés à des [**projets multi-langages**]{.blue2}
+
+- Les environnements virtuels [**facilitent la portabilité, mais ne suffisent pas à la garantir**]{.orange} 
+
+## Le *gold-standard* de la portabilité
+
+- Au lieu de distribuer la [**recette**]{.orange} pour recréer la bonne machine, peut-on [**distribuer directement la bonne machine**]{.orange} ?
+    - Idée 1 : distribuer des [**machines physiques**]{.blue2} : complexe...
+    - Idée 2 : distribuer des [**machines virtuelles**]{.blue2} : possible mais coûteux
+
+- Les [**conteneurs**]{.orange} offrent le compromis idéal
+    - [**Isolation complète**]{.blue2} de l'environnement
+    - Relativement [**légers**]{.blue2} et donc facilement redistribuables
+
+## Conteneurs vs. machines virtuelles
+
+![Source : [docker.com](https://www.docker.com/resources/what-container/)](img/docker-vm.png)
+
+## Conteneurs : implémentations
+
+- Plusieurs implémentations des conteneurs
+    - [**`Docker`**]{.blue2} est largement prédominant
+
+. . .
+
+![](img/docker.png){fig-align="center" height=200}
+
+## `Docker` : installation
+
+- `Docker` : outil en ligne de commande (CLI)
+    - [Instructions](https://docs.docker.com/get-docker/) selon le système d'exploitation
+    - Environnement "bac à sable" : [Play with Docker](https://labs.play-with-docker.com/)
+
+. . .
+
+![](img/playwithdocker.png){fig-align="center" height=350}
+
+## Le `Dockerfile`
+
+- Exemple : conteneurisation d'une application interactive [Flask](https://flask.palletsprojects.com/en/stable/)
+
+. . .
+
+```Dockerfile  {.scrollable}
+FROM ubuntu:20.04
+
+RUN apt-get update -y && \
+    apt-get install -y python3-pip python3-dev
+
+WORKDIR /app
+
+COPY requirements.txt /app/requirements.txt
+RUN pip install -r requirements.txt
+
+COPY . /app
+
+ENV FLASK_APP="my-app.py"
+EXPOSE 5000
+
+CMD ["flask", "run", "--host=0.0.0.0"]
+```
+
+## `Docker` : fonctionnement
+
+![Source : [k21academy.com](https://k21academy.com/docker-kubernetes/docker-and-kubernetes/)](img/docker-workflow.png){fig-align="center"}
+
+## `Docker` en pratique
+
+- Présentation détaillée sur la [page du cours](https://ensae-reproductibilite.github.io/website/chapters/portability.html#les-conteneurs)
+    - [**Concepts**]{.blue2} (*caching*, *buildtime/runtime*)
+    - [**Commandes**]{.blue2} essentielles
+    - [**Application**]{.blue2} à un exemple concret
+
+
+# Application
+
+## Portabilité du projet
+
+- Consignes sur le [site du cours](https://ensae-reproductibilite.github.io/website/chapters/application.html)
+    - Partie :three: : construction d’un projet [**portable**]{.orange} et [**reproductible**]{.orange}
+        - Construire un [**environnement virtuel**]{.blue2} pour le projet
+        - [**Conteneuriser**]{.blue2} l'application avec `Docker`

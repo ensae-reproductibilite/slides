@@ -1,0 +1,13 @@
+# Partie :one: : bonnes pratiques de développement
+
+## Plan de la partie
+
+:one: [**Travail collaboratif**]{.blue2} avec `Git`
+
+:two: [**Qualité**]{.blue2} du code
+
+:three: [**Structure**]{.blue2} des projets
+
+:four: Traitement des [**données volumineuses**]{.blue2}
+
+:five: Favoriser la [**portabilité**]{.blue2} d'une application
