@@ -40,7 +40,7 @@
     - frustrés par l'[**approche**]{.blue2} souvent purement [**technique**]{.blue2} de la data science
     - convaincus que les [**bonnes pratiques de développement**]{.blue2} valent à être enseignées
 
-- {{< fa solid envelope >}} <romain.avouac@insee.fr>, <lino.galiana@insee.fr>
+- {{< fa solid envelope >}} <romain.avouac@insee.fr>, <lino.galiana@insee.fr>, <nathan.randriamanana@insee.fr>
 
 ## Qu'est ce qu'un data scientist ?
 
@@ -102,6 +102,7 @@ L'activité du *datascientist* tend à se rapprocher de celle du développeur :
     - Introduction au format `YAML`
     - [**Déploiement**]{.blue2}
     - [**MLOps**]{.blue2}
+    - [**LLMOps**]{.blue2} (la nouveauté :sparkle:)
 
 ## Site web du cours
 
@@ -134,3 +135,7 @@ L'activité du *datascientist* tend à se rapprocher de celle du développeur :
 - Evaluation en [**deux parties**]{.orange} :
     - [**En groupe**]{.blue2} : [**projet**]{.blue2} à construire selon 4 "parcours"
     - [**Individuel**]{.blue2} : [**revue de code**]{.blue2} d'un autre projet
+
+- Suivie d'une [**soutenance**]{.orange} pour:
+    - vérifier si les notions sont comprises
+    - échanger sur le livrable

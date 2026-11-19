@@ -41,3 +41,5 @@
 :seven: [**Déploiement**]{.blue2}
 
 :eight: [**MLOps**]{.blue2}
+
+:nine: [**LLMOps**]{.blue2} :sparkle:

@@ -42,7 +42,7 @@ __Format des commits__
     - Courts et informatifs (comme un titre de mail)
     - Décrire [**le pourquoi plutôt que le comment**]{.orange} dans le texte
 
-![](img/titre-commit.png)
+![Pour aller plus loin : [Rédiger des commits conventionnels](https://www.conventionalcommits.org)](img/titre-commit.png){fig-align="right" height=475}
 
 :::
 
