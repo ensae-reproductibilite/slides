@@ -88,7 +88,7 @@ L'activité du *datascientist* tend à se rapprocher de celle du développeur :
 ## Contenu du cours {.scrollable .smaller}
 
 - [**Pré-requis**]{.orange}
-    - Introduction au terminal `Linux` ([Linux 101](https://ensae-reproductibilite.github.io/website/chapters/linux-101.html))
+    - Introduction au terminal `Linux` ([Linux 101](https://ensae-reproductibilite.github.io/website/chapters/linux101.html))
     - [**Contrôle de version**]{.blue2} avec `Git` ([Git _refresher_](https://ensae-reproductibilite.github.io/website/chapters/git.html))
 
 - [**Bonnes pratiques**]{.orange} de développement
