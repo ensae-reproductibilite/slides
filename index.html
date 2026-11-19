@@ -6,25 +6,32 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js"></script>
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.27">
+  <meta name="generator" content="quarto-1.11.9">
 
   <meta name="author" content="Romain Avouac">
   <meta name="author" content="Lino Galiana">
+  <meta name="author" content="Nathan Randriamanana">
   <title>Mise en production des projets de data science</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -99,7 +106,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-a98430368b5d08d5d89ffd4526a3edd6.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-006d798860e4939566eb897bf0900b24.css">
   <link rel="stylesheet" href="site_libs/quarto-contrib/quarto-project/InseeFrLab/onyxia/logo.css">
   <link rel="stylesheet" href="custom.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -203,17 +210,22 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Mise en production des projets de data science</h1>
-  <p class="subtitle"></p><p><span class="blue2">Cours de 3e année à l’ENSAE</span><br> 2025/2026</p><p></p>
+  <p class="subtitle"><span class="blue2">Cours de 3e année à l’ENSAE-ENSAI</span><br> 2026/2027</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Romain Avouac 
+Romain Avouac
 </div>
 </div>
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Lino Galiana 
+Lino Galiana
+</div>
+</div>
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Nathan Randriamanana
 </div>
 </div>
 </div>
@@ -270,7 +282,12 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 h='&#x69;&#110;&#x73;&#x65;&#x65;&#46;&#102;&#114;';a='&#64;';n='&#108;&#x69;&#110;&#x6f;&#46;&#x67;&#x61;&#108;&#x69;&#x61;&#110;&#x61;';e=n+a+h;
 document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'+e+'<\/'+'a'+'>');
 // -->
-</script><noscript>lino.galiana at insee dot fr</noscript></li>
+</script><noscript>lino.galiana at insee dot fr</noscript>, <script type="text/javascript">
+<!--
+h='&#x69;&#110;&#x73;&#x65;&#x65;&#46;&#102;&#114;';a='&#64;';n='&#110;&#x61;&#116;&#104;&#x61;&#110;&#46;&#114;&#x61;&#110;&#100;&#114;&#x69;&#x61;&#x6d;&#x61;&#110;&#x61;&#110;&#x61;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>nathan.randriamanana at insee dot fr</noscript></li>
 </ul>
 </section>
 <section id="quest-ce-quun-data-scientist" class="slide level2">
@@ -347,6 +364,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment">Introduction au format <code>YAML</code></li>
 <li class="fragment"><span class="blue2"><strong>Déploiement</strong></span></li>
 <li class="fragment"><span class="blue2"><strong>MLOps</strong></span></li>
+<li class="fragment"><span class="blue2"><strong>LLMOps</strong></span> (la nouveauté <span class="emoji" data-emoji="sparkle">❇️</span>)</li>
 </ul></li>
 </ul>
 </section>
@@ -393,6 +411,11 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <ul>
 <li class="fragment"><span class="blue2"><strong>En groupe</strong></span> : <span class="blue2"><strong>projet</strong></span> à construire selon 4 “parcours”</li>
 <li class="fragment"><span class="blue2"><strong>Individuel</strong></span> : <span class="blue2"><strong>revue de code</strong></span> d’un autre projet</li>
+</ul></li>
+<li class="fragment">Suivie d’une <span class="orange"><strong>soutenance</strong></span> pour:
+<ul>
+<li class="fragment">vérifier si les notions sont comprises</li>
+<li class="fragment">échanger sur le livrable</li>
 </ul></li>
 </ul>
 </section></section>
@@ -477,8 +500,13 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: center;">
-<p><img data-src="img/titre-commit.png"></p>
+<div class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="img/titre-commit.png" height="475"></p>
+<figcaption>Pour aller plus loin : <a href="https://www.conventionalcommits.org">Rédiger des commits conventionnels</a></figcaption>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -1357,22 +1385,22 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment">Exemple : conteneurisation d’une application interactive <a href="https://flask.palletsprojects.com/en/stable/">Flask</a></li>
 </ul>
 <div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource dockerfile scrollable number-lines code-with-copy"><code class="sourceCode dockerfile"><span id="cb4-1"><a></a><span class="kw">FROM</span> ubuntu:20.04</span>
-<span id="cb4-2"><a></a></span>
-<span id="cb4-3"><a></a><span class="kw">RUN</span> <span class="ex">apt-get</span> update <span class="at">-y</span> <span class="kw">&amp;&amp;</span> <span class="dt">\</span></span>
-<span id="cb4-4"><a></a>    <span class="ex">apt-get</span> install <span class="at">-y</span> python3-pip python3-dev</span>
-<span id="cb4-5"><a></a></span>
-<span id="cb4-6"><a></a><span class="kw">WORKDIR</span> /app</span>
-<span id="cb4-7"><a></a></span>
-<span id="cb4-8"><a></a><span class="kw">COPY</span> requirements.txt /app/requirements.txt</span>
-<span id="cb4-9"><a></a><span class="kw">RUN</span> <span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
-<span id="cb4-10"><a></a></span>
-<span id="cb4-11"><a></a><span class="kw">COPY</span> . /app</span>
-<span id="cb4-12"><a></a></span>
-<span id="cb4-13"><a></a><span class="kw">ENV</span> FLASK_APP=<span class="st">"my-app.py"</span></span>
-<span id="cb4-14"><a></a><span class="kw">EXPOSE</span> 5000</span>
-<span id="cb4-15"><a></a></span>
-<span id="cb4-16"><a></a><span class="kw">CMD</span> [<span class="st">"flask"</span>, <span class="st">"run"</span>, <span class="st">"--host=0.0.0.0"</span>]</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource dockerfile scrollable number-lines code-with-copy"><code class="sourceCode dockerfile"><span id="cb4-1"><a aria-label="1"></a><span class="kw">FROM</span> ubuntu:20.04</span>
+<span id="cb4-2"><a aria-label="2"></a></span>
+<span id="cb4-3"><a aria-label="3"></a><span class="kw">RUN</span> <span class="ex">apt-get</span> update <span class="at">-y</span> <span class="kw">&amp;&amp;</span> <span class="dt">\</span></span>
+<span id="cb4-4"><a aria-label="4"></a>    <span class="ex">apt-get</span> install <span class="at">-y</span> python3-pip python3-dev</span>
+<span id="cb4-5"><a aria-label="5"></a></span>
+<span id="cb4-6"><a aria-label="6"></a><span class="kw">WORKDIR</span> /app</span>
+<span id="cb4-7"><a aria-label="7"></a></span>
+<span id="cb4-8"><a aria-label="8"></a><span class="kw">COPY</span> requirements.txt /app/requirements.txt</span>
+<span id="cb4-9"><a aria-label="9"></a><span class="kw">RUN</span> <span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
+<span id="cb4-10"><a aria-label="10"></a></span>
+<span id="cb4-11"><a aria-label="11"></a><span class="kw">COPY</span> . /app</span>
+<span id="cb4-12"><a aria-label="12"></a></span>
+<span id="cb4-13"><a aria-label="13"></a><span class="kw">ENV</span> FLASK_APP=<span class="st">"my-app.py"</span></span>
+<span id="cb4-14"><a aria-label="14"></a><span class="kw">EXPOSE</span> 5000</span>
+<span id="cb4-15"><a aria-label="15"></a></span>
+<span id="cb4-16"><a aria-label="16"></a><span class="kw">CMD</span> [<span class="st">"flask"</span>, <span class="st">"run"</span>, <span class="st">"--host=0.0.0.0"</span>]</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="docker-fonctionnement" class="slide level2">
@@ -1465,6 +1493,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <p><span class="emoji" data-emoji="six">6️⃣</span> Introduction au format <span class="blue2"><strong>YAML</strong></span></p>
 <p><span class="emoji" data-emoji="seven">7️⃣</span> <span class="blue2"><strong>Déploiement</strong></span></p>
 <p><span class="emoji" data-emoji="eight">8️⃣</span> <span class="blue2"><strong>MLOps</strong></span></p>
+<p><span class="emoji" data-emoji="nine">9️⃣</span> <span class="blue2"><strong>LLMOps</strong></span> <span class="emoji" data-emoji="sparkle">❇️</span></p>
 </section></section>
 <section>
 <section id="introduction-au-format-yaml" class="title-slide slide level1 center">
@@ -1481,21 +1510,21 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 <div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="pp">---</span></span>
-<span id="cb5-2"><a></a><span class="fu">source</span><span class="kw">:</span><span class="at"> ambient-it.net</span></span>
-<span id="cb5-3"><a></a><span class="fu">domain</span><span class="kw">:</span></span>
-<span id="cb5-4"><a></a><span class="at"> </span><span class="kw">-</span><span class="at"> devops</span></span>
-<span id="cb5-5"><a></a><span class="fu">tutorial</span><span class="kw">:</span></span>
-<span id="cb5-6"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">yaml</span><span class="kw">:</span></span>
-<span id="cb5-7"><a></a><span class="at">      </span><span class="fu">name</span><span class="kw">:</span><span class="at"> YAML Ain't Markup Language</span></span>
-<span id="cb5-8"><a></a><span class="at">      </span><span class="fu">born</span><span class="kw">:</span><span class="at"> </span><span class="dv">2001</span></span>
-<span id="cb5-9"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">json</span><span class="kw">:</span></span>
-<span id="cb5-10"><a></a><span class="at">      </span><span class="fu">name</span><span class="kw">:</span><span class="at"> JavaScript Object Notation</span></span>
-<span id="cb5-11"><a></a><span class="at">      </span><span class="fu">born</span><span class="kw">:</span><span class="at"> </span><span class="dv">2001</span></span>
-<span id="cb5-12"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">xml</span><span class="kw">:</span></span>
-<span id="cb5-13"><a></a><span class="at">      </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Extensible Markup Language</span></span>
-<span id="cb5-14"><a></a><span class="at">      </span><span class="fu">born</span><span class="kw">:</span><span class="at"> </span><span class="dv">1996</span></span>
-<span id="cb5-15"><a></a><span class="pp">---</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a aria-label="1"></a><span class="pp">---</span></span>
+<span id="cb5-2"><a aria-label="2"></a><span class="fu">source</span><span class="kw">:</span><span class="at"> ambient-it.net</span></span>
+<span id="cb5-3"><a aria-label="3"></a><span class="fu">domain</span><span class="kw">:</span></span>
+<span id="cb5-4"><a aria-label="4"></a><span class="at"> </span><span class="kw">-</span><span class="at"> devops</span></span>
+<span id="cb5-5"><a aria-label="5"></a><span class="fu">tutorial</span><span class="kw">:</span></span>
+<span id="cb5-6"><a aria-label="6"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">yaml</span><span class="kw">:</span></span>
+<span id="cb5-7"><a aria-label="7"></a><span class="at">      </span><span class="fu">name</span><span class="kw">:</span><span class="at"> YAML Ain't Markup Language</span></span>
+<span id="cb5-8"><a aria-label="8"></a><span class="at">      </span><span class="fu">born</span><span class="kw">:</span><span class="at"> </span><span class="dv">2001</span></span>
+<span id="cb5-9"><a aria-label="9"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">json</span><span class="kw">:</span></span>
+<span id="cb5-10"><a aria-label="10"></a><span class="at">      </span><span class="fu">name</span><span class="kw">:</span><span class="at"> JavaScript Object Notation</span></span>
+<span id="cb5-11"><a aria-label="11"></a><span class="at">      </span><span class="fu">born</span><span class="kw">:</span><span class="at"> </span><span class="dv">2001</span></span>
+<span id="cb5-12"><a aria-label="12"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">xml</span><span class="kw">:</span></span>
+<span id="cb5-13"><a aria-label="13"></a><span class="at">      </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Extensible Markup Language</span></span>
+<span id="cb5-14"><a aria-label="14"></a><span class="at">      </span><span class="fu">born</span><span class="kw">:</span><span class="at"> </span><span class="dv">1996</span></span>
+<span id="cb5-15"><a aria-label="15"></a><span class="pp">---</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="pourquoi-sintéresser-au-yaml" class="slide level2">
@@ -1512,16 +1541,16 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 </ul></li>
 </ul>
 <div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a></a><span class="fu">kind</span><span class="kw">:</span><span class="at"> Pod</span></span>
-<span id="cb6-2"><a></a><span class="fu">metadata</span><span class="kw">:</span></span>
-<span id="cb6-3"><a></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> my-api-pod</span></span>
-<span id="cb6-4"><a></a><span class="fu">spec</span><span class="kw">:</span></span>
-<span id="cb6-5"><a></a><span class="at">  </span><span class="fu">containers</span><span class="kw">:</span></span>
-<span id="cb6-6"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> api</span></span>
-<span id="cb6-7"><a></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> my_dh_account/my_fast_api:0.0.1</span></span>
-<span id="cb6-8"><a></a><span class="at">    </span><span class="fu">env</span><span class="kw">:</span></span>
-<span id="cb6-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> MODEL</span></span>
-<span id="cb6-10"><a></a><span class="at">      </span><span class="fu">value</span><span class="kw">:</span><span class="at"> deepseek-ai/DeepSeek-R1</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a aria-label="1"></a><span class="fu">kind</span><span class="kw">:</span><span class="at"> Pod</span></span>
+<span id="cb6-2"><a aria-label="2"></a><span class="fu">metadata</span><span class="kw">:</span></span>
+<span id="cb6-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> my-api-pod</span></span>
+<span id="cb6-4"><a aria-label="4"></a><span class="fu">spec</span><span class="kw">:</span></span>
+<span id="cb6-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">containers</span><span class="kw">:</span></span>
+<span id="cb6-6"><a aria-label="6"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> api</span></span>
+<span id="cb6-7"><a aria-label="7"></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> my_dh_account/my_fast_api:0.0.1</span></span>
+<span id="cb6-8"><a aria-label="8"></a><span class="at">    </span><span class="fu">env</span><span class="kw">:</span></span>
+<span id="cb6-9"><a aria-label="9"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> MODEL</span></span>
+<span id="cb6-10"><a aria-label="10"></a><span class="at">      </span><span class="fu">value</span><span class="kw">:</span><span class="at"> deepseek-ai/DeepSeek-R1</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="yaml-vs.-json" class="slide level2">
@@ -1541,17 +1570,17 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a></a><span class="fu">user</span><span class="kw">:</span></span>
-<span id="cb7-2"><a></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Alice</span></span>
-<span id="cb7-3"><a></a><span class="at">  </span><span class="fu">age</span><span class="kw">:</span><span class="at"> </span><span class="dv">30</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a aria-label="1"></a><span class="fu">user</span><span class="kw">:</span></span>
+<span id="cb7-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Alice</span></span>
+<span id="cb7-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">age</span><span class="kw">:</span><span class="at"> </span><span class="dv">30</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb8-1"><a></a><span class="fu">{</span></span>
-<span id="cb8-2"><a></a>  <span class="dt">"user"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb8-3"><a></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Alice"</span><span class="fu">,</span></span>
-<span id="cb8-4"><a></a>    <span class="dt">"age"</span><span class="fu">:</span> <span class="dv">30</span></span>
-<span id="cb8-5"><a></a>  <span class="fu">}</span></span>
-<span id="cb8-6"><a></a><span class="fu">}</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb8-1"><a aria-label="1"></a><span class="fu">{</span></span>
+<span id="cb8-2"><a aria-label="2"></a>  <span class="dt">"user"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb8-3"><a aria-label="3"></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Alice"</span><span class="fu">,</span></span>
+<span id="cb8-4"><a aria-label="4"></a>    <span class="dt">"age"</span><span class="fu">:</span> <span class="dv">30</span></span>
+<span id="cb8-5"><a aria-label="5"></a>  <span class="fu">}</span></span>
+<span id="cb8-6"><a aria-label="6"></a><span class="fu">}</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1568,20 +1597,20 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <li class="fragment"><p>Différents <span class="blue2"><strong>types</strong></span> à disposition (numériques, <em>strings</em>, booléens, listes)</p></li>
 </ul>
 <div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a></a><span class="fu">kind</span><span class="kw">:</span><span class="at"> Pod</span></span>
-<span id="cb9-2"><a></a><span class="fu">metadata</span><span class="kw">:</span></span>
-<span id="cb9-3"><a></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> my-api-pod</span></span>
-<span id="cb9-4"><a></a><span class="fu">spec</span><span class="kw">:</span></span>
-<span id="cb9-5"><a></a><span class="at">  </span><span class="fu">containers</span><span class="kw">:</span></span>
-<span id="cb9-6"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> api</span></span>
-<span id="cb9-7"><a></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> my_dh_account/my_fast_api:0.0.1</span></span>
-<span id="cb9-8"><a></a><span class="at">    </span><span class="fu">env</span><span class="kw">:</span></span>
-<span id="cb9-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> MODEL</span></span>
-<span id="cb9-10"><a></a><span class="at">      </span><span class="fu">value</span><span class="kw">:</span><span class="at"> deepseek-ai/DeepSeek-R1</span></span>
-<span id="cb9-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> DEBUG</span></span>
-<span id="cb9-12"><a></a><span class="at">      </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb9-13"><a></a><span class="at">    </span><span class="fu">ports</span><span class="kw">:</span></span>
-<span id="cb9-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">containerPort</span><span class="kw">:</span><span class="at"> </span><span class="dv">8000</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a aria-label="1"></a><span class="fu">kind</span><span class="kw">:</span><span class="at"> Pod</span></span>
+<span id="cb9-2"><a aria-label="2"></a><span class="fu">metadata</span><span class="kw">:</span></span>
+<span id="cb9-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> my-api-pod</span></span>
+<span id="cb9-4"><a aria-label="4"></a><span class="fu">spec</span><span class="kw">:</span></span>
+<span id="cb9-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">containers</span><span class="kw">:</span></span>
+<span id="cb9-6"><a aria-label="6"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> api</span></span>
+<span id="cb9-7"><a aria-label="7"></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> my_dh_account/my_fast_api:0.0.1</span></span>
+<span id="cb9-8"><a aria-label="8"></a><span class="at">    </span><span class="fu">env</span><span class="kw">:</span></span>
+<span id="cb9-9"><a aria-label="9"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> MODEL</span></span>
+<span id="cb9-10"><a aria-label="10"></a><span class="at">      </span><span class="fu">value</span><span class="kw">:</span><span class="at"> deepseek-ai/DeepSeek-R1</span></span>
+<span id="cb9-11"><a aria-label="11"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> DEBUG</span></span>
+<span id="cb9-12"><a aria-label="12"></a><span class="at">      </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb9-13"><a aria-label="13"></a><span class="at">    </span><span class="fu">ports</span><span class="kw">:</span></span>
+<span id="cb9-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">containerPort</span><span class="kw">:</span><span class="at"> </span><span class="dv">8000</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="validation-et-erreurs-fréquentes" class="slide level2">
@@ -1866,38 +1895,38 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 <div class="code-with-filename-file">
 <pre><strong>.github/workflows/ci.yaml</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-filename=".github/workflows/ci.yaml"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Build Docker image</span></span>
-<span id="cb10-2"><a></a></span>
-<span id="cb10-3"><a></a><span class="fu">on</span><span class="kw">:</span></span>
-<span id="cb10-4"><a></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
-<span id="cb10-5"><a></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span></span>
-<span id="cb10-6"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> main</span></span>
-<span id="cb10-7"><a></a><span class="at">    </span><span class="fu">tags</span><span class="kw">:</span></span>
-<span id="cb10-8"><a></a></span>
-<span id="cb10-9"><a></a><span class="fu">jobs</span><span class="kw">:</span></span>
-<span id="cb10-10"><a></a><span class="at">  </span><span class="fu">docker</span><span class="kw">:</span></span>
-<span id="cb10-11"><a></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="cb10-12"><a></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb10-13"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up QEMU</span></span>
-<span id="cb10-14"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/setup-qemu-action@v3</span></span>
-<span id="cb10-15"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Docker Buildx</span></span>
-<span id="cb10-16"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/setup-buildx-action@v3</span></span>
-<span id="cb10-17"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Docker meta</span></span>
-<span id="cb10-18"><a></a><span class="at">        </span><span class="fu">id</span><span class="kw">:</span><span class="at"> meta</span></span>
-<span id="cb10-19"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/metadata-action@v5</span></span>
-<span id="cb10-20"><a></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb10-21"><a></a><span class="at">          </span><span class="fu">images</span><span class="kw">:</span><span class="at"> ensae-reproductibilite/api-titanic</span></span>
-<span id="cb10-22"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Login to Docker Hub</span></span>
-<span id="cb10-23"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/login-action@v3</span></span>
-<span id="cb10-24"><a></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb10-25"><a></a><span class="at">          </span><span class="fu">username</span><span class="kw">:</span><span class="at"> ${{ secrets.DOCKERHUB_USERNAME }}</span></span>
-<span id="cb10-26"><a></a><span class="at">          </span><span class="fu">password</span><span class="kw">:</span><span class="at"> ${{ secrets.DOCKERHUB_TOKEN }}</span></span>
-<span id="cb10-27"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Build and push</span></span>
-<span id="cb10-28"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/build-push-action@v5</span></span>
-<span id="cb10-29"><a></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb10-30"><a></a><span class="at">          </span><span class="fu">push</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb10-31"><a></a><span class="at">          </span><span class="fu">tags</span><span class="kw">:</span><span class="at"> ${{ steps.meta.outputs.tags }}</span></span>
-<span id="cb10-32"><a></a><span class="at">          </span><span class="fu">labels</span><span class="kw">:</span><span class="at"> ${{ steps.meta.outputs.labels }}</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-filename=".github/workflows/ci.yaml"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a aria-label="1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Build Docker image</span></span>
+<span id="cb10-2"><a aria-label="2"></a></span>
+<span id="cb10-3"><a aria-label="3"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb10-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb10-5"><a aria-label="5"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span></span>
+<span id="cb10-6"><a aria-label="6"></a><span class="at">      </span><span class="kw">-</span><span class="at"> main</span></span>
+<span id="cb10-7"><a aria-label="7"></a><span class="at">    </span><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb10-8"><a aria-label="8"></a></span>
+<span id="cb10-9"><a aria-label="9"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb10-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">docker</span><span class="kw">:</span></span>
+<span id="cb10-11"><a aria-label="11"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb10-12"><a aria-label="12"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb10-13"><a aria-label="13"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up QEMU</span></span>
+<span id="cb10-14"><a aria-label="14"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/setup-qemu-action@v3</span></span>
+<span id="cb10-15"><a aria-label="15"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Docker Buildx</span></span>
+<span id="cb10-16"><a aria-label="16"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/setup-buildx-action@v3</span></span>
+<span id="cb10-17"><a aria-label="17"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Docker meta</span></span>
+<span id="cb10-18"><a aria-label="18"></a><span class="at">        </span><span class="fu">id</span><span class="kw">:</span><span class="at"> meta</span></span>
+<span id="cb10-19"><a aria-label="19"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/metadata-action@v5</span></span>
+<span id="cb10-20"><a aria-label="20"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb10-21"><a aria-label="21"></a><span class="at">          </span><span class="fu">images</span><span class="kw">:</span><span class="at"> ensae-reproductibilite/api-titanic</span></span>
+<span id="cb10-22"><a aria-label="22"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Login to Docker Hub</span></span>
+<span id="cb10-23"><a aria-label="23"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/login-action@v3</span></span>
+<span id="cb10-24"><a aria-label="24"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb10-25"><a aria-label="25"></a><span class="at">          </span><span class="fu">username</span><span class="kw">:</span><span class="at"> ${{ secrets.DOCKERHUB_USERNAME }}</span></span>
+<span id="cb10-26"><a aria-label="26"></a><span class="at">          </span><span class="fu">password</span><span class="kw">:</span><span class="at"> ${{ secrets.DOCKERHUB_TOKEN }}</span></span>
+<span id="cb10-27"><a aria-label="27"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Build and push</span></span>
+<span id="cb10-28"><a aria-label="28"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> docker/build-push-action@v5</span></span>
+<span id="cb10-29"><a aria-label="29"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb10-30"><a aria-label="30"></a><span class="at">          </span><span class="fu">push</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb10-31"><a aria-label="31"></a><span class="at">          </span><span class="fu">tags</span><span class="kw">:</span><span class="at"> ${{ steps.meta.outputs.tags }}</span></span>
+<span id="cb10-32"><a aria-label="32"></a><span class="at">          </span><span class="fu">labels</span><span class="kw">:</span><span class="at"> ${{ steps.meta.outputs.labels }}</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -2154,7 +2183,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"\u003ci class=\"fas fa-gear\">\u003c/i>","content":"\u003cul class=\"slide-menu-items\">\n\u003cli class=\"slide-tool-item active\" data-item=\"0\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\">\u003ckbd>f\u003c/kbd> Fullscreen\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"1\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\">\u003ckbd>s\u003c/kbd> Speaker View\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"2\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\">\u003ckbd>o\u003c/kbd> Slide Overview\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"3\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\">\u003ckbd>e\u003c/kbd> PDF Export Mode\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"4\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\">\u003ckbd>r\u003c/kbd> Scroll View Mode\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"5\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\">\u003ckbd>b\u003c/kbd> Toggle Chalkboard\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"6\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\">\u003ckbd>c\u003c/kbd> Toggle Notes Canvas\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"7\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\">\u003ckbd>d\u003c/kbd> Download Drawings\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"8\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\">\u003ckbd>?\u003c/kbd> Keyboard Help\u003c/a>\u003c/li>\n\u003c/ul>"}],"openButton":true,"openButtonLabel":"Menu des diapositives"},
 'chalkboard': {"buttons":true,"theme":"whiteboard"},
 'smaller': false,
  
@@ -2410,7 +2439,8 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }
           // Inspect non-navigation links and adorn them if external
-         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          window.quartoDecorateExternalLinks = function (root) {
+         var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
           for (var i=0; i<links.length; i++) {
             const link = links[i];
             if (!isInternal(link.href)) {
@@ -2419,8 +2449,69 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
               if (link.dataset.originalHref !== undefined) {
                 link.href = link.dataset.originalHref;
               }
+              if (!link.classList.contains('no-external-icon')) {
+              }
             }
           }
+          };
+          window.quartoDecorateExternalLinks(window.document);
+        // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+        // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+        const hideOnEscAndFocusOut = {
+          name: 'hideOnEscAndFocusOut',
+          defaultValue: true,
+          fn(instance) {
+            const dismiss = () => {
+              // A show scheduled by the trigger delay would otherwise reopen it
+              instance.clearDelayTimeouts();
+              instance.hide();
+            };
+            const onKeyDown = (event) => {
+              if (event.key !== 'Escape') {
+                return;
+              }
+              // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+              // except an open reveal.js slide menu, which Esc should close too.
+              // The menu handles keys only when its keyboard option is on.
+              const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+                window.Reveal.getConfig().menu?.keyboard !== false;
+              if (!menuHandlesEsc) {
+                event.stopPropagation();
+              }
+              if (instance.popper.contains(window.document.activeElement)) {
+                // Disabled while refocusing so the focus trigger does not reopen it
+                instance.disable();
+                instance.reference.focus();
+                instance.enable();
+              }
+              dismiss();
+            };
+            const onFocusOut = (event) => {
+              const target = event.relatedTarget;
+              if (target && !instance.reference.contains(target) &&
+                  !instance.popper.contains(target)) {
+                dismiss();
+              }
+            };
+            // On the trigger too: a click trigger (code-annotations: select) has no
+            // blur handling. Attached for the instance's lifetime so leaving the
+            // trigger also cancels a show still pending on the trigger delay.
+            instance.reference.addEventListener('focusout', onFocusOut);
+            return {
+              onShow() {
+                window.document.addEventListener('keydown', onKeyDown, true);
+                instance.popper.addEventListener('focusout', onFocusOut);
+              },
+              onHide() {
+                window.document.removeEventListener('keydown', onKeyDown, true);
+                instance.popper.removeEventListener('focusout', onFocusOut);
+              },
+              onDestroy() {
+                instance.reference.removeEventListener('focusout', onFocusOut);
+              },
+            };
+          },
+        };
         function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
           const config = {
             allowHTML: true,
@@ -2434,6 +2525,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'
             interactiveBorder: 10,
             theme: 'light-border',
             placement: 'bottom-start',
+            plugins: [hideOnEscAndFocusOut],
           };
           if (contentFn) {
             config.content = contentFn;

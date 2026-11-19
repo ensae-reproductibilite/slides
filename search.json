@@ -18,7 +18,7 @@
     "href": "index.html#contexte-1",
     "title": "Mise en production des projets de data science",
     "section": "Contexte",
-    "text": "Contexte\n\n\nQui sommes-nous ?\n\ndes data scientists de l’Insee\nfrustrés par l’approche souvent purement technique de la data science\nconvaincus que les bonnes pratiques de développement valent à être enseignées\n\n romain.avouac at insee dot fr, lino.galiana at insee dot fr"
+    "text": "Contexte\n\n\nQui sommes-nous ?\n\ndes data scientists de l’Insee\nfrustrés par l’approche souvent purement technique de la data science\nconvaincus que les bonnes pratiques de développement valent à être enseignées\n\n romain.avouac at insee dot fr, lino.galiana at insee dot fr, nathan.randriamanana at insee dot fr"
   },
   {
     "objectID": "index.html#quest-ce-quun-data-scientist",
@@ -53,7 +53,7 @@
     "href": "index.html#contenu-du-cours",
     "title": "Mise en production des projets de data science",
     "section": "Contenu du cours",
-    "text": "Contenu du cours\n\nPré-requis\n\nIntroduction au terminal Linux (Linux 101)\nContrôle de version avec Git (Git refresher)\n\nBonnes pratiques de développement\n\nTravail collaboratif avec Git\nQualité du code\nStructure des projets\nTraitement des données volumineuses\nFavoriser la portabilité d’une application\n\nMise en production\n\nIntroduction au format YAML\nDéploiement\nMLOps"
+    "text": "Contenu du cours\n\nPré-requis\n\nIntroduction au terminal Linux (Linux 101)\nContrôle de version avec Git (Git refresher)\n\nBonnes pratiques de développement\n\nTravail collaboratif avec Git\nQualité du code\nStructure des projets\nTraitement des données volumineuses\nFavoriser la portabilité d’une application\n\nMise en production\n\nIntroduction au format YAML\nDéploiement\nMLOps\nLLMOps (la nouveauté ❇️)"
   },
   {
     "objectID": "index.html#site-web-du-cours",
@@ -74,7 +74,7 @@
     "href": "index.html#evaluation",
     "title": "Mise en production des projets de data science",
     "section": "Evaluation",
-    "text": "Evaluation\n\nObjectif : mise en pratique réaliste des notions étudiées\n\nProblématique métier\nDonnées réelles\n\nEvaluation en deux parties :\n\nEn groupe : projet à construire selon 4 “parcours”\nIndividuel : revue de code d’un autre projet"
+    "text": "Evaluation\n\nObjectif : mise en pratique réaliste des notions étudiées\n\nProblématique métier\nDonnées réelles\n\nEvaluation en deux parties :\n\nEn groupe : projet à construire selon 4 “parcours”\nIndividuel : revue de code d’un autre projet\n\nSuivie d’une soutenance pour:\n\nvérifier si les notions sont comprises\néchanger sur le livrable"
   },
   {
     "objectID": "index.html#plan-de-la-partie",
@@ -109,7 +109,7 @@
     "href": "index.html#bonnes-pratiques-1",
     "title": "Mise en production des projets de data science",
     "section": "Bonnes pratiques",
-    "text": "Bonnes pratiques\nFormat des commits\n\n\n\n\nFréquence\n\nAussi souvent que possible\nLe lot de modifications doit “faire sens”\n\nMessages\n\nCourts et informatifs (comme un titre de mail)\nDécrire le pourquoi plutôt que le comment dans le texte"
+    "text": "Bonnes pratiques\nFormat des commits\n\n\n\n\nFréquence\n\nAussi souvent que possible\nLe lot de modifications doit “faire sens”\n\nMessages\n\nCourts et informatifs (comme un titre de mail)\nDécrire le pourquoi plutôt que le comment dans le texte\n\n\n\n\n\n\n\nPour aller plus loin : Rédiger des commits conventionnels"
   },
   {
     "objectID": "index.html#outils-pour-le-travail-collaboratif",
@@ -557,7 +557,7 @@
     "href": "index.html#plan-de-la-partie-1",
     "title": "Mise en production des projets de data science",
     "section": "Plan de la partie",
-    "text": "Plan de la partie\n6️⃣ Introduction au format YAML\n7️⃣ Déploiement\n8️⃣ MLOps"
+    "text": "Plan de la partie\n6️⃣ Introduction au format YAML\n7️⃣ Déploiement\n8️⃣ MLOps\n9️⃣ LLMOps ❇️"
   },
   {
     "objectID": "index.html#quest-ce-que-le-format-yaml",
